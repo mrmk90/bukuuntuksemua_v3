@@ -1,0 +1,991 @@
+<!-- start top header -->
+<div class="tygh-top-panel clearfix">
+    <div class="container-fluid  top-grid">
+        <div class="row-fluid ">
+            <div class="span16 top-links-grid">
+
+                <!-- cart start-->
+                <div class=" ty-float-right">
+                    {% if user.is_authenticated %}
+                        <div class="ty-dropdown-box" id="cart_status_7260">
+                            <div id="sw_dropdown_7260" class="ty-dropdown-box__title cm-combination">
+                                <a id="top-cart" href="https://bookcafe.com.my/index.php?dispatch=checkout.cart">
+                                    {% if cart.cartitem_set.all %}
+                                        <i class="ty-minicart__icon ty-icon-cart filled"></i>
+                                        <span class="ty-minicart-title ty-hand">{{ cart.get_total_quantity_cart_item }}&nbsp;piece{{ cart.get_total_quantity_cart_item | pluralize }} for&nbsp;<bdi>&nbsp;<span>{{ cart.get_total_book_price }}</span></bdi></span>
+                                        <i class="ty-icon-down-micro"></i>
+                                    {% else %}
+                                        <i class="ty-minicart__icon ty-icon-cart empty"></i>
+                                        <span class="ty-minicart-title empty-cart ty-hand">Cart is empty</span>
+                                        <i class="ty-icon-down-micro"></i>
+                                    {% endif %}
+                                </a>
+                            </div>
+
+                            {% if cart.cartitem_set.count == 0 %}
+                                <div id="dropdown_7260" class="cm-popup-box ty-dropdown-box__content hidden">
+                                    <div class="cm-cart-content cm-cart-content-thumb cm-cart-content-delete">
+                                        <div class="ty-cart-items">
+                                            <div class="ty-cart-items__empty ty-center">Cart is empty</div>
+                                        </div>
+
+                                        <div class="cm-cart-buttons ty-cart-content__buttons buttons-container hidden">
+                                            <div class="ty-float-left">
+                                                <a href="{% url 'cart-detail' %}"
+                                                   rel="nofollow" class="ty-btn ty-btn__secondary">View cart</a>
+                                            </div>
+                                            <div class="ty-float-right">
+                                                <a href="#"
+                                                   rel="nofollow" class="ty-btn ty-btn__primary">Checkout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div id="dropdown_7260" class="cm-popup-box ty-dropdown-box__content hidden">
+                                    <div class="cm-cart-content cm-cart-content-thumb cm-cart-content-delete">
+                                        <div class="ty-cart-items">
+                                            <ul class="ty-cart-items__list">
+                                                {% for cartitem in cart.cartitem_set.all %}
+                                                    <li class="ty-cart-items__list-item">
+                                                        <div class="ty-cart-items__list-item-image">
+                                                            <img class="ty-pict     cm-image"
+                                                                    {% if cartitem.item.image_set.all %}
+                                                                 src="{{ cartitem.item.image_set.all.0.images.url }}"
+                                                                    {% else %}
+                                                                 src="https://boca-assets.s3-ap-southeast-1.amazonaws.com/BOCA_header.png"
+                                                                    {% endif %}
+                                                                 alt="" title="" width="40" height="40"/>
+                                                        </div>
+                                                        <div class="ty-cart-items__list-item-desc">
+                                                            <a href="{% url 'book-detail' pk=cartitem.item.id %}">{{ cartitem.item.title }}</a>
+                                                            <p>
+                                                                <span>{{ cartitem.quantity }}</span><span>&nbsp;x&nbsp;</span>
+                                                                <bdi><span class="none"></span>
+                                                                    <span id="" class="none">
+                                                                        {{ cartitem.item.price }}
+                                                                    </span>
+                                                                </bdi>
+                                                            </p>
+                                                        </div>
+                                                        <div class="ty-cart-items__list-item-tools cm-cart-item-delete">
+                                                            <a data-ca-dispatch="delete_cart_item"
+                                                               href="{% url 'delete-from-cart' cartitem_id=cartitem.id %}">
+                                                                <i title="Remove" class="ty-icon-cancel-circle">
+                                                                </i>
+                                                            </a>
+                                                        </div>
+                                                    </li>
+                                                {% endfor item in cart.cartitem_set.all %}
+                                            </ul>
+                                        </div>
+                                        <div class="cm-cart-buttons ty-cart-content__buttons buttons-container full-cart">
+                                            <div class="ty-float-left">
+                                                <a href="{% url 'cart-detail' %}"
+                                                   rel="nofollow" class="ty-btn ty-btn__secondary">View cart</a>
+                                            </div>
+                                            <div class="ty-float-right">
+                                                <a href="{% url 'checkout' %}"
+                                                   rel="nofollow" class="ty-btn ty-btn__primary">Checkout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                        </div>
+                    {% else %}
+                        <div class="ty-dropdown-box" id="cart_status_7260">
+                            <div id="sw_dropdown_7260" class="ty-dropdown-box__title cm-combination">
+                                <!--a id="top-cart" href="#">
+                                        <i class="ty-minicart__icon ty-icon-cart empty"></i>
+                                        <span class="ty-minicart-title empty-cart ty-hand">Cart is empty</span>                                     <i class="ty-icon-down-micro"></i>
+                                </a-->
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <!-- cart end -->
+
+                <!-- account start -->
+                <div class="ty-dropdown-box  top-my-account ty-float-right">
+                    <div id="sw_dropdown_421" class="ty-dropdown-box__title cm-combination unlogged">
+
+                        <a class="ty-account-info__title"
+                           href="{% url 'index' %}">
+                            <i class="ty-icon-user"></i>&nbsp;
+                            <span class="ty-account-info__title-txt">My Account</span>
+                            <i class="ty-icon-down-micro ty-account-info__user-arrow"></i>
+                        </a>
+
+
+                    </div>
+                    <div id="dropdown_421" class="cm-popup-box ty-dropdown-box__content hidden">
+
+
+                        <div id="account_info_421">
+                            <ul class="ty-account-info">
+                                {% if user.is_authenticated %}
+
+                                    <li class="ty-account-info__item ty-dropdown-box__item"><a
+                                            class="ty-account-info__a underlined"
+                                            href="{% url 'orders' %}"
+                                            rel="nofollow">Orders</a></li>
+
+                                    <!-- Hide for the time being
+                                    <li class="ty-account-info__item ty-dropdown-box__item"><a
+                                            class="ty-account-info__a"
+                                            href="{% url 'index' %}"
+                                            rel="nofollow">Wish list</a></li>
+                                    -->
+
+                                    <li class="ty-account-info__item ty-dropdown-box__item"><a
+                                            class="ty-btn ty-btn__primary"
+                                            href="{% url 'logout' %}"
+                                            rel="nofollow">LOGOUT</a></li>
+
+                                {% else %}
+                                    <li class="ty-account-info__item ty-dropdown-box__item"><a
+                                            class="ty-btn ty-btn__primary"
+                                            href="{% url 'login' %}"
+                                            rel="nofollow">SIGN IN</a>
+                                    </li>
+                                    <li class="ty-account-info__item ty-dropdown-box__item"><a
+                                            class="ty-btn ty-btn__secondary"
+                                            href="{% url 'django_registration_register' %}"
+                                            rel="nofollow">REGISTER NOW</a>
+                                    </li>
+
+
+                                    {% comment %}
+
+                                <div class="ty-account-info__buttons buttons-container">
+                                    <a href="{% url 'login' %}"
+                                    <!--
+                                   data-ca-target-id="login_block421"
+                                   class="cm-dialog-opener cm-dialog-auto-size
+                                                                          -->
+                                                                          class="ty-btn ty-btn__secondary"
+                                       rel="nofollow">SIGN IN
+                                    </a>
+
+                                    <a href="{% url 'django_registration_register' %}"
+                                       rel="nofollow" class="ty-btn ty-btn__primary">REGISTER NOW
+                                    </a>
+
+
+                                    <!-- start login form modal --><!-- not relevant yet to boca mart -->
+                                    <div id="login_block421" class="hidden" title="SIGN IN">
+                                        <div class="ty-login-popup">
+                                            <form name="popup421_form" action=""{% url 'index' %}""
+                                                  method="post">
+                                                <input type="hidden" name="return_url"
+                                                       value="index.php?sl=en&amp;dispatch=products.view&amp;product_id=18314"/>
+                                                <input type="hidden" name="redirect_url"
+                                                       value="index.php?sl=en&amp;dispatch=products.view&amp;product_id=18314"/>
+
+                                                <div class="ty-control-group">
+                                                    <label for="login_popup421"
+                                                           class="ty-login__filed-label ty-control-group__label cm-required cm-trim cm-email">Email</label>
+                                                    <input type="text" id="login_popup421" name="user_login"
+                                                           size="30" value="" class="ty-login__input cm-focus"/>
+                                                </div>
+
+                                                <div class="ty-control-group ty-password-forgot">
+                                                    <label for="psw_popup421"
+                                                           class="ty-login__filed-label ty-control-group__label ty-password-forgot__label cm-required">Password</label><a
+                                                        href="#"
+                                                        class="ty-password-forgot__a" tabindex="5">Forgot
+                                                    password?</a>
+                                                    <input type="password" id="psw_popup421" name="password"
+                                                           size="30" value="" class="ty-login__input"
+                                                           maxlength="32"/>
+                                                </div>
+
+                                                <div class="ty-login-reglink ty-center">
+                                                    <a class="ty-login-reglink__a"
+                                                       href="{% url 'django_registration_register' %}"
+                                                       rel="nofollow">Register for a new account</a>
+                                                </div>
+
+
+                                                <div class="buttons-container clearfix">
+                                                    <div class="ty-float-right">
+
+
+                                                        <button class="ty-btn__login ty-btn__secondary ty-btn"
+                                                                type="submit" name="dispatch[auth.login]">SIGN IN
+                                                        </button>
+
+
+                                                    </div>
+                                                    <div class="ty-login__remember-me">
+                                                        <label for="remember_me_popup421"
+                                                               class="ty-login__remember-me-label"><input
+                                                                class="checkbox" type="checkbox" name="remember_me"
+                                                                id="remember_me_popup421" value="Y"/>Remember
+                                                            me</label>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" name="security_hash" class="cm-no-hide-input"
+                                                       value="f71a0614d96e14963f5b22e9bbe1dddf"/>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- end login form modal -->
+
+                                </div>
+                                {% endcomment %}
+                                {% endif %}
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- account end -->
+
+                <!-- home, shipping info, siapa kami, cara beli, cara bayar -->
+                <div class=" top-quick-links ty-float-right">
+
+                    <div class="ty-text-links-wrapper">
+                                <span id="sw_text_links_4066" class="ty-text-links-btn cm-combination visible-phone">
+                                    <i class="ty-icon-short-list"></i>
+                                    <i class="ty-icon-down-micro ty-text-links-btn__arrow"></i>
+                                </span>
+
+                        <ul id="text_links_4066" class="ty-text-links cm-popup-box ty-text-links_show_inline">
+                            <li class="ty-text-links__item ty-level-0">
+                                <a class="ty-text-links__a" href={% url 'index' %}>HOME</a>
+                            </li>
+                            <li class="ty-text-links__item ty-level-0">
+                                <a class="ty-text-links__a" href="{% url 'index' %}">SHIPPING
+                                    INFO</a>
+                            </li>
+                            <li class="ty-text-links__item ty-level-0">
+                                <a class="ty-text-links__a" href="{% url 'index' %}">SIAPA
+                                    KAMI?</a>
+                            </li>
+                            <li class="ty-text-links__item ty-level-0">
+                                <a class="ty-text-links__a" href="{% url 'index' %}">CARA
+                                    BELI</a>
+                            </li>
+                            <li class="ty-text-links__item ty-level-0">
+                                <a class="ty-text-links__a" href="{% url 'index' %}">CARA
+                                    BAYAR</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- home, shipping info, siapa kami, cara beli, cara bayar -->
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end top header -->
+
+<!-- start bottom header -->
+<div class="tygh-header clearfix">
+    <div class="container-fluid  header-grid">
+
+        <!-- start salutation -->
+        <div class="row-fluid ">
+            <div class="span16 ">
+                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                     data-ca-live-editor-object-type=""><p></p>
+                </div>
+                {% if user.is_authenticated %}
+                    <div class="welcome">Selamat Datang, {{ user.username }}.
+                        {% if user.is_staff %}
+                            | <a href="{% url 'admin:index' %}">Admin Dashboard</a>
+                            | <a href="{% url 'process-order' %}">Process Orders</a>
+                            | <a href="{% url 'statistics' %}">Statistics</a>
+                            | <a href="{% url 'report' %}">Report</a>
+                        {% endif %}
+                    </div>
+                {% else %}
+                    <div class="welcome">Selamat Datang, Pelanggan Yang Dihormati. (<a
+                            href="{% url 'login' %}">SIGN IN</a> | <a
+                            href="{% url 'django_registration_register' %}">Register</a>)
+                    </div>
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                         data-ca-live-editor-object-type=""><br>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <!-- end salutation -->
+
+        <!-- start logo -->
+        <div class="row-fluid ">
+            <div class="span4 ">
+                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                     data-ca-live-editor-object-type=""><p></p>
+                    <div><a href="{% url 'index' %}"><img
+                            style="display: block; margin-left: auto; margin-right: auto;"
+                            src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_mart.png"
+                            alt="" width="200" height="100"/></a></div>
+                    <div></div>
+                </div>
+            </div>
+
+
+            <div class="span6 ">
+                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                     data-ca-live-editor-object-type=""><p></p></div>
+            </div>
+
+
+            <div class="span6 ">
+                <div class="ty-search-block">
+                    {% comment %}
+                    <!-- hide la kejap search box ni -->
+                    <form action="{% url 'index' %}" name="search_form" method="get">
+                        <input type="hidden" name="subcats" value="Y"/>
+                        <input type="hidden" name="pcode_from_q" value="Y"/>
+                        <input type="hidden" name="pshort" value="Y"/>
+                        <input type="hidden" name="pfull" value="Y"/>
+                        <input type="hidden" name="pname" value="Y"/>
+                        <input type="hidden" name="pkeywords" value="Y"/>
+                        <input type="hidden" name="search_performed" value="Y"/>
+
+
+                        <input type="hidden" name="pshort" value="N"/>
+                        <input type="hidden" name="pfull" value="N"/>
+                        <input type="hidden" name="pname" value="Y"/>
+                        <input type="hidden" name="pkeywords" value="Y"/>
+                        <input type="hidden" name="pcode" value="Y"/>
+                        <input type="hidden" name="match" value="all"/>
+
+                        <!-- hide book search -->
+                        <input type="text" name="q" value="" id="search_input"
+                               title="Cari buku apa? Tuliskan tajuk buku di sini :)"
+                               class="ty-search-block__input cm-hint" disabled/>
+                        <!--button title="Search" class="ty-search-magnifier" type="submit"><i
+                                class="ty-icon-search"></i></button-->
+                        <input type="hidden" name="dispatch" value="products.search" disabled/>
+
+                        <input type="hidden" name="security_hash" class="cm-no-hide-input"
+                               value="f71a0614d96e14963f5b22e9bbe1dddf"/></form>
+                    {% endcomment %}
+                </div>
+                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                     data-ca-live-editor-object-type=""><p></p>
+                </div>
+            </div>
+        </div>
+        <!-- end logo -->
+
+        <!-- start menu -->
+        <div class="row-fluid ">
+            <div class="span16 ">
+                <div class=" bc-header">
+
+
+                    <ul class="ty-menu__items cm-responsive-menu">
+
+                        <li class="ty-menu__item ty-menu__menu-btn visible-phone">
+                            <a class="ty-menu__item-link">
+                                <i class="ty-icon-short-list"></i>
+
+                                <span>PILIH KATEGORI PRODUK</span>
+                            </a>
+                        </li>
+                        
+
+
+                        <li class="ty-menu__item cm-menu-item-responsive">
+                            <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                            </a>
+                            <a href="{% url 'terkini' %}" class="ty-menu__item-link">
+                                BUKU
+                            </a>
+
+                            <div class="ty-menu__submenu" id="topmenu_18_a4629de496420a86200f7019bbd569e0">
+
+                                <ul class="ty-menu__submenu-items cm-responsive-menu-submenu">
+                                    <li class="ty-top-mine__submenu-col">
+                                        <div class="ty-menu__submenu-item-header">
+                                            <a href="{% url 'terkini' %}"
+                                               class="ty-menu__submenu-link">Kategori</a>
+                                        </div>
+                                        <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                            <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                            <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                        </a>
+                                        <div class="ty-menu__submenu">
+                                            <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-category' category='umum' %}"
+                                                       class="ty-menu__submenu-link">Umum</a>
+                                                </li>
+
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-category' category='fiksyen' %}"
+                                                       class="ty-menu__submenu-link">Fiksyen</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-category' category='motivasi' %}"
+                                                       class="ty-menu__submenu-link">Motivasi</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-category' category='sejarah' %}"
+                                                       class="ty-menu__submenu-link">Sejarah</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-category' category='kesihatan' %}"
+                                                       class="ty-menu__submenu-link">Kesihatan</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-category' category='puisi' %}"
+                                                       class="ty-menu__submenu-link">Puisi</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item ty-menu__submenu-alt-link">
+                                                    <a href="{% url 'terkini' %}"
+                                                       class="ty-menu__submenu-link"><font color="red">Click
+                                                        Here to View All Titles<i class="text-arrow">&rarr;</i></font></a>
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="ty-top-mine__submenu-col">
+                                        <div class="ty-menu__submenu-item-header">
+                                            <a href="{% url 'book-by-category' category='agama' %}"
+                                               class="ty-menu__submenu-link">AGAMA</a>
+                                        </div>
+                                        <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                            <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                            <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                        </a>
+                                        <div class="ty-menu__submenu">
+                                            <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=47 %}"
+                                                       class="ty-menu__submenu-link">Hijrah Muslimah</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=45 %}"
+                                                       class="ty-menu__submenu-link">1000 Tip Menjadi
+                                                        Muslimah Bahagia</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=99 %}"
+                                                       class="ty-menu__submenu-link">Erti Beragama Yang Hilang</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=97 %}"
+                                                       class="ty-menu__submenu-link">Secrets of Divine Love</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=92 %}"
+                                                       class="ty-menu__submenu-link">Al Muntalaq</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item ty-menu__submenu-alt-link">
+                                                    <a href="{% url 'book-by-category' category='agama' %}"
+                                                       class="ty-menu__submenu-link"><font color="red">Click
+                                                        Here to View All <i class="text-arrow">&rarr;</i></font></a>
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="ty-top-mine__submenu-col">
+                                        <div class="ty-menu__submenu-item-header">
+                                            <a href="{% url 'book-by-category' category='bisnes' %}"
+                                               class="ty-menu__submenu-link">BISNES &amp; NON-FIKSYEN</a>
+                                        </div>
+                                        <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                            <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                            <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                        </a>
+                                        <div class="ty-menu__submenu">
+                                            <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=74 %}"
+                                                       class="ty-menu__submenu-link">The Psychology Of Selling</a>
+                                                </li>
+
+                                                <li class="ty-menu__submenu-item ty-menu__submenu-alt-link">
+                                                    <a href="{% url 'book-by-category' category='bisnes' %}"
+                                                       class="ty-menu__submenu-link"><font color="red">Click
+                                                        Here to View All <i class="text-arrow">&rarr;</i></font></a>
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="ty-top-mine__submenu-col">
+                                        <div class="ty-menu__submenu-item-header">
+                                            <a href="{% url 'book-by-category' category='english' %}"
+                                               class="ty-menu__submenu-link">ENGLISH BOOK</a>
+                                        </div>
+                                        <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                            <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                            <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                        </a>
+                                        <div class="ty-menu__submenu">
+                                            <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=100 %}"
+                                                       class="ty-menu__submenu-link">You Are Loved</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=103 %}"
+                                                       class="ty-menu__submenu-link">Talk to Allah</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=101 %}"
+                                                       class="ty-menu__submenu-link">Unfollow The Flow</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=105 %}"
+                                                       class="ty-menu__submenu-link">Letters To God</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=96 %}"
+                                                       class="ty-menu__submenu-link">Light For The Lost Soul</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item ty-menu__submenu-alt-link">
+                                                    <a href="{% url 'book-by-category' category='english' %}"
+                                                       class="ty-menu__submenu-link"><font color="red">Click
+                                                        Here to View All <i class="text-arrow">&rarr;</i></font></a>
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="ty-top-mine__submenu-col">
+                                        <div class="ty-menu__submenu-item-header">
+                                            <a href="{% url 'book-by-category' category='indie' %}"
+                                               class="ty-menu__submenu-link">INDIE</a>
+                                        </div>
+                                        <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                            <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                            <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                        </a>
+                                        <div class="ty-menu__submenu">
+                                            <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=1 %}"
+                                                       class="ty-menu__submenu-link">Sonogram</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=3 %}"
+                                                       class="ty-menu__submenu-link">Entiti</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=8 %}"
+                                                       class="ty-menu__submenu-link">KL Noir: Magic</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=10 %}"
+                                                       class="ty-menu__submenu-link">Jangan Baca Combo Ini</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=13 %}"
+                                                       class="ty-menu__submenu-link">Pemberontak Filem: Rebel with a
+                                                        cause without pause</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item ty-menu__submenu-alt-link">
+                                                    <a href="{% url 'book-by-category' category='indie' %}"
+                                                       class="ty-menu__submenu-link"><font color="red">Click
+                                                        Here to View All <i class="text-arrow">&rarr;</i></font></a>
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="ty-top-mine__submenu-col">
+                                        <div class="ty-menu__submenu-item-header">
+                                            <a href="{% url 'book-by-category' category='kanak-kanak' %}"
+                                               class="ty-menu__submenu-link">KANAK-KANAK &amp; REMAJA</a>
+                                        </div>
+                                        <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                            <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                            <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                        </a>
+                                        <div class="ty-menu__submenu">
+                                            <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=53 %}"
+                                                       class="ty-menu__submenu-link">Komik-M: Silat Boy</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=54 %}"
+                                                       class="ty-menu__submenu-link">Siri Cerita Hantu: Puaka Kantin
+                                                        Sekolah</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=64 %}"
+                                                       class="ty-menu__submenu-link">Bookiut: Miss Challenge</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=70 %}"
+                                                       class="ty-menu__submenu-link">Komik-M: Liga Pendekar Raya &
+                                                        Koleksi Komik Terbaik Azhar</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=75 %}"
+                                                       class="ty-menu__submenu-link">Komik-M: Ultra Qalif: Jebat</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item ty-menu__submenu-alt-link">
+                                                    <a href="{% url 'book-by-category' category='kanak-kanak' %}"
+                                                       class="ty-menu__submenu-link"><font color="red">Click
+                                                        Here to View All <i class="text-arrow">&rarr;</i></font></a>
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="ty-top-mine__submenu-col">
+                                        <div class="ty-menu__submenu-item-header">
+                                            <a href="{% url 'book-by-category' category='novel' %}"
+                                               class="ty-menu__submenu-link">NOVEL &amp; FIKSYEN</a>
+                                        </div>
+                                        <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                            <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                            <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                        </a>
+                                        <div class="ty-menu__submenu">
+                                            <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=7 %}"
+                                                       class="ty-menu__submenu-link">Penjara</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=73 %}"
+                                                       class="ty-menu__submenu-link">Arsene Lupin - Gentleman
+                                                        Burglar</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=30 %}"
+                                                       class="ty-menu__submenu-link">Psikopat Nirwajah</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=36 %}"
+                                                       class="ty-menu__submenu-link">Dirgahayu</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=37 %}"
+                                                       class="ty-menu__submenu-link">The Arrival</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item ty-menu__submenu-alt-link">
+                                                    <a href="{% url 'book-by-category' category='novel' %}"
+                                                       class="ty-menu__submenu-link"><font color="red">Click
+                                                        Here to View All <i class="text-arrow">&rarr;</i></font></a>
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="ty-top-mine__submenu-col">
+                                        <div class="ty-menu__submenu-item-header">
+                                            <a href="{% url 'book-by-category' category='sastera' %}"
+                                               class="ty-menu__submenu-link">SASTERA</a>
+                                        </div>
+                                        <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                            <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                            <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                        </a>
+                                        <div class="ty-menu__submenu">
+                                            <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=22 %}"
+                                                       class="ty-menu__submenu-link">Hari Terakhir di Tubuhmu</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=21 %}"
+                                                       class="ty-menu__submenu-link">Momen</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=26 %}"
+                                                       class="ty-menu__submenu-link">Peneka Silang Kata (Kumpulan
+                                                        Puisi)</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-detail' pk=27 %}"
+                                                       class="ty-menu__submenu-link">Nokturna (Pemenang Hadiah Sastera
+                                                        Darul Iman 2019)</a>
+                                                </li>
+
+                                                <li class="ty-menu__submenu-item ty-menu__submenu-alt-link">
+                                                    <a href="{% url 'book-by-category' category='sastera' %}"
+                                                       class="ty-menu__submenu-link"><font color="red">Click
+                                                        Here to View All <i class="text-arrow">&rarr;</i></font></a>
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+
+
+                            </div>
+
+                        </li>
+                         <li class="ty-menu__item cm-menu-item-responsive">
+                            <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                            </a>
+                            <a href="{% url 'terkini' %}" class="ty-menu__item-link">
+                                PENERBIT
+                            </a>
+
+                            <div class="ty-menu__submenu" id="topmenu_18_a4629de496420a86200f7019bbd569e0">
+
+                                <ul class="ty-menu__submenu-items cm-responsive-menu-submenu">
+                                    <li class="ty-top-mine__submenu-col">
+                                        <div class="ty-menu__submenu-item-header">
+                                            <a href="{% url 'terkini' %}"
+                                               class="ty-menu__submenu-link">SENARAI PENERBIT</a>
+                                        </div>
+                                        <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                            <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                            <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                        </a>
+                                        <div class="ty-menu__submenu">
+                                            <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='fixi' %}"
+                                                       class="ty-menu__submenu-link">FIXI</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='iman-publication' %}"
+                                                       class="ty-menu__submenu-link">Iman Publication</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='patriot-publishing' %}"
+                                                       class="ty-menu__submenu-link">Patriots Publishing</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='pts' %}"
+                                                       class="ty-menu__submenu-link">PTS</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='usm-press' %}"
+                                                       class="ty-menu__submenu-link">USM Press</a>
+                                                </li>
+                                                 <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='sunway-university-press' %}"
+                                                       class="ty-menu__submenu-link">Sunway University Press</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='ump-press' %}"
+                                                       class="ty-menu__submenu-link">UMP Press</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='umk-press' %}"
+                                                       class="ty-menu__submenu-link">UMK Press</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='jejak-tarbiah' %}"
+                                                       class="ty-menu__submenu-link">Jejak Tarbiah</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='swaterbit-mandiri' %}"
+                                                       class="ty-menu__submenu-link">Swaterbit / Mandiri</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='penerbitan-langit' %}"
+                                                       class="ty-menu__submenu-link">Penerbitan Langit</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='im-books' %}"
+                                                       class="ty-menu__submenu-link">IM Books</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='pustaka-buku-putih' %}"
+                                                       class="ty-menu__submenu-link">Pustaka Buku Putih</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='ilham-press' %}"
+                                                       class="ty-menu__submenu-link">Ilham Press</a>
+                                                </li>
+                                            <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='ripta-enterprise' %}"
+                                                       class="ty-menu__submenu-link">Ripta Enterprise</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='kata-pilar' %}"
+                                                       class="ty-menu__submenu-link">Kata Pilar</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='rabak-lit' %}"
+                                                       class="ty-menu__submenu-link">Rabak-Lit</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='irfan-foner-studio' %}"
+                                                       class="ty-menu__submenu-link">Irfan Foner Studio</a>
+                                                </li>
+                                                <li class="ty-menu__submenu-item">
+                                                    <a href="{% url 'book-by-publisher' publisher='merpati-jingga' %}"
+                                                       class="ty-menu__submenu-link">Merpati Jingga</a>
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+
+
+                            </div>
+
+                        </li>
+                        <li class="ty-menu__item ty-menu__item-nodrop">
+                            <a href="{% url 'book-by-category' category='novel' %}"
+                               class="ty-menu__item-link">
+                                NOVEL
+                            </a>
+                        </li>
+
+                        <li class="ty-menu__item ty-menu__item-nodrop">
+                            <a href="{% url 'book-by-category' category='komik' %}"
+                               class="ty-menu__item-link">
+                                KOMIK
+                            </a>
+                        </li>
+
+                        
+
+                        <li class="ty-menu__item cm-menu-item-responsive">
+                            <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                            </a>
+                            <a href="https://shopee.com.my/shop/161916187/search?shopCollection=106099260"
+                               target="_blank" class="ty-menu__item-link">
+                                MERCHANDISE
+                            </a>
+
+
+                            <div class="ty-menu__submenu">
+                                <ul class="ty-menu__submenu-items ty-menu__submenu-items-simple cm-responsive-menu-submenu">
+
+
+                                    <li class="ty-menu__submenu-item">
+                                        <a class="ty-menu__submenu-link"
+                                           href="https://shopee.com.my/shop/161916187/search?shopCollection=106099260">T-Shirt</a>
+                                    </li>
+                                    <li class="ty-menu__submenu-item">
+                                        <a class="ty-menu__submenu-link"
+                                           href="https://shopee.com.my/shop/161916187/search?shopCollection=106099260">Topi</a>
+                                    </li>
+                                    <li class="ty-menu__submenu-item">
+                                        <a class="ty-menu__submenu-link"
+                                           href="https://shopee.com.my/shop/161916187/search?shopCollection=106099260">Mug
+                                            Buku</a>
+                                    </li>
+                                    <li class="ty-menu__submenu-item">
+                                        <a class="ty-menu__submenu-link"
+                                           href="https://shopee.com.my/shop/161916187/search?shopCollection=106099260">Tote
+                                            Bag</a>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+
+                        </li>
+{% comment %}
+                        <li class="ty-menu__item ty-menu__item-nodrop">
+                            <a href="{% url 'book-by-category' category='agama' %}" class="ty-menu__item-link">
+                                AGAMA
+                            </a>
+                        </li>
+{% endcomment %}
+                        <li class="ty-menu__item ty-menu__item-nodrop">
+                            <a href="{% url 'book-by-category' category='kombo' %}" class="ty-menu__item-link">
+                                KOMBO
+                            </a>
+                        </li>
+
+                        <li class="ty-menu__item ty-menu__item-nodrop">
+                            <a href="{% url 'book-by-category' category='bukan-fiksyen' %}"
+                               class="ty-menu__item-link">
+                                NON-FIKSYEN
+                            </a>
+                        </li>
+
+                        <li class="ty-menu__item cm-menu-item-responsive">
+                            <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                            </a>
+                            <a href="https://mukasurat.my/" target="_blank"
+                               class="ty-menu__item-link">
+                                LAIN-LAIN
+                            </a>
+
+
+                            <div class="ty-menu__submenu">
+                                <ul class="ty-menu__submenu-items ty-menu__submenu-items-simple cm-responsive-menu-submenu">
+                                    <li class="ty-menu__submenu-item">
+                                        <a class="ty-menu__submenu-link"
+                                           href="https://mukasurat.my/">Blog Buku</a>
+                                    </li>
+                                    <li class="ty-menu__submenu-item">
+                                        <a class="ty-menu__submenu-link"
+                                           href="https://bookcapital.my/">eBook</a>
+                                    </li>
+                                    <li class="ty-menu__submenu-item">
+                                        <a class="ty-menu__submenu-link"
+                                           href="https://textbook.moe.gov.my/">Buku Teks KPM</a>
+                                    </li>
+                                    <li class="ty-menu__submenu-item">
+                                        <a class="ty-menu__submenu-link"
+                                           href="https://www.youtube.com/channel/UCLYBA35KX7ty44puj9v2cMg">Media
+                                            PKB</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                     data-ca-live-editor-object-type=""><br>
+                </div>
+            </div>
+        </div>
+        <!-- end menu -->
+
+    </div>
+</div>
+<!-- end bottom header -->

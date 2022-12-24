@@ -1,0 +1,55 @@
+{% extends 'base/base.html' %}
+{% load humanize %}
+{% load static %}
+
+{% block title %}
+    BOCA - STATISTICS
+{% endblock %}
+
+{% block main_content %}
+    <div class="tygh-content clearfix">
+        <div class="container-fluid  content-grid">
+            <div class="row-fluid">
+                <div class="span16">Total redeemed coupon: {{ total_coupon_redeemed }}</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span16">Total successful coupon redeemed: {{ total_successful_coupon_redeemed }}</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span16">Total sales amount: RM{{ total_sales_amount | floatformat:2 | intcomma }}</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span16">Total books sold: {{ total_books_sold }}</div>
+            </div>
+
+            <hr>
+            <div class="row-fluid">
+                <div class="span16"><h2>Bestsellers</h2></div>
+                <table class="ty-table">
+                <tr>
+                    <th>Tajuk</th>
+                    <th>Penulis</th>
+                    <th>Kuantiti Terjual</th>
+                </tr>
+                {% for b in bestsellers %}
+                    <tr>
+                        <td>{{ b.title }}</td>
+                        <td>{{ b.author }}</td>
+                        <td>{{ b.total_sold }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+
+            <hr>
+            <div class="row-fluid">
+                <div class="span16"><h2>Users With Multiple BaucarBOCA Coupons</h2></div>
+                {% for u in users_with_multiple_coupon %}
+                    {% if u.baucar_count > 1 %}
+                        {{ u.username }}: {{ u.baucar_count }} <br>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock main_content %}

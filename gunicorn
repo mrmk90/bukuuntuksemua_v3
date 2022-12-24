@@ -1,0 +1,27 @@
+server {
+    server_name 54.151.197.11;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        alias /home/ubuntu/bukuuntuksemua/static/;
+    }
+    location /media/ {
+        alias /home/ubuntu/bukuuntuksemua/media/;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/ubuntu/bukuuntuksemua.sock;
+    }
+}
+
+server {
+    if ($host = 54.151.197.11) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    server_name 54.151.197.11;
+    return 404; # managed by Certbot
+}

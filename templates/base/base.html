@@ -1,0 +1,691 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <title>
+        {% block title %}
+            BOCA - PUT YOUR PAGE TITLE HERE
+        {% endblock title %}
+    </title>
+
+
+    <base href="{% url 'index' %}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" data-ca-mode="ultimate"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width"/>
+
+    <meta name="description"
+          content="Jimat &amp; berkualiti. Buku-buku hebat dari penerbit terkenal. Servis teratur, ada promosi diskaun istimewa dan tawaran pos percuma. Pelbagai kategori buku dalam bahasa Melayu &amp; Inggeris. "/>
+
+
+    <meta name="keywords"
+          content="kedai buku, buku online, kedai buku online, beli buku, buku terlaris, book marketplace, buku dubook, buku indie, buku novel, buku agama, buku kanak-kanak, buku bisnes, buku motivasi, buku pak latip, buku dr asri, buku uai, buku drama tv3, buku resipi, buku masakan, buku chef hanieliza, buku budak-budak, buku cerita, kitab agama, buku ustaz, buku tarbiah sentap, buku matluthfi, buku kuih kukus, buku hadis palsu, buku amalan 24 jam, buku hamka, buku jawi, tulisan jawi, buku yusuf al-qaradhawi, buku amran fans, komik-m, pesta buku, jualan buku, buku peperiksaan, buku upsr, buku pt3, buku spm, "/>
+
+    <link href="https://boca-assets.s3-ap-southeast-1.amazonaws.com/BOCA_header.png" rel="shortcut icon"
+          type="image/png"/>
+
+    <meta name="cmsmagazine" content="b55b3ce6a6b9c4d16194dc6efd5e2613"/>
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+
+    <meta property="og:image" content=""/>
+    <link href="https://boca-assets.s3-ap-southeast-1.amazonaws.com/BOCA_header.png" rel="shortcut icon"
+          type="image/png"/>
+    <link type="text/css" rel="stylesheet"
+          href="{% static 'css/standalone.2988f35d667321e77baf0addd79dca961624608279.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/collectco_widget.min.css' %}"/>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2RGPZHR0T6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-2RGPZHR0T6');
+    </script>
+
+</head>
+
+<body>
+
+<style>
+    .bc-header > ul {
+        background-color: #e51824 !important;
+    }
+
+    .footer-stay-connected {
+        background-color: #e51824 !important;
+    }
+
+    .btn {
+        background-color: #e51824 !important;
+    }
+
+
+    element.style {
+        border: 4px solid #e51824 !important;
+        padding: 0.5em;
+        background-color: white;
+    }
+</style>
+
+<div class="ty-tygh" id="tygh_container">
+    <div id="ajax_overlay" class="ty-ajax-overlay"></div>
+    <div id="ajax_loading_box" class="ty-ajax-loading-box"></div>
+    <div class="cm-notification-container notification-container"></div>
+    <div class="ty-helper-container" id="tygh_main_container">
+
+        {% block header %}
+            {% include 'base/header.html' %}
+        {% endblock header %}
+
+        {% block main_content %}
+            <div class="tygh-content clearfix">
+                <div class="container-fluid  ">
+                    <div class="row-fluid ">
+                        <div class="span16 ">
+                            <div class="row-fluid ">
+                                <div class="span16 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p></p></div>
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type="">
+                                        <style type="text/css">
+                                            iframe {
+                                                width: 100%;
+                                                height: 50px;
+                                                border: none;
+                                                overflow: auto;
+                                            }
+
+                                            @media screen and (max-width: 1166px) {
+                                                iframe {
+                                                    width: 100%;
+                                                    height: 50px;
+                                                }
+
+                                            }
+
+                                            @media screen and (max-width: 1024px) {
+                                                iframe {
+                                                    width: 100%;
+                                                    height: 0px;
+                                                }
+                                            }
+
+                                            @media screen and (max-width: 980px) {
+                                                iframe {
+                                                    width: 100%;
+                                                    height: 0px;
+                                                }
+                                            }
+
+                                            @media screen and (max-width: 767px) {
+                                                iframe {
+                                                    width: 100%;
+                                                    height: 0px;
+                                                }
+                                            }
+
+                                            @media screen and (max-width: 599px) {
+                                                iframe {
+                                                    width: 100%;
+                                                    height: 0px;
+                                                }
+                                            }
+
+                                            @media screen and (max-width: 479px) {
+                                                iframe {
+                                                    width: 100%;
+                                                    height: 0px;
+                                                }
+                                            }
+
+                                            @media screen and (max-width: 374px) {
+                                                iframe {
+                                                    width: 100%;
+                                                    height: 0px;
+                                                }
+
+                                            }
+                                        </style>
+                                        <p>MAIN CONTENT HERE...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock main_content %}
+
+        {% block footer %}
+            {% include 'base/footer.html' %}
+        {% endblock footer %}
+
+    </div><!-- id="tygh_main_container"-->
+</div><!--tygh_container-->
+
+<a href="#"
+   class="scrollToTop bottom-right round   cp-icon-up-big  "
+   style="
+	background-color: ;	background-image: url();
+	margin: 3% 3% 3% 3%;
+	width: 50px;
+	height: 50px;
+	background-size: 100%;
+	opacity: 0.85;
+	font-size: 20px;
+	line-height: 50px;
+	color: #FFFFFF;
+">
+</a>
+
+
+<style>
+    @media (max-width: px) {
+        .scrollToTop {
+            display: none !important;
+        }
+    }
+</style>
+
+{% block scripts %}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUcEQvrAHuajJAkO4wVfDar0-s5eqHNoU&libraries=places"
+            async
+            defer></script>
+
+    <script type="text/javascript" src="https://bookcafe.com.my/js/lib/jquery/jquery.min.js?ver=4.6.2"></script>
+    <script src="https://dgp5m9lr1iox6.cloudfront.net/location-search-widget/js/collectco_widget.min.js"></script>
+    <script type="text/javascript"
+            src="https://bookcafe.com.my/js/lib/jqueryui/jquery-ui.custom.min.js?ver=4.6.2"></script>
+
+    <script type="text/javascript"
+            src="https://bookcafe.com.my/js/lib/modernizr/modernizr.custom.js?ver=4.6.2"></script>
+    <script type="text/javascript" src="https://bookcafe.com.my/js/tygh/core.js?ver=4.6.2"></script>
+    <script type="text/javascript" src="https://bookcafe.com.my/js/tygh/ajax.js?ver=4.6.2"></script>
+    <script type="text/javascript" src="https://bookcafe.com.my/js/tygh/history.js?ver=4.6.2"></script>
+    <script type="text/javascript" src="https://bookcafe.com.my/js/lib/autonumeric/autoNumeric.js?ver=4.6.2"></script>
+    <script type="text/javascript"
+            src="https://bookcafe.com.my/js/lib/appear/jquery.appear-1.1.1.js?ver=4.6.2"></script>
+
+    <script type="text/javascript" src="https://bookcafe.com.my/js/lib/tools/tooltip.min.js?ver=4.6.2"></script>
+
+    <script type="text/javascript" src="https://bookcafe.com.my/js/tygh/editors/tinymce.editor.js?ver=4.6.2"></script>
+
+    <script type="text/javascript" src="https://bookcafe.com.my/js/tygh/responsive.js?ver=4.6.2"></script>
+
+
+    <script type="text/javascript">
+        (function (_, $) {
+
+            _.tr({
+                cannot_buy: 'You cannot buy the product with these option variants ',
+                no_products_selected: 'No products selected',
+                error_no_items_selected: 'No items selected! At least one check box must be selected to perform this action.',
+                delete_confirmation: 'Are you sure you want to delete the selected items?',
+                text_out_of_stock: 'Out-of-stock',
+                items: 'pieces',
+                text_required_group_product: 'Please select a product for the required group [group_name]',
+                save: 'Save',
+                close: 'Close',
+                notice: 'Notice',
+                warning: 'Warning',
+                error: 'Error',
+                empty: 'Empty',
+                text_are_you_sure_to_proceed: 'Are you sure you want to proceed?',
+                text_invalid_url: 'You have entered an invalid URL',
+                error_validator_email: 'The email address in the <b>[field]<\/b> field is invalid.',
+                error_validator_phone: 'The phone number in the <b>[field]<\/b> field is invalid. The correct format is (555) 555-55-55 or 55 55 555 5555.',
+                error_validator_integer: 'The value of the <b>[field]<\/b> field is invalid. It should be integer.',
+                error_validator_multiple: 'The <b>[field]<\/b> field does not contain the selected options.',
+                error_validator_password: 'The passwords in the <b>[field2]<\/b> and <b>[field1]<\/b> fields do not match.',
+                error_validator_required: 'The <b>[field]<\/b> field is mandatory.',
+                error_validator_zipcode: 'The ZIP / Postal code in the <b>[field]<\/b> field is incorrect. The correct format is [extra].',
+                error_validator_message: 'The value of the <b>[field]<\/b> field is invalid.',
+                text_page_loading: 'Loading... Your request is being processed, please wait.',
+                error_ajax: 'Oops, something went wrong ([error]). Please try again.',
+                text_changes_not_saved: 'Your changes have not been saved.',
+                text_data_changed: 'Your changes have not been saved.\n\nPress OK to continue, or Cancel to stay on the current page.',
+                placing_order: 'Placing the order',
+                file_browser: 'File browser',
+                browse: 'Browse...',
+                more: 'More',
+                text_no_products_found: 'No products found',
+                cookie_is_disabled: 'For a complete shopping experience, please <a href=\"http://www.wikihow.com/Enable-Cookies-in-Your-Internet-Web-Browser\" target=\"_blank\">set your browser to accept cookies<\/a>'
+            });
+
+            $.extend(_, {
+                index_script: 'index.php',
+                changes_warning: /*'Y'*/'N',
+                currencies: {
+                    'primary': {
+                        'decimals_separator': '.',
+                        'thousands_separator': ',',
+                        'decimals': '2'
+                    },
+                    'secondary': {
+                        'decimals_separator': '.',
+                        'thousands_separator': ',',
+                        'decimals': '2',
+                        'coefficient': '1.00000'
+                    }
+                },
+                default_editor: 'tinymce',
+                default_previewer: 'fancybox',
+                current_path: '',
+                current_location: 'https://bookcafe.com.my',
+                images_dir: 'https://bookcafe.com.my/design/themes/responsive/media/images',
+                notice_displaying_time: 10,
+                cart_language: 'en',
+                language_direction: 'ltr',
+                default_language: 'en',
+                cart_prices_w_taxes: true,
+                theme_name: 'responsive',
+                regexp: [],
+                current_url: 'https://bookcafe.com.my/ya-allah-jangan-biarkan-aku-sendiri/',
+                current_host: 'bookcafe.com.my',
+                init_context: ''
+            });
+
+
+            $(document).ready(function () {
+                $.runCart('C');
+            });
+
+
+            // CSRF form protection key
+            _.security_hash = 'f71a0614d96e14963f5b22e9bbe1dddf';
+        }(Tygh, Tygh.$));
+    </script>
+
+    {% comment %}<script type="text/javascript">
+        (function (_, $) {
+
+            !function (f, b, e, v, n, t, s) {
+                if (f.fbq) return;
+                n = f.fbq = function () {
+                    n.callMethod ?
+                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                };
+                if (!f._fbq) f._fbq = n;
+                n.push = n;
+                n.loaded = !0;
+                n.version = '2.0';
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
+            }(window,
+                document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+            fbq('init', '749539828428529');
+            fbq('track', 'PageView');
+        }(Tygh, Tygh.$));
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+                   src="https://www.facebook.com/tr?id=749539828428529&ev=PageView&noscript=1"
+    /></noscript>
+    {% endcomment %}
+
+    <script type="text/javascript" src="https://bookcafe.com.my/js/addons/buy_together/func.js?ver=4.6.2"></script>
+
+    <script type="text/javascript">
+        Tygh.tr('buy_together_fill_the_mandatory_fields', 'Please specify product options before adding this product combination to the cart.');
+    </script>
+    <script type="text/javascript" src="https://bookcafe.com.my/js/addons/product_packages/front.js?ver=4.6.2"></script>
+    <script type="text/javascript"
+            src="https://bookcafe.com.my/js/addons/google_analytics/google_analytics.js?ver=4.6.2"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        (function (_, $) {
+            $.ceEvent('on', 'ce.formpre_search_form', function (frm, elm) {
+
+                var q = $('input.ty-search-block__input', frm).focus();
+
+                if (q.val().length < 3) {
+                    var old_bk = q.css('border-left-color');
+                    q.css('border-color', 'red');
+                    setTimeout(function () {
+                        q.animate({
+                            borderColor: old_bk,
+                        }, 600);
+                    }, 300);
+                    return false;
+                }
+            });
+        }(Tygh, Tygh.$));
+        //]]>
+    </script>
+    <script type="text/javascript">
+        (function (_, $) {
+            _.tr({
+                error_validator_recaptcha: 'Please confirm you are not a robot.'
+            });
+
+            $.extend(_, {
+                recaptcha_settings: {
+                    site_key: '6Le_4iwUAAAAABA6ELM7upEzJm6-VokZXtLZ6mSE',
+                    theme: 'light',
+                    type: 'image',
+                    size: 'normal'
+                }
+            });
+        }(Tygh, Tygh.$));
+
+        // Proxies event handler to class method
+        window.onRecaptchaLoaded = function () {
+            Tygh.onRecaptchaLoaded();
+        };
+    </script>
+    <script type="text/javascript" src="https://bookcafe.com.my/js/addons/recaptcha/recaptcha.js?ver=4.6.2"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit"></script>
+    <script type="text/javascript"
+            src="https://bookcafe.com.my/js/addons/my_changes/social-likes.min.js?ver=4.6.2"></script>
+
+
+    <!-- Inline scripts -->
+    {% comment %}<script type="text/javascript">
+        (function (_, $) {
+
+            !function (f, b, e, v, n, t, s) {
+                if (f.fbq) return;
+                n = f.fbq = function () {
+                    n.callMethod ?
+                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                };
+                if (!f._fbq) f._fbq = n;
+                n.push = n;
+                n.loaded = !0;
+                n.version = '2.0';
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
+            }(window,
+                document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+            fbq('init', '749539828428529');
+            fbq('track', 'PageView');
+        }(Tygh, Tygh.$));
+    </script>{% endcomment %}
+    <script type="text/javascript" src="https://bookcafe.com.my/js/tygh/exceptions.js?ver=4.6.2"></script>
+    <script type="text/javascript"
+            src="https://bookcafe.com.my/js/tygh/previewers/fancybox.previewer.js?ver=4.6.2"></script>
+    <script type="text/javascript" src="https://bookcafe.com.my/js/tygh/product_image_gallery.js?ver=4.6.2"></script>
+    <script type="text/javascript" src="https://bookcafe.com.my/js/tygh/tabs.js?ver=4.6.2"></script>
+    <script type="text/javascript">
+        (function (_, $) {
+            $.ceEvent('on', 'ce.formpre_product_form_18314', function (frm, elm) {
+                if ($('#warning_18314').length) {
+                    $.ceNotification('show', {
+                        type: 'W',
+                        title: _.tr('warning'),
+                        message: _.tr('cannot_buy'),
+                    });
+
+                    return false;
+                }
+
+                return true;
+            });
+        }(Tygh, Tygh.$));
+    </script>
+    <script type="text/javascript"
+            src="https://bookcafe.com.my/js/lib/owlcarousel/owl.carousel.min.js?ver=4.6.2"></script>
+    <script type="text/javascript">
+        (function (_, $) {
+            $.ceEvent('on', 'ce.commoninit', function (context) {
+                var elm = context.find('#scroll_list_berkaitan');
+
+                $('.ty-float-left:contains(.ty-scroller-list),.ty-float-right:contains(.ty-scroller-list)').css('width', '100%');
+
+                var item = 4,
+                    // default setting of carousel
+                    itemsDesktop = 4,
+                    itemsDesktopSmall = 3;
+                itemsTablet = 2;
+
+                if (item > 3) {
+                    itemsDesktop = item;
+                    itemsDesktopSmall = item - 1;
+                    itemsTablet = item - 2;
+                } else if (item == 1) {
+                    itemsDesktop = itemsDesktopSmall = itemsTablet = 1;
+                } else {
+                    itemsDesktop = item;
+                    itemsDesktopSmall = itemsTablet = item - 1;
+                }
+
+                var desktop = [1199, itemsDesktop],
+                    desktopSmall = [979, itemsDesktopSmall],
+                    tablet = [768, itemsTablet],
+                    mobile = [479, 1];
+
+
+                if (elm.length) {
+                    elm.owlCarousel({
+                        direction: 'ltr',
+                        items: item,
+                        itemsDesktop: desktop,
+                        itemsDesktopSmall: desktopSmall,
+                        itemsTablet: tablet,
+                        itemsMobile: mobile,
+                        autoPlay: '3000',
+                        lazyLoad: true,
+                        slideSpeed: 400,
+                        stopOnHover: true,
+                        navigation: true,
+                        navigationText: ['Prev', 'Next'],
+                        pagination: false,
+                    });
+
+                }
+            });
+        }(Tygh, Tygh.$));
+    </script>
+
+    <script type="text/javascript">
+        (function (_, $) {
+            $.ceEvent('on', 'ce.commoninit', function (context) {
+                var elm = context.find('#scroll_list_bestseller');
+
+                $('.ty-float-left:contains(.ty-scroller-list),.ty-float-right:contains(.ty-scroller-list)').css('width', '100%');
+
+                var item = 4,
+                    // default setting of carousel
+                    itemsDesktop = 4,
+                    itemsDesktopSmall = 3;
+                itemsTablet = 2;
+
+                if (item > 3) {
+                    itemsDesktop = item;
+                    itemsDesktopSmall = item - 1;
+                    itemsTablet = item - 2;
+                } else if (item == 1) {
+                    itemsDesktop = itemsDesktopSmall = itemsTablet = 1;
+                } else {
+                    itemsDesktop = item;
+                    itemsDesktopSmall = itemsTablet = item - 1;
+                }
+
+                var desktop = [1199, itemsDesktop],
+                    desktopSmall = [979, itemsDesktopSmall],
+                    tablet = [768, itemsTablet],
+                    mobile = [479, 1];
+
+
+                if (elm.length) {
+                    elm.owlCarousel({
+                        direction: 'ltr',
+                        items: item,
+                        itemsDesktop: desktop,
+                        itemsDesktopSmall: desktopSmall,
+                        itemsTablet: tablet,
+                        itemsMobile: mobile,
+                        autoPlay: '3000',
+                        lazyLoad: true,
+                        slideSpeed: 400,
+                        stopOnHover: true,
+                        navigation: true,
+                        navigationText: ['Prev', 'Next'],
+                        pagination: false,
+                    });
+
+                }
+            });
+        }(Tygh, Tygh.$));
+    </script>
+    <script type="text/javascript">
+        (function (_, $) {
+            $.ceEvent('on', 'ce.commoninit', function (context) {
+                var elm = context.find('#scroll_list_produk_terbaru');
+
+                $('.ty-float-left:contains(.ty-scroller-list),.ty-float-right:contains(.ty-scroller-list)').css('width', '100%');
+
+                var item = 4,
+                    // default setting of carousel
+                    itemsDesktop = 4,
+                    itemsDesktopSmall = 3;
+                itemsTablet = 2;
+
+                if (item > 3) {
+                    itemsDesktop = item;
+                    itemsDesktopSmall = item - 1;
+                    itemsTablet = item - 2;
+                } else if (item == 1) {
+                    itemsDesktop = itemsDesktopSmall = itemsTablet = 1;
+                } else {
+                    itemsDesktop = item;
+                    itemsDesktopSmall = itemsTablet = item - 1;
+                }
+
+                var desktop = [1199, itemsDesktop],
+                    desktopSmall = [979, itemsDesktopSmall],
+                    tablet = [768, itemsTablet],
+                    mobile = [479, 1];
+
+
+                if (elm.length) {
+                    elm.owlCarousel({
+                        direction: 'ltr',
+                        items: item,
+                        itemsDesktop: desktop,
+                        itemsDesktopSmall: desktopSmall,
+                        itemsTablet: tablet,
+                        itemsMobile: mobile,
+                        autoPlay: '3000',
+                        lazyLoad: true,
+                        slideSpeed: 400,
+                        stopOnHover: true,
+                        navigation: true,
+                        navigationText: ['Prev', 'Next'],
+                        pagination: false,
+                    });
+
+                }
+            });
+        }(Tygh, Tygh.$));
+    </script>
+    <script type="text/javascript">
+        (function (_, $) {
+            $.ceEvent('on', 'ce.commoninit', function (context) {
+                var elm = context.find('#scroll_list_komen');
+
+                $('.ty-float-left:contains(.ty-scroller-list),.ty-float-right:contains(.ty-scroller-list)').css('width', '100%');
+
+                var item = 4,
+                    // default setting of carousel
+                    itemsDesktop = 4,
+                    itemsDesktopSmall = 3;
+                itemsTablet = 2;
+
+                if (item > 3) {
+                    itemsDesktop = item;
+                    itemsDesktopSmall = item - 1;
+                    itemsTablet = item - 2;
+                } else if (item == 1) {
+                    itemsDesktop = itemsDesktopSmall = itemsTablet = 1;
+                } else {
+                    itemsDesktop = item;
+                    itemsDesktopSmall = itemsTablet = item - 1;
+                }
+
+                var desktop = [1199, itemsDesktop],
+                    desktopSmall = [979, itemsDesktopSmall],
+                    tablet = [768, itemsTablet],
+                    mobile = [479, 1];
+
+
+                if (elm.length) {
+                    elm.owlCarousel({
+                        direction: 'ltr',
+                        items: item,
+                        itemsDesktop: desktop,
+                        itemsDesktopSmall: desktopSmall,
+                        itemsTablet: tablet,
+                        itemsMobile: mobile,
+                        autoPlay: '3000',
+                        lazyLoad: true,
+                        slideSpeed: 400,
+                        stopOnHover: true,
+                        navigation: true,
+                        navigationText: ['Prev', 'Next'],
+                        pagination: false,
+                    });
+
+                }
+            });
+        }(Tygh, Tygh.$));
+    </script>
+    <script src="https://emailoctopus.com/bundles/emailoctopuslist/js/1.3/recaptcha.js?1541414065"></script>
+    <script src="https://emailoctopus.com/bundles/emailoctopuslist/js/1.3/formEmbed.js?1541414065"></script>
+    <!--script type="text/javascript" src="https://bookcafe.com.my/js/addons/sd_facebook_pixel/func.js?ver=4.6.2"></script-->
+    <script type="text/javascript">
+        $(window).unbind('beforeunload.abandoned_cart');
+    </script>
+    <script type="text/javascript">
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('.scrollToTop').fadeIn();
+            } else {
+                $('.scrollToTop').fadeOut();
+            }
+        });
+        $('.scrollToTop').click(function () {
+            $('html, body').animate({scrollTop: 0}, 800);
+            return false;
+        });
+    </script>
+    <!--script type="text/javascript">if (typeof wabtn4fg === "undefined") {
+        wabtn4fg = 1;
+        h = document.head || document.getElementsByTagName("head")[0], s = document.createElement("script");
+        s.type = "text/javascript";
+        s.src = "/js/addons/my_changes/whatsapp-button.js";
+        h.appendChild(s);
+    }</script-->
+    <script type="text/javascript">/*
+var $_Tawk_API={},$_Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/559b373c4f6025b32b85ab0f/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();*/
+    </script>
+{% endblock scripts %}
+
+</body>
+
+</html>

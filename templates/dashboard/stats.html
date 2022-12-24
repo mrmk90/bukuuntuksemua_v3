@@ -1,0 +1,96 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<!--[if IE 8 ]>
+<html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!--link rel="icon" type="image/png" href="images/general-elements/favicon.png"-->
+    <link href="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_mart_ico_black.png" rel="shortcut icon"
+          type="image/png"/>
+
+    <title> BOCA MART STATISTICS </title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/default.css' %}" data-color-skins="">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+            <div class="info-box1 fun-facts-box">
+                <span class="info-box-icon icon x2"><img src="{% static 'icons/icon12.png' %}" alt=""></span>
+                <div class="info-box-content">
+                    <h6>TAJUK BUKU</h6>
+                    <span style="font-size:25px;">{{ tajuk_buku }}</span>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <div class="info-box1 fun-facts-box">
+                <span class="info-box-icon icon x2"><img src="{% static 'icons/icon13.png' %}" alt=""></span>
+                <div class="info-box-content">
+                    <h6>ORDER DIPROSES</h6>
+                    <span style="font-size:25px;">{{ order_diproses }}</span>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <div class="info-box1 fun-facts-box">
+                <span class="info-box-icon icon x2"><img src="{% static 'icons/icon14.png' %}" alt=""></span>
+                <div class="info-box-content">
+                    <h6>PELANGGAN BERDAFTAR</h6>
+                    <span style="font-size:25px;">{{ pelanggan_berdaftar }}</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="website-loading">
+    <div class="loading-effect">
+        <div class="la-ball-fall">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <span class="loading-title">loading</span>
+
+    </div>
+
+</div>
+
+<script src="{% static 'js/jquery.js' %}" type="50edcd8b3322c5888bcdc3a9-text/javascript"></script>
+<script src="{% static 'js/jquery.easing.min.js' %}" type="50edcd8b3322c5888bcdc3a9-text/javascript"></script>
+<script src="{% static 'js/jquery.malihu.PageScroll2id.min.js' %}"
+        type="50edcd8b3322c5888bcdc3a9-text/javascript"></script>
+<script src="{% static 'js/jquery.mb.YTPlayer.min.js' %}" type="50edcd8b3322c5888bcdc3a9-text/javascript"></script>
+<script src="{% static 'js/jquery.sticky.js' %}" type="50edcd8b3322c5888bcdc3a9-text/javascript"></script>
+<script src="{% static 'js/waypoints.min.js' %}" type="50edcd8b3322c5888bcdc3a9-text/javascript"></script>
+<script src="{% static 'js/jquery.counterup.min.js' %}" type="50edcd8b3322c5888bcdc3a9-text/javascript"></script>
+<script src="{% static 'js/jquery.stellar.js' %}" type="50edcd8b3322c5888bcdc3a9-text/javascript"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}" type="50edcd8b3322c5888bcdc3a9-text/javascript"></script>
+<script src='{% static 'js/custom.js' %}' type="50edcd8b3322c5888bcdc3a9-text/javascript"></script>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
+        data-cf-settings="50edcd8b3322c5888bcdc3a9-|49" defer=""></script>
+</body>
+</html>

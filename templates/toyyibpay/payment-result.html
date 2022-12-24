@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    BOCA - Payment Result
+{% endblock title %}
+
+{% block main_content %}
+    <div class="tygh-content clearfix">
+        <div class="container-fluid  content-grid">
+            <div class="row-fluid ">
+                <div class="span16 main-content-grid">
+                    <div class="ty-mainbox-container clearfix">
+                        <h1 class="ty-mainbox-title">
+                            <br>
+                            Status Pembayaran Anda:
+                            {% if request.GET.status_id == '1' %}
+                                BERJAYA
+                            {% elif request.GET.status_id == '2' %}
+                                DALAM PROSES
+                            {% else %}
+                                GAGAL
+                            {% endif %}
+                        </h1>
+                        <br>
+                        <h3><a href="https://toyyibpay.com/{{ request.GET.billcode }}">Resit pembayaran anda.</a></h3>
+                        <h3><a href="{% url 'index' %}">Kembali ke muka depan.</a></h3>
+                        {% comment %}
+                        <div class="ty-mainbox-body">
+                            <table>
+                                <tr class="ty-table__no-items">
+                                    <td colspan="2"><p class="ty-no-items">
+                                        Status: {{ request.get.status_id }}
+                                    </p>
+                                    </td>
+                                </tr>
+                                <tr class="ty-table__no-items">
+                                    <td colspan="2"><p class="ty-no-items">
+                                        Status: {{ request.get.billcode }}
+                                    </p>
+                                    </td>
+                                </tr>
+                                <tr class="ty-table__no-items">
+                                    <td colspan="7"><p class="ty-no-items">
+                                        Status: {{ request.get.order_id }}
+                                    </p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <p>Back to <a href="{% url 'index' %}">mainpage</a>.</p>
+                        </div>
+                        {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock main_content %}

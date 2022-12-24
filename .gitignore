@@ -1,0 +1,9 @@
+.idea
+venv
+media
+*/__pycache__/
+*.sqlite3
+*/migrations/__pycache__/
+.DS_Store
+*sqlite3*
+__pycache__

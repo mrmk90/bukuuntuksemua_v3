@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    BOCA - Discount Code Expired
+{% endblock title %}
+
+{% block main_content %}
+    <div class="tygh-content clearfix">
+        <div class="container-fluid  content-grid">
+            <div class="row-fluid ">
+                <div class="span16 main-content-grid">
+                    <form name="checkout_form" class="cm-check-changes" action="" method="post"
+                          enctype="multipart/form-data">
+                        <input type="hidden" name="redirect_mode" value="cart"/>
+                        <input type="hidden" name="result_ids"
+                               value="cart_items,checkout_totals,checkout_steps,cart_status*,checkout_cart"/>
+
+                        <h1 class="ty-mainbox-title">Kod diskaun yang anda masukkan sudah tidak lagi sah.</h1>
+
+                        <div class="buttons-container ty-cart-content__top-buttons clearfix">
+                            <div class="ty-float-left ty-cart-content__left-buttons">
+                                <a href="{% url 'cart-detail' %}"
+                                   class="ty-btn ty-btn__secondary ">
+                                    Kembali ke Cart
+                                </a>
+                            </div>
+                            <div class="ty-float-right ty-cart-content__right-buttons">
+                                <a href="{% url 'checkout' %}"
+                                   class="ty-btn ty-btn__primary ">
+                                    Proceed to checkout
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                     data-ca-live-editor-object-type=""><p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main_content %}

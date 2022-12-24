@@ -1,0 +1,219 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    BOCA - CHECKOUT
+{% endblock title %}
+
+{% block main_content %}
+    <div class="tygh-content clearfix">
+        <div class="container-fluid  content-grid">
+
+
+            <div class="row-fluid ">
+                <div class="span11 main-content-grid">
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                         data-ca-live-editor-object-type=""><br/>
+                        <div style="text-align: center;"></div>
+                        <div style="text-align: center;"><span color="red" style="color: red;"><strong>INTERNATIONAL SHIPPING?</strong></span>
+                        </div>
+                        <div style="text-align: center;"></div>
+                        <div style="text-align: center;">Please email to us at <a href="mailto:order@boca.my">order@boca.my</a>
+                        </div>
+                        <div style="text-align: center;"></div>
+                        <div style="text-align: center;"></div>
+                        <div style="text-align: center;"></div>
+                    </div>
+                    <!--button class="ty-btn__big ty-btn__primary cm-checkout-place-order ty-btn"
+                            onclick='window.location.href="{% url 'cart-detail' %}"'>
+                            Back To Cart
+                    </button-->
+                    <div class="ty-float-left ty-cart-content__left-buttons">
+                        <a href="{% url 'cart-detail' %}" class="ty-btn ty-btn__secondary ">
+                            Back To Cart
+                        </a>
+                    </div>
+                    <div class="ty-mainbox-container clearfix">
+                        <h1 class="ty-mainbox-title">
+                            <span class="ty-checkout__title">Secure checkout&nbsp;<i
+                                    class="ty-checkout__title-icon ty-icon-lock"></i></span>
+                        </h1>
+                        <br>
+                        <div class="ty-mainbox-body">
+                            <div class="checkout-steps cm-save-fields clearfix" id="">
+                                <div class="ty-step__container-active" data-ct-checkout="billing_shipping_address"
+                                     id="">
+                                    <h3 class="ty-step__title clearfix">
+                                        <!--span class="ty-step__title-left">&nbsp;</span>
+                                        <i class="ty-step__title-arrow ty-icon-down-micro"></i-->
+                                        <span class="ty-step__title">CONTACT DETAILS</span>
+                                    </h3>
+                                    <div id="step_two_body" class="ty-step__body-active">
+                                        <div class="clearfix">
+                                            <div class="ty-checkout__login">
+                                                <form id="contact_details" name="contact_details" class="" action="{% url 'final-confirmation' %}"
+                                                      method="post">{% csrf_token %}
+                                                    <input type="hidden" id="bill_amount" name="bill_amount"
+                                                           value="{{ cart.get_total_price_for_toyyibpay }}">
+                                                    <input type="hidden" id="user_email" name="user_email"
+                                                           value="{{ request.user.email }}">
+                                                    <input type="hidden" id="cart_id" name="cart_id"
+                                                           value="{{ cart.id }}">
+                                                    <label for="receiver_name"
+                                                           class="ty-login__filed-label ty-control-group__label cm-required cm-trim">
+                                                        Nama Penerima
+                                                    </label>
+                                                    <input type="text" id="receiver_name" name="receiver_name" class="ty-login__input cm-focus"
+                                                           value="{% if cart.delivery %}{{ cart.delivery.name }}{% endif %}"/>
+                                                    <label for="postcode"
+                                                           class="ty-login__filed-label ty-control-group__label cm-required cm-trim">
+                                                        Postcode
+                                                    </label>
+                                                    <input type="text" id="postcode" name="postcode" class="ty-login__input cm-focus"
+                                                           value="{% if cart.delivery %}{{ cart.delivery.postcode }}{% endif %}"/>
+                                                    <label for="address"
+                                                           class="ty-login__filed-label ty-control-group__label cm-required cm-trim">Alamat
+                                                        Penghantaran</label>
+                                                    <textarea rows="4" cols="49" id="address" name="address" form="contact_details">
+                                                        {% if cart.delivery %}
+                                                            {{ cart.delivery.address | escape }}
+                                                        {% endif %}
+                                                    </textarea>
+                                                    <div>
+                                                    <label for="negeri"
+                                                           class="ty-login__filed-label ty-control-group__label cm-required cm-trim">Negeri</label>
+                                                    <select class="ty-login__input cm-focus" name="negeri">
+                                                        <option value="Johor" {% if cart.delivery.state == "Johor" %}selected{% endif %}>Johor</option>
+                                                        <option value="Kedah" {% if cart.delivery.state == "Kedah" %}selected{% endif %}>Kedah</option>
+                                                        <option value="Kelantan" {% if cart.delivery.state == "Kelantan" %}selected{% endif %}>Kelantan</option>
+                                                        <option value="Kuala Lumpur" {% if cart.delivery.state == "Kuala Lumpur" %}selected{% endif %}>Kuala Lumpur</option>
+                                                        <option value="Labuan" {% if cart.delivery.state == "Labuan" %}selected{% endif %}>Labuan</option>
+                                                        <option value="Malacca" {% if cart.delivery.state == "Malacca" %}selected{% endif %}>Malacca</option>
+                                                        <option value="Negeri Sembilan" {% if cart.delivery.state == "Negeri Sembilan" %}selected{% endif %}>Negeri Sembilan</option>
+                                                        <option value="Pahang" {% if cart.delivery.state == "Pahang" %}selected{% endif %}>Pahang</option>
+                                                        <option value="Perak" {% if cart.delivery.state == "Perak" %}selected{% endif %}>Perak</option>
+                                                        <option value="Perlis" {% if cart.delivery.state == "Perlis" %}selected{% endif %}>Perlis</option>
+                                                        <option value="Penang" {% if cart.delivery.state == "Penang" %}selected{% endif %}>Penang</option>
+                                                        <option value="Sabah" {% if cart.delivery.state == "Sabah" %}selected{% endif %}>Sabah</option>
+                                                        <option value="Sarawak" {% if cart.delivery.state == "Sarawak" %}selected{% endif %}>Sarawak</option>
+                                                        <option value="Selangor" {% if cart.delivery.state == "Selangor" %}selected{% endif %}>Selangor</option>
+                                                        <option value="Terengganu" {% if cart.delivery.state == "Terengganu" %}selected{% endif %}>Terengganu</option>
+                                                    </select>
+                                                    </div>
+                                                    <label for="phone" class="ty-login__filed-label ty-control-group__label cm-required cm-trim">
+                                                        Telefon
+                                                    </label>
+                                                    <input type="text" id="phone" name="phone"
+                                                           class="ty-login__input cm-focus" value="{% if cart.delivery %}{{ cart.delivery.phone_number }}{% endif %}"/>
+                                                    <div class="ty-checkout-buttons ty-checkout-buttons__submit-order">
+                                                        <button class="ty-btn__big ty-btn__primary cm-checkout-place-order ty-btn"
+                                                                type="submit">
+                                                            Submit my order
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="place_order_data" class="hidden">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="span4 offset1 side-grid">
+                    <div class="ty-mainbox-container clearfix ty-order-summary">
+                        <h1 class="ty-mainbox-title">
+                            JUMLAH PESANAN
+                        </h1>
+                        <div class="ty-mainbox-body">
+                            <div class="ty-checkout-summary" id="checkout_info_summary_438">
+                                <table class="ty-checkout-summary__block">
+                                    <tbody>
+                                    <tr>
+                                        <td class="ty-checkout-summary__item">{{ cart.get_total_quantity_cart_item }}
+                                            piece{{ cart.get_total_quantity_cart_item|pluralize }}</td>
+                                        <td class="ty-checkout-summary__item ty-right" data-ct-checkout-summary="items">
+                                            <span><bdi><span>{{ cart.get_total_book_price }}</span></bdi></span>
+                                        </td>
+                                    </tr>
+                                    <!--tr>
+                                        <td class="ty-checkout-summary__item">Total weight</td>
+                                        <td class="ty-checkout-summary__item ty-right"
+                                            data-ct-checkout-summary="total-weight">
+                                            <span>0.21&nbsp;kg</span>
+                                        </td>
+                                    </tr-->
+                                    </tbody>
+                                    <tbody>
+                                    <tr>
+                                        <th class="ty-checkout-summary__total" colspan="2"
+                                            data-ct-checkout-summary="order-total">
+                                            <div>
+                                                <b>Order Total</b>
+                                                <span class="ty-checkout-summary__total-sum"><bdi>&nbsp;<span>{{ cart.get_total_price }}</span></bdi></span>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>&nbsp;</tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                         data-ca-live-editor-object-type=""><p></p>
+                    </div>
+                    <div class="ty-mainbox-container clearfix order-products">
+                        <h1 class="ty-mainbox-title">
+                            PRODUK YANG DIBELI
+                        </h1>
+                        <div class="ty-mainbox-body">
+                            <div id="checkout_info_products_439">
+                                <ul class="ty-order-products__list order-product-list">
+                                    {% for item in cart.cartitem_set.all %}
+                                        <li class="ty-order-products__item">
+                                            <a href="{% url 'book-detail' pk=item.item.id %}"
+                                               class="ty-order-products__a">
+                                                {{ item.item.title }}
+                                            </a>
+                                            <a data-ca-dispatch="delete_cart_item"
+                                               href="#"
+                                               class="ty-order-products__item-delete delete"
+                                               data-ca-target-id="cart_status*">
+                                                <i title="Remove" class="ty-icon-cancel-circle"></i>
+                                            </a>
+                                            <div class="ty-order-products__price">
+                                                {{ item.quantity }}&nbsp;x&nbsp;<bdi>
+                                                &nbsp;<span>{{ item.item.price }}</span></bdi>
+                                            </div>
+                                        </li>
+                                    {% endfor book in cart.cartitem_set.all %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                         data-ca-live-editor-object-type=""><br></div>
+                    <div id="checkout_order_info_440_wrap"></div>
+                </div>
+            </div>
+
+
+            <div class="row-fluid ">
+                <div class="span11 ">
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                         data-ca-live-editor-object-type="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main_content %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script></script>
+{% endblock scripts %}

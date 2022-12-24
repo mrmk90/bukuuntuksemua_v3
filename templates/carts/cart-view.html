@@ -1,0 +1,375 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    BOCA - {{ request.user.username }} Cart
+{% endblock title %}
+
+{% block main_content %}
+    <div class="tygh-content clearfix">
+        <div class="container-fluid  content-grid">
+            <div class="row-fluid ">
+                <div class="span16 main-content-grid">
+
+                    <form name="checkout_form" class="cm-check-changes" action="https://bookcafe.com.my/" method="post"
+                          enctype="multipart/form-data">
+                        <input type="hidden" name="redirect_mode" value="cart"/>
+                        <input type="hidden" name="result_ids"
+                               value="cart_items,checkout_totals,checkout_steps,cart_status*,checkout_cart"/>
+
+                        <h1 class="ty-mainbox-title">Cart contents</h1>
+
+                        <div class="buttons-container ty-cart-content__top-buttons clearfix">
+                            <div class="ty-float-left ty-cart-content__left-buttons">
+
+                                <a href="{% url 'index' %}"
+                                   class="ty-btn ty-btn__secondary ">
+                                    Continue shopping
+                                </a>
+
+                                <!--a class="ty-btn ty-btn__tertiary text-button" href="#" disabled="true">
+                                    Clear cart
+                                </a-->
+
+                            </div>
+                            <div class="ty-float-right ty-cart-content__right-buttons">
+                                <!--button id="button_cart" class="ty-btn__secondary  ty-btn" type="submit"
+                                        name="dispatch[checkout.update]">Recalculate
+                                </button-->
+                                <a href="{% url 'checkout' %}"
+                                   class="ty-btn ty-btn__primary ">
+                                    Proceed to checkout
+                                </a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="ty-mainbox-cart__body">
+                                <div id="cart_items">
+                                    <table class="ty-cart-content ty-table">
+                                        <thead>
+                                        <tr>
+                                            <th class="ty-cart-content__title ty-left">Product</th>
+                                            <th class="ty-cart-content__title ty-left">&nbsp;</th>
+                                            <th class="ty-cart-content__title ty-right">Unit price</th>
+                                            <th class="ty-cart-content__title quantity-cell">Quantity</th>
+                                            <th class="ty-cart-content__title ty-right">Total price</th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        {% for item in cart.cartitem_set.all %}
+                                            <tr>
+                                                <td class="ty-cart-content__product-elem ty-cart-content__image-block">
+                                                    <div class="ty-cart-content__image cm-reload-3504478001"
+                                                         id="product_image_update_3504478001">
+                                                        <a href="{% url 'book-detail' pk=item.item.id %}">
+                                                            <img class="ty-pict cm-image"
+                                                                    {% if item.item.image_set.count %}
+                                                                 src="{{ item.item.image_set.all.0.images.url }}"
+                                                                    {% else %}
+                                                                 src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_mart.png"
+                                                                    {% endif %}
+                                                                 alt="" title=""/>
+                                                        </a>
+                                                    </div>
+                                                </td>
+
+                                                <td class="ty-cart-content__product-elem ty-cart-content__description"
+                                                    style="width: 50%;">
+                                                    <a href="{% url 'book-detail' pk=item.item.id %}"
+                                                       class="ty-cart-content__product-title">
+                                                        {{ item.item.title }}
+                                                    </a>
+                                                    <!--a class=" ty-cart-content__product-delete ty-delete-big"
+                                                       href="https://bookcafe.com.my/index.php?dispatch=checkout.delete&amp;cart_id=3504478001&amp;redirect_mode=cart"
+                                                       data-ca-target-id="cart_items,checkout_totals,cart_status*,checkout_steps,checkout_cart"
+                                                       title="Remove">&nbsp;
+                                                        <i class="ty-delete-big__icon ty-icon-cancel-circle">
+                                                        </i>
+                                                    </a-->
+                                                    <div class="ty-cart-content__sku ty-sku">
+                                                        Code/ISBN: <span class="cm-reload-3504478001"
+                                                                         id="">{{ item.item.isbn }}
+                                                </span>
+                                                    </div>
+
+                                                    <div class="ty-cart-content__detailed">
+                                                        <!--a id="" class="cm-combination ty-cart-content__detailed-link detailed-link">Click
+                                                        here for more details</a-->
+                                                    </div>
+
+                                                    <div id="options_3504478001"
+                                                         class="ty-product-options ty-group-block hidden">
+                                                        <div class="ty-group-block__arrow">
+                                                        <span class="ty-caret-info"><span class="ty-caret-outer"></span>
+                                                            <span class="ty-caret-inner">
+                                                            </span>
+                                                        </span>
+                                                        </div>
+
+                                                        <div class="cm-reload-3504478001"
+                                                             id="product_info_update_3504478001">
+
+                                                            <p><a data-ca-target-id="discount_3504478001"
+                                                                  class="cm-dialog-opener cm-dialog-auto-size"
+                                                                  rel="nofollow">Discount</a></p>
+
+                                                            <div class="ty-group-block hidden" id="discount_3504478001"
+                                                                 title="Discount">
+                                                                <table class="ty-cart-content__more-info ty-table">
+                                                                    <tr>
+                                                                        <th class="ty-cart-content__more-info-title">
+                                                                            Price
+                                                                        </th>
+                                                                        <th class="ty-cart-content__more-info-title">
+                                                                            Quantity
+                                                                        </th>
+                                                                        <th class="ty-cart-content__more-info-title">
+                                                                            Discount
+                                                                        </th>
+                                                                        <th class="ty-cart-content__more-info-title">
+                                                                            Subtotal
+                                                                        </th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <bdi><span class="none">&nbsp;</span><span
+                                                                                    id="sec_original_price_3504478001"
+                                                                                    class="none">{{ item.item }}</span>
+                                                                            </bdi>
+                                                                        </td>
+                                                                        <td class="ty-center">1</td>
+                                                                        <td>
+                                                                            <bdi><span class="none">RM</span><span
+                                                                                    id="sec_discount_subtotal_3504478001"
+                                                                                    class="none">3.00</span></bdi>
+                                                                        </td>
+                                                                        <td>
+                                                                            <bdi><span class="none">&nbsp;</span><span
+                                                                                    id="" class="none">
+                                                                            {{ item.item }}
+                                                                        </span></bdi>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+
+
+                                                            <!--div class="ty-reward-points__product-info">
+                                                                <strong class="ty-control-group__label">Price in
+                                                                    points:</strong>
+                                                                <span class="ty-control-group__item"
+                                                                      id="price_in_points_3504478001"><b>22 points</b></span>
+                                                            </div-->
+
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+                                                <td class="ty-cart-content__product-elem ty-cart-content__price cm-reload-3504478001"
+                                                    id="">
+                                                    <bdi><span class="ty-sub-price">&nbsp;</span><span
+                                                            id="sec_product_price_3504478001"
+                                                            class="ty-sub-price">
+                                                    {{ item.item.price }}
+                                                </span></bdi>
+                                                </td>
+
+                                                <td class="ty-cart-content__product-elem ty-cart-content__qty ">
+
+                                                    <div class="quantity cm-reload-3504478001 changer"
+                                                         id="quantity_update_3504478001">
+                                                        <label for=""></label>
+                                                        {{ item.quantity }}
+                                                        <!--div class="ty-center ty-value-changer cm-value-changer">
+                                                            <a class="cm-increase ty-value-changer__increase">&#43;</a>
+                                                            <input type="text" size="3" id="amount_3504478001"
+                                                                   name="cart_products[3504478001][amount]" value="1"
+                                                                   class="ty-value-changer__input cm-amount"/>
+                                                            <a class="cm-decrease ty-value-changer__decrease">&minus;</a>
+                                                        </div-->
+                                                    </div>
+                                                </td>
+
+                                                <td class="ty-cart-content__product-elem ty-cart-content__price cm-reload-3504478001"
+                                                    id="price_subtotal_update_3504478001">
+                                                    <bdi><span class="price">&nbsp;</span><span
+                                                            id="sec_product_subtotal_3504478001"
+                                                            class="price">{{ item.get_subtotal }}</span>
+                                                    </bdi>
+                                                    <!--price_subtotal_update_3504478001--></td>
+                                            </tr>
+                                        {% endfor item in cartitem %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="hidden" id="shipping_estimation_block" title="Calculate shipping cost">
+                        <div class="ty-cart-content__estimation">
+
+
+                            <div id="shipping_estimation">
+
+                                <!-- Inline script moved to the bottom of the page -->
+
+
+                                <form class="cm-ajax" name="estimation_form" action="https://bookcafe.com.my/"
+                                      method="post">
+                                    <input type="hidden" name="result_ids"
+                                           value="shipping_estimation,shipping_estimation_buttons"/>
+
+
+                                    <div class="ty-control-group">
+                                        <label class="ty-control-group__label cm-required"
+                                               for="elm_country">Country</label>
+                                        <select id="elm_country"
+                                                class="cm-country cm-location-estimation ty-input-text-medium"
+                                                name="customer_location[country]">
+                                            <option value="">- -</option>
+                                            <option value="BN">Brunei</option>
+                                            <option value="ID">Indonesia</option>
+                                            <option value="MY" selected="selected">Malaysia</option>
+                                            <option value="SG">Singapore</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="ty-control-group">
+                                        <label class="ty-control-group__label" for="elm_state">State/Province</label>
+                                        <select class="cm-state cm-location-estimation  ty-input-text-medium"
+                                                id="elm_state" name="customer_location[state]">
+                                            <option value="">- Select state -</option>
+                                            <option value="Johor">Johor</option>
+                                            <option value="Kedah">Kedah</option>
+                                            <option value="Kelantan">Kelantan</option>
+                                            <option value="Kuala Lumpur">Kuala Lumpur</option>
+                                            <option value="Labuan">Labuan</option>
+                                            <option value="Langkawi">Langkawi</option>
+                                            <option value="Melaka">Melaka</option>
+                                            <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                            <option value="Pahang">Pahang</option>
+                                            <option value="Perak">Perak</option>
+                                            <option value="Perlis">Perlis</option>
+                                            <option value="Pulau Pinang">Pulau Pinang</option>
+                                            <option value="Putrajaya">Putrajaya</option>
+                                            <option value="Sabah">Sabah</option>
+                                            <option value="Sarawak">Sarawak</option>
+                                            <option value="Selangor">Selangor</option>
+                                            <option value="Terengganu">Terengganu</option>
+                                            <option value="Tioman">Tioman</option>
+                                        </select>
+                                        <input type="text"
+                                               class="cm-state cm-location-estimation ty-input-text-medium hidden"
+                                               id="elm_state_d" name="customer_location[state]" size="20" maxlength="64"
+                                               value="" disabled="disabled"/>
+                                    </div>
+
+                                    <div class="ty-control-group">
+                                        <label class="ty-control-group__label" for="elm_city">City</label>
+                                        <input type="text" class="ty-input-text-medium" id="elm_city"
+                                               name="customer_location[city]" size="32" value=""/>
+                                    </div>
+
+                                    <div class="ty-control-group">
+                                        <label class="ty-control-group__label" for="elm_zipcode">Zip/postal code</label>
+                                        <input type="text" class="ty-input-text-medium" id="elm_zipcode"
+                                               name="customer_location[zipcode]" size="20" value=""/>
+                                    </div>
+
+
+                                    <div class="hidden">
+                                        <a class="ty-btn cm-submit text-button " id="but_get_rates"
+                                           data-ca-dispatch="dispatch[checkout.shipping_estimation.get_rates]">Get
+                                            rates</a>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="ty-estimation-buttons buttons-container" id="shipping_estimation_buttons">
+                                <a class="ty-btn ty-btn__secondary cm-external-click "
+                                   data-ca-external-click-id="but_get_rates">
+                                    Get rates
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="ty-cart-total">
+                        <div class="ty-cart-total__wrapper clearfix" id="checkout_totals">
+
+                            {% if not cart.discount %}
+                                <div class="ty-coupons__container">
+                                    <div>
+                                        <form class="" name="coupon_code_form" action="{% url 'add-discount' %}"
+                                              method="post">{% csrf_token %}
+                                            <div class="ty-discount-coupon__control-group ty-input-append">
+                                                <label for="coupon_field" class="hidden cm-required">Promo code</label>
+                                                <input type="text" class="ty-input-text cm-hint" name="coupon_code"
+                                                       size="40" value="Promo code"/>
+                                                <button title="ENTER" class="ty-btn-go" type="submit">ENTER</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            <ul class="ty-cart-statistic ty-statistic-list">
+                                <li class="ty-cart-statistic__item ty-statistic-list-subtotal">
+                                    <span class="ty-cart-statistic__title">Subtotal</span>
+                                    <span class="ty-cart-statistic__value"><bdi>&nbsp;<span>{{ cart.get_total_book_price }}</span></bdi></span>
+                                </li>
+                                <li class="ty-cart-statistic__item statistic-list-total-weight">
+                                    <span class="ty-cart-statistic__title">Shipping cost</span>
+                                    <span class="ty-cart-statistic__value">RM&nbsp;(8.00 - RM18.00)</span>
+                                </li>
+                                <li class="ty-cart-statistic__item statistic-list-total-weight">
+                                    <span class="ty-cart-statistic__title">Total items</span>
+                                    <span class="ty-cart-statistic__value">{{ cart.get_total_quantity_cart_item }} item{{ cart.get_total_quantity_cart_item | pluralize }}</span>
+                                </li>
+                                <li class="ty-cart-statistic__item ty-statistic-list-discount">
+                                    <span class="ty-cart-statistic__title">Including discount</span>
+                                    <span class="ty-cart-statistic__value discount-price">-<bdi><span>{% if cart.discount %}
+                                        {{ cart.get_discount_amount }}{% else %}{% endif %}</span></bdi></span>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                            <ul class="ty-cart-statistic__total-list">
+                                <li class="ty-cart-statistic__item ty-cart-statistic__total">
+                                    <span class="ty-cart-statistic__total-title">Total Sales</span>
+                                    <span class="ty-cart-statistic__total-value"><bdi><span
+                                            class="ty-price">&nbsp;</span><span id="sec_cart_total" class="ty-price">
+                                        {{ cart.get_total_book_price_with_discount }}
+                                    </span></bdi></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="buttons-container ty-cart-content__bottom-buttons clearfix">
+                        <div class="ty-float-left ty-cart-content__left-buttons">
+                            <a href="{% url 'index' %}" class="ty-btn ty-btn__secondary ">
+                                Continue shopping
+                            </a>
+                        </div>
+                        <div class="ty-float-right ty-cart-content__right-buttons">
+                            <!--a class="ty-btn ty-btn__secondary cm-external-click "
+                               data-ca-external-click-id="button_cart">Recalculate
+                            </a-->
+                            <a href="{% url 'checkout' %}"
+                               class="ty-btn ty-btn__primary ">
+                                Proceed to checkout
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                         data-ca-live-editor-object-type=""><p></p></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock main_content %}

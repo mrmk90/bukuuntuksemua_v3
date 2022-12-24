@@ -1,0 +1,27 @@
+# Total Amount of Purchase
+In [8]: total = Order.objects.filter(status__in=(1, 4)).aggregate(Sum('amount'))
+In [9]: total
+Out[9]: {'amount__sum': 418220}
+
+# Total Books Sold
+
+
+# Coupon Usage
+In [12]: coupon_usage = Order.objects.filter(status__in=(1, 4)).aggregate(Count('cart__discount'))
+In [13]: coupon_usage
+Out[13]: {'cart__discount__count': 247}
+
+In [2]: Order.objects.all().aggregate(Max('amount'))
+Out[2]: {'amount__max': 11400}
+
+In [3]: Order.objects.all().aggregate(Avg('amount'))
+Out[3]: {'amount__avg': 1792.6536312849162}
+
+In [13]: Cart.objects.all().aggregate(Count('discount'))
+Out[13]: {'discount__count': 440}
+
+# Get users by baucar
+In [15]: users = User.objects.annotate(baucar_count=Count('cart', filter=Q(cart__discount__code='BaucarBOCA'))).order_by('-baucar_count')
+In [16]: for u in users and if u.baucar_count > 0:
+    ...:     print(u.username, u.baucar_count)
+    ...:

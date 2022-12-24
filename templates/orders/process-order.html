@@ -1,0 +1,164 @@
+{% extends 'base/base.html' %}
+{% load admin_urls %}
+
+{% block title %}
+    BOCA - {{ request.user.username }}'s Orders
+{% endblock title %}
+
+{% block main_content %}
+    <div class="tygh-content clearfix">
+        <div class="container-fluid  content-grid">
+
+
+            <div class="row-fluid ">
+                <div class="span16 main-content-grid">
+                    <div class="ty-mainbox-container clearfix">
+
+                        <h1 class="ty-mainbox-title">
+                            Orders
+                        </h1>
+                        <h6 class="ty-mainbox-simple-title">
+                            <a href="{% url 'process-order' %}"> Semua |</a>
+                            <a href="{% url 'process-order' %}?status=Berjaya">Berjaya |</a>
+                            <a href="{% url 'process-order' %}?status=Dalam Proses">Dalam Proses |</a>
+                            <a href="{% url 'process-order' %}?status=Gagal">Gagal |</a>
+                            <a href="{% url 'process-order' %}?status=Sudah Dipos">Sudah Dipos</a>
+                        </h6>
+
+                        {% comment %}<div class="pagination">
+                            <span class="step-links">
+                                {% if page_obj.has_previous %}
+                                    <a href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&{% else %}?{% endif %}page=1">&laquo; first</a>
+                                    <a href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&{% else %}?{% endif %}page={{ page_obj.previous_page_number }}">previous</a>
+                                {% endif %}
+                                <span class="current">
+                                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                                </span>
+                                {% if page_obj.has_next %}
+                                    <a href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&{% else %}?{% endif %}page={{ page_obj.next_page_number }}">next</a>
+                                    <a href="{{ request.get_full_path }}{% if '?' in request.get_full_path %}&{% else %}?{% endif %}page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                                {% endif %}
+                            </span>
+                        </div>{% endcomment %}
+
+                        <div class="ty-mainbox-body">
+                            <div class="ty-pagination-container cm-pagination-container" id="pagination_contents">
+                                <table class="ty-table ty-orders-search">
+                                    <thead>
+                                    <tr>
+                                        <th><a class="cm-ajax" data-ca-target-id="pagination_contents">ID</a>
+                                        </th>
+                                        <th><a class="cm-ajax" data-ca-target-id="pagination_contents">Nama & No Tel</a>
+                                        </th>
+                                        <th><a class="cm-ajax" data-ca-target-id="pagination_contents">Alamat</a>
+                                        </th>
+                                        <th><a class="cm-ajax" data-ca-target-id="pagination_contents">Poskod</a>
+                                        </th>
+                                        <th><a class="cm-ajax" data-ca-target-id="pagination_contents">Senarai Buku</a>
+                                        </th>
+                                        <th><a class="cm-ajax" data-ca-target-id="pagination_contents"><b>Nombor
+                                            Rujukan</b></a>
+                                        </th>
+                                        <th><a class="cm-ajax"
+                                               data-ca-target-id="pagination_contents"><b>Tracking</b></a>
+                                        </th>
+                                        <th><a class="cm-ajax"
+                                               data-ca-target-id="pagination_contents"><b>Status</b></a>
+                                        </th>
+                                        <th><a class="cm-ajax"
+                                               data-ca-target-id="pagination_contents"><b>Nota</b></a>
+                                        </th>
+                                        {% if request.user.is_superuser %}
+                                            <th>Edit Order</th>
+                                        {% endif %}
+                                    </tr>
+                                    </thead>
+
+                                    {% for order in orders %}
+                                        <tr>
+                                            <td><a href="{% url 'admin:orders_order_change' order.id %}">{{ order.id }}</a>
+                                            </td>
+                                            <td>{{ order.cart.delivery.name }}<br>{{ order.cart.delivery.phone_number }}
+                                            </td>
+                                            <td>{{ order.cart.delivery.address }}, {{ order.cart.delivery.state }}</td>
+                                            <td>{{ order.cart.delivery.postcode }}</td>
+                                            <td>
+                                                {% for item in order.cart.cartitem_set.all %}
+                                                    <a href="{% url 'book-detail' pk=item.item.id %}">{{ item.quantity }}
+                                                        x {{ item.item.title }}</a><br>
+                                                {% endfor %}
+                                            </td>
+                                            <td><a href="{{ order.get_billcode_url }}"
+                                                   target="_blank">{{ order.reference_number }}</a></td>
+                                            <td>
+                                                {% if order.tracking %}
+                                                    {{ order.tracking.number }}
+                                                {% else %}
+                                                    <a href="{% url 'create-tracking'  order_id=order.id %}">Create
+                                                        Tracking</a>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                {{ order.get_status_display }}
+                                            </td>
+                                            <td>
+                                                {{ order.reason }}
+                                            </td>
+                                            {% if request.user.is_superuser %}
+                                                <td>
+                                                    <a href="{% url 'admin:orders_order_change' order.id %}"
+                                                       target="_blank">Edit Order
+                                                        | </a><a
+                                                        href="{% url 'admin:carts_cart_change' order.cart.id %}"
+                                                        target="_blank">Edit
+                                                    Cart</a>
+                                                </td>
+                                            {% endif %}
+                                        </tr>
+                                    {% empty %}
+                                        <tr class="ty-table__no-items">
+                                            {% if request.user.is_superuser %}
+                                                <td colspan="9">
+                                                    {% else %}
+                                                <td colspan="8">
+                                            {% endif %}
+                                            <p class="ty-no-items">No orders found</p>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+
+                                {% comment %}<div class="pagination">
+                                    <span class="step-links">
+                                        {% if page_obj.has_previous %}
+                                            <a href="
+
+                                                    {{ request.get_full_path }}{% if '?' in request.get_full_path %}&{% else %}?{% endif %}page=1">&laquo; first</a>
+                                            <a href="
+
+                                                    {{ request.get_full_path }}{% if '?' in request.get_full_path %}&{% else %}?{% endif %}page={{ page_obj.previous_page_number }}">previous</a>
+                                        {% endif %}
+                                        <span class="current">
+                                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                                        </span>
+                                        {% if page_obj.has_next %}
+                                            <a href="
+
+                                                    {{ request.get_full_path }}{% if '?' in request.get_full_path %}&{% else %}?{% endif %}page={{ page_obj.next_page_number }}">next</a>
+                                            <a href="
+
+                                                    {{ request.get_full_path }}{% if '?' in request.get_full_path %}&{% else %}?{% endif %}page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                                        {% endif %}
+                                    </span>
+                                </div>{% endcomment %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock main_content %}

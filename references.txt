@@ -1,0 +1,3 @@
+PASSWORD RESET
+https://www.ordinarycoders.com/blog/article/django-password-reset
+https://learndjango.com/tutorials/django-password-reset-tutorial

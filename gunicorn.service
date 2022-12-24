@@ -1,0 +1,12 @@
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/home/ubuntu/bukuuntuksemua
+ExecStart=/home/ubuntu/bukuuntuksemua/venv/bin/gunicorn --reload --access-logfile - -t 90 --workers 10 --bind unix:/home/ubuntu/bukuuntuksemua/bukuuntuksemua.sock bukuuntuksemua.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

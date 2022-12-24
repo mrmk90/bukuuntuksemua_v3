@@ -1,0 +1,2261 @@
+{% load static %}
+<!DOCTYPE html>
+<html
+        lang="en" dir="ltr">
+<head>
+    <title>BOCA: Book Marketplace</title>
+
+    <base href="{% url 'index' %}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" data-ca-mode="ultimate"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width"/>
+
+    <meta name="description"
+          content="Jimat &amp; berkualiti. Buku-buku hebat dari penerbit terkenal. Servis teratur, ada promosi diskaun istimewa dan tawaran pos percuma. Pelbagai kategori buku dalam bahasa Melayu &amp; Inggeris. "/>
+
+
+    <meta name="keywords"
+          content="kedai buku, buku online, kedai buku online, beli buku, buku terlaris, book marketplace, buku dubook, buku indie, buku novel, buku agama, buku kanak-kanak, buku bisnes, buku motivasi, buku pak latip, buku dr asri, buku uai, buku drama tv3, buku resipi, buku masakan, buku chef hanieliza, buku budak-budak, buku cerita, kitab agama, buku ustaz, buku tarbiah sentap, buku matluthfi, buku kuih kukus, buku hadis palsu, buku amalan 24 jam, buku hamka, buku jawi, tulisan jawi, buku yusuf al-qaradhawi, buku amran fans, komik-m, pesta buku, jualan buku, buku peperiksaan, buku upsr, buku pt3, buku spm, "/>
+
+    <link rel="canonical" href="https://bukuuntuksemua.com/"/>
+
+    <link href="https://boca-assets.s3-ap-southeast-1.amazonaws.com/BOCA_header.png" rel="shortcut icon"
+          type="image/png"/>
+
+
+    <link type="text/css" rel="stylesheet"
+          href="{% static 'css/standalone.2988f35d667321e77baf0addd79dca961624608279.css' %}"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'css/collectco_widget.min.css' %}"/>
+
+
+</head>
+
+<body>
+
+<style>
+    .bc-header > ul {
+        background-color: #e51824 !important;
+    }
+
+    .footer-stay-connected {
+        background-color: #e51824 !important;
+    }
+
+    .btn {
+        background-color: #e51824 !important;
+    }
+
+
+    element.style {
+        border: 4px solid #e51824 !important;
+        padding: 0.5em;
+        background-color: white;
+    }
+</style>
+
+<div class="ty-tygh  " id="tygh_container">
+
+    <div id="ajax_overlay" class="ty-ajax-overlay"></div>
+    <div id="ajax_loading_box" class="ty-ajax-loading-box"></div>
+    <div class="cm-notification-container notification-container">
+    </div>
+
+    <div class="ty-helper-container" id="tygh_main_container">
+
+
+        <div class="tygh-top-panel clearfix">
+            <div class="container-fluid  ">
+
+
+                <div class="row-fluid ">
+                    <div class="span16 top-links-grid">
+                        <div class=" ty-float-right">
+
+                            <div class="ty-dropdown-box" id="cart_status_7260">
+                                <div id="sw_dropdown_7260" class="ty-dropdown-box__title cm-combination">
+                                    <a id="top-cart" href="https://bookcafe.com.my/index.php?dispatch=checkout.cart">
+                                        {% if total_cartitem %}
+                                            <i class="ty-minicart__icon ty-icon-cart filled"></i>
+                                            <span class="ty-minicart-title ty-hand">{{ total_cartitem }}&nbsp;piece{{ total_cartitem | pluralize }} for&nbsp;<bdi>RM<span>58.00</span></bdi></span>
+                                            <i class="ty-icon-down-micro"></i>
+                                        {% else %}
+                                            <i class="ty-minicart__icon ty-icon-cart empty"></i>
+                                            <span class="ty-minicart-title empty-cart ty-hand">Cart is empty</span>
+                                            <i class="ty-icon-down-micro"></i>
+                                        {% endif %}
+                                    </a>
+                                </div>
+
+                                {% if total_cartitem == 0 %}
+                                <div id="dropdown_7260" class="cm-popup-box ty-dropdown-box__content hidden">
+                                    <div class="cm-cart-content cm-cart-content-thumb cm-cart-content-delete">
+                                        <div class="ty-cart-items">
+                                            <div class="ty-cart-items__empty ty-center">Cart is empty</div>
+                                        </div>
+
+                                        <div class="cm-cart-buttons ty-cart-content__buttons buttons-container hidden">
+                                            <div class="ty-float-left">
+                                                <a href="https://bookcafe.com.my/index.php?dispatch=checkout.cart"
+                                                   rel="nofollow" class="ty-btn ty-btn__secondary">View cart</a>
+                                            </div>
+                                            <div class="ty-float-right">
+                                                <a href="https://bookcafe.com.my/index.php?dispatch=checkout.checkout"
+                                                   rel="nofollow" class="ty-btn ty-btn__primary">Checkout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div id="dropdown_7260" class="cm-popup-box ty-dropdown-box__content hidden">
+                                    <div class="cm-cart-content cm-cart-content-thumb cm-cart-content-delete">
+                                        <div class="ty-cart-items">
+                                            <ul class="ty-cart-items__list">
+                                                <li class="ty-cart-items__list-item">
+                                                    <div class="ty-cart-items__list-item-image">
+                                                        <img class="ty-pict     cm-image"
+                                                             src="https://bookcafe.com.my/images/thumbnails/40/40/detailed/50/nasihat_buat_diri-380x588.png"
+                                                             alt="" title=""/>
+                                                    </div>
+                                                    <div class="ty-cart-items__list-item-desc">
+                                                        <a href="https://bookcafe.com.my/nasihat-buat-diri-c122-b77/">Nasihat Buat Diri (M10)</a>
+                                                        <p>
+                                                            <span>1</span><span>&nbsp;x&nbsp;</span>
+                                                            <bdi><span class="none">RM</span><span
+                                                                    id="sec_price_4088634445_7260"
+                                                                    class="none">10.00</span></bdi>
+                                                        </p>
+                                                    </div>
+                                                    <div class="ty-cart-items__list-item-tools cm-cart-item-delete">
+                                                        <a data-ca-dispatch="delete_cart_item"
+                                                           href="https://bookcafe.com.my/index.php?dispatch=checkout.delete.from_status&amp;cart_id=4088634445&amp;redirect_url=index.php"
+                                                           class="cm-ajax cm-ajax-full-render"
+                                                           data-ca-target-id="cart_status*"><i title="Remove"
+                                                                                               class="ty-icon-cancel-circle"></i></a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="cm-cart-buttons ty-cart-content__buttons buttons-container full-cart">
+                                            <div class="ty-float-left">
+                                                <a href="https://bookcafe.com.my/index.php?dispatch=checkout.cart"
+                                                   rel="nofollow" class="ty-btn ty-btn__secondary">View cart</a>
+                                            </div>
+                                            <div class="ty-float-right">
+                                                <a href="https://bookcafe.com.my/index.php?dispatch=checkout.checkout"
+                                                   rel="nofollow" class="ty-btn ty-btn__primary">Checkout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                        <div class="ty-dropdown-box  top-my-account ty-float-right">
+                            <div id="sw_dropdown_7261" class="ty-dropdown-box__title cm-combination unlogged">
+
+                                <a class="ty-account-info__title"
+                                   href="">
+                                    <i class="ty-icon-user"></i>&nbsp;
+                                    <span class="ty-account-info__title-txt">My Account</span>
+                                    <i class="ty-icon-down-micro ty-account-info__user-arrow"></i>
+                                </a>
+
+
+                            </div>
+                            <div id="dropdown_7261" class="cm-popup-box ty-dropdown-box__content hidden">
+
+
+                                <div id="account_info_7261">
+                                    <ul class="ty-account-info">
+
+                                        {% if user.is_authenticated %}
+                                            <li class="ty-account-info__item ty-dropdown-box__item"><a
+                                                    class="ty-btn ty-btn__primary"
+                                                    href="{% url 'logout' %}"
+                                                    rel="nofollow">Logout</a></li>
+                                        {% endif %}
+
+                                        <li class="ty-account-info__item ty-dropdown-box__item"><a
+                                                class="ty-account-info__a underlined"
+                                                href="https://bookcafe.com.my/index.php?dispatch=orders.search"
+                                                rel="nofollow">Orders</a></li>
+
+                                        <li class="ty-account-info__item ty-dropdown-box__item"><a
+                                                class="ty-account-info__a"
+                                                href="https://bookcafe.com.my/index.php?dispatch=wishlist.view"
+                                                rel="nofollow">Wish list</a></li>
+                                    </ul>
+
+
+                                    <div class="ty-account-info__buttons buttons-container">
+                                        {% if user.is_authenticated %}
+                                        {% else %}
+                                            <a href="{% url 'login' %}" class="ty-btn ty-btn__secondary">SIGN IN</a>
+                                            <a href="{% url 'django_registration_register' %}"
+                                               class="ty-btn ty-btn__primary">REGISTER NOW</a>
+                                            <div id="login_block7261" class="hidden" title="SIGN IN">
+                                                <div class="ty-login-popup">
+
+
+                                                    <form name="popup7261_form" action="https://bookcafe.com.my/"
+                                                          method="post">
+                                                        <input type="hidden" name="return_url" value="index.php"/>
+                                                        <input type="hidden" name="redirect_url" value="index.php"/>
+
+                                                        <div class="ty-control-group">
+                                                            <label for="login_popup7261"
+                                                                   class="ty-login__filed-label ty-control-group__label cm-required cm-trim cm-email">Email</label>
+                                                            <input type="text" id="login_popup7261" name="user_login"
+                                                                   size="30" value="" class="ty-login__input cm-focus"/>
+                                                        </div>
+
+                                                        <div class="ty-control-group ty-password-forgot">
+                                                            <label for="psw_popup7261"
+                                                                   class="ty-login__filed-label ty-control-group__label ty-password-forgot__label cm-required">Password</label><a
+                                                                href="https://bookcafe.com.my/index.php?dispatch=auth.recover_password"
+                                                                class="ty-password-forgot__a" tabindex="5">Forgot
+                                                            password?</a>
+                                                            <input type="password" id="psw_popup7261" name="password"
+                                                                   size="30" value="" class="ty-login__input"
+                                                                   maxlength="32"/>
+                                                        </div>
+
+                                                        <div class="ty-login-reglink ty-center">
+                                                            <a class="ty-login-reglink__a"
+                                                               href="https://bookcafe.com.my/index.php?dispatch=profiles.add"
+                                                               rel="nofollow">Register for a new account</a>
+                                                        </div>
+
+
+                                                        <div class="buttons-container clearfix">
+                                                            <div class="ty-float-right">
+
+
+                                                                <button class="ty-btn__login ty-btn__secondary ty-btn"
+                                                                        type="submit" name="dispatch[auth.login]">SIGN
+                                                                    IN
+                                                                </button>
+
+
+                                                            </div>
+                                                            <div class="ty-login__remember-me">
+                                                                <label for="remember_me_popup7261"
+                                                                       class="ty-login__remember-me-label"><input
+                                                                        class="checkbox" type="checkbox"
+                                                                        name="remember_me"
+                                                                        id="remember_me_popup7261" value="Y"/>Remember
+                                                                    me</label>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <input type="hidden" name="security_hash"
+                                                               class="cm-no-hide-input"
+                                                               value="c0f33b111e980816e68b52e63ec193d2"/></form>
+
+
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <!--account_info_7261--></div>
+                                        {% endif %}
+
+                            </div>
+                        </div>
+                        <div class=" top-quick-links ty-float-right">
+
+
+                            <div class="ty-text-links-wrapper">
+        <span id="sw_text_links_7262" class="ty-text-links-btn cm-combination visible-phone">
+            <i class="ty-icon-short-list"></i>
+            <i class="ty-icon-down-micro ty-text-links-btn__arrow"></i>
+        </span>
+
+                                <ul id="text_links_7262" class="ty-text-links cm-popup-box ty-text-links_show_inline">
+                                    <li class="ty-text-links__item ty-level-0 ty-text-links__active">
+                                        <a class="ty-text-links__a" href="{% url 'index' %}">HOME</a>
+                                    </li>
+                                    <li class="ty-text-links__item ty-level-0">
+                                        <a class="ty-text-links__a" href="{% url 'index' %}">SHIPPING
+                                            INFO</a>
+                                    </li>
+                                    <li class="ty-text-links__item ty-level-0">
+                                        <a class="ty-text-links__a" href="{% url 'index' %}">SIAPA
+                                            KAMI?</a>
+                                    </li>
+                                    <li class="ty-text-links__item ty-level-0">
+                                        <a class="ty-text-links__a" href="{% url 'index' %}">CARA
+                                            BELI</a>
+                                    </li>
+                                    <li class="ty-text-links__item ty-level-0">
+                                        <a class="ty-text-links__a" href="{% url 'index' %}">CARA
+                                            BAYAR</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tygh-header clearfix">
+            <div class="container-fluid  header-grid">
+
+
+                <div class="row-fluid ">
+                    <div class="span16 ">
+                        <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                             data-ca-live-editor-object-type=""><p></p>
+                        </div>
+                        {% if user.is_authenticated %}
+                            <div class="welcome">Selamat Datang, {{ user.username }}.
+                                {% if user.is_staff %}
+                                    | <a href="{% url 'admin:index' %}">Admin Dashboard</a>
+                                {% endif %}
+                            </div>
+                        {% else %}
+                            <div class="welcome">Selamat Datang, Pelanggan Yang Dihormati. (<a
+                                    href="{% url 'login' %}">SIGN IN</a> | <a
+                                    href="{% url 'django_registration_register' %}">Register</a>)
+                            </div>
+                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                 data-ca-live-editor-object-type=""><br>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+
+                <div class="row-fluid ">
+                    <div class="span4 ">
+                        <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                             data-ca-live-editor-object-type=""><p></p>
+                            <div><a href="{% url 'index' %}"><img
+                                    style="display: block; margin-left: auto; margin-right: auto;"
+                                    src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_mart.png"
+                                    alt="" width="200" height="100"/></a></div>
+                            <div></div>
+                        </div>
+                    </div>
+
+
+                    <div class="span6 ">
+                        <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                             data-ca-live-editor-object-type=""><p></p></div>
+                    </div>
+
+
+                    <div class="span6 ">
+                        <div class="ty-search-block">
+                            <form action="https://bookcafe.com.my/" name="search_form" method="get">
+                                <input type="hidden" name="subcats" value="Y"/>
+                                <input type="hidden" name="pcode_from_q" value="Y"/>
+                                <input type="hidden" name="pshort" value="Y"/>
+                                <input type="hidden" name="pfull" value="Y"/>
+                                <input type="hidden" name="pname" value="Y"/>
+                                <input type="hidden" name="pkeywords" value="Y"/>
+                                <input type="hidden" name="search_performed" value="Y"/>
+
+
+                                <input type="hidden" name="pshort" value="N"/>
+                                <input type="hidden" name="pfull" value="N"/>
+                                <input type="hidden" name="pname" value="Y"/>
+                                <input type="hidden" name="pkeywords" value="Y"/>
+                                <input type="hidden" name="pcode" value="Y"/>
+                                <input type="hidden" name="match" value="all"/>
+
+                                <input type="text" name="q" value="" id="search_input"
+                                       title="Cari buku apa? Tuliskan tajuk buku di sini :)"
+                                       class="ty-search-block__input cm-hint"/>
+                                <button title="Search" class="ty-search-magnifier" type="submit"><i
+                                        class="ty-icon-search"></i></button>
+                                <input type="hidden" name="dispatch" value="products.search"/>
+
+                                <input type="hidden" name="security_hash" class="cm-no-hide-input"
+                                       value="c0f33b111e980816e68b52e63ec193d2"/></form>
+                        </div>
+                        <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                             data-ca-live-editor-object-type=""><p></p></div>
+                    </div>
+                </div>
+
+
+                <div class="row-fluid ">
+                    <div class="span16 ">
+                        <div class=" bc-header">
+
+
+                            <ul class="ty-menu__items cm-responsive-menu">
+
+                                <li class="ty-menu__item ty-menu__menu-btn visible-phone">
+                                    <a class="ty-menu__item-link">
+                                        <i class="ty-icon-short-list"></i>
+
+                                        <span>PILIH KATEGORI PRODUK</span>
+                                    </a>
+                                </li>
+
+
+                                <li class="ty-menu__item cm-menu-item-responsive">
+                                    <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                        <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                        <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                    </a>
+                                    <a href="https://bookcafe.com.my/semua-buku-bookcafe/" class="ty-menu__item-link">
+                                        BUKU
+                                    </a>
+
+                                    <div class="ty-menu__submenu" id="topmenu_18_a4629de496420a86200f7019bbd569e0">
+
+                                        <ul class="ty-menu__submenu-items cm-responsive-menu-submenu">
+                                            <li class="ty-top-mine__submenu-col">
+                                                <div class="ty-menu__submenu-item-header">
+                                                    <a href="https://bookcafe.com.my/penerbit-buku/"
+                                                       class="ty-menu__submenu-link">PENERBIT</a>
+                                                </div>
+                                                <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                                    <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                                    <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                                </a>
+                                                <div class="ty-menu__submenu">
+                                                    <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/abim-press/"
+                                                               class="ty-menu__submenu-link">FIXI</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/abs-en-4/"
+                                                               class="ty-menu__submenu-link">Iman Publication</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/abs-media-en-5/"
+                                                               class="ty-menu__submenu-link">Patriot</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/abu-amir-el-hafizi-en-2/"
+                                                               class="ty-menu__submenu-link">PTS</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/advantage-quest-en/"
+                                                               class="ty-menu__submenu-link">Terus Tumbuh</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item ty-menu__submenu-alt-link">
+                                                            <a href="https://bookcafe.com.my/penerbit-buku/"
+                                                               class="ty-menu__submenu-link"><font color="red">Click
+                                                                Here to View All <i class="text-arrow">&rarr;</i></font></a>
+                                                        </li>
+
+
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                           
+                                            <li class="ty-top-mine__submenu-col">
+                                                <div class="ty-menu__submenu-item-header">
+                                                    <a href="https://bookcafe.com.my/buku-agama-en-7/"
+                                                       class="ty-menu__submenu-link">AGAMA</a>
+                                                </div>
+                                                <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                                    <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                                    <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                                </a>
+                                                <div class="ty-menu__submenu">
+                                                    <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/200-tip/"
+                                                               class="ty-menu__submenu-link">200 Tip Gaya Rasulullah</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/akidah-en-2/"
+                                                               class="ty-menu__submenu-link">Akidah</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/al-quran-and-hadis-en-3/"
+                                                               class="ty-menu__submenu-link">Al-Quran &amp; Hadis</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/amalan-harian-en-2/"
+                                                               class="ty-menu__submenu-link">Amalan Harian</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/buku-bersedia-untuk-mati/"
+                                                               class="ty-menu__submenu-link">Bersedia untuk Mati</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item ty-menu__submenu-alt-link">
+                                                            <a href="https://bookcafe.com.my/buku-agama-en-7/"
+                                                               class="ty-menu__submenu-link"><font color="red">Click
+                                                                Here to View All <i class="text-arrow">&rarr;</i></font></a>
+                                                        </li>
+
+
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+                                            <li class="ty-top-mine__submenu-col">
+                                                <div class="ty-menu__submenu-item-header">
+                                                    <a href="https://bookcafe.com.my/bisnes-and-non-fiksyen-en-3/"
+                                                       class="ty-menu__submenu-link">BISNES &amp; NON-FIKSYEN</a>
+                                                </div>
+                                                <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                                    <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                                    <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                                </a>
+                                                <div class="ty-menu__submenu">
+                                                    <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/hartanah-en-4/"
+                                                               class="ty-menu__submenu-link">Hartanah</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/keusahawanan-en-3/"
+                                                               class="ty-menu__submenu-link">Keusahawanan</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/marketing-and-sales-en-3/"
+                                                               class="ty-menu__submenu-link">Marketing &amp; Sales</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/pelaburan-en-5/"
+                                                               class="ty-menu__submenu-link">Pelaburan</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/pengurusan-en-4/"
+                                                               class="ty-menu__submenu-link">Pengurusan</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item ty-menu__submenu-alt-link">
+                                                            <a href="https://bookcafe.com.my/bisnes-and-non-fiksyen-en-3/"
+                                                               class="ty-menu__submenu-link"><font color="red">Click
+                                                                Here to View All <i class="text-arrow">&rarr;</i></font></a>
+                                                        </li>
+
+
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="ty-top-mine__submenu-col">
+                                                <div class="ty-menu__submenu-item-header">
+                                                    <a href="https://bookcafe.com.my/english-book-en-8/"
+                                                       class="ty-menu__submenu-link">ENGLISH BOOK</a>
+                                                </div>
+                                                <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                                    <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                                    <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                                </a>
+                                                <div class="ty-menu__submenu">
+                                                    <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/activity-book/"
+                                                               class="ty-menu__submenu-link">Activity Book</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/animal-shape-book-en-4/"
+                                                               class="ty-menu__submenu-link">Animal Shape Book</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/board-book/"
+                                                               class="ty-menu__submenu-link">Board Book</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/business-and-economics/"
+                                                               class="ty-menu__submenu-link">Business &amp;
+                                                                Economics</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/children-graphic-novel-and-comics/"
+                                                               class="ty-menu__submenu-link">Children Graphic Novel
+                                                                &amp; Comics</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item ty-menu__submenu-alt-link">
+                                                            <a href="https://bookcafe.com.my/english-book-en-8/"
+                                                               class="ty-menu__submenu-link"><font color="red">Click
+                                                                Here to View All <i class="text-arrow">&rarr;</i></font></a>
+                                                        </li>
+
+
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="ty-top-mine__submenu-col">
+                                                <div class="ty-menu__submenu-item-header">
+                                                    <a href="https://bookcafe.com.my/indie-en-11/"
+                                                       class="ty-menu__submenu-link">INDIE</a>
+                                                </div>
+                                                <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                                    <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                                    <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                                </a>
+                                                <div class="ty-menu__submenu">
+                                                    <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/antologi-en-4/"
+                                                               class="ty-menu__submenu-link">Antologi</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/grafixi-en-9/"
+                                                               class="ty-menu__submenu-link">Grafixi</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/islamik-en-4/"
+                                                               class="ty-menu__submenu-link">Islamik</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/maple-comics-en-5/"
+                                                               class="ty-menu__submenu-link">Maple Comics</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/novel-en-24/"
+                                                               class="ty-menu__submenu-link">Novel</a>
+                                                        </li>
+
+
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+                                            <li class="ty-top-mine__submenu-col">
+                                                <div class="ty-menu__submenu-item-header">
+                                                    <a href="https://bookcafe.com.my/buku-kanak-kanak-remaja/"
+                                                       class="ty-menu__submenu-link">KANAK-KANAK &amp; REMAJA</a>
+                                                </div>
+                                                <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                                    <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                                    <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                                </a>
+                                                <div class="ty-menu__submenu">
+                                                    <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/augmented-reality-3d-en-3/"
+                                                               class="ty-menu__submenu-link">Augmented Reality (3D)</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/boboiboy-en-12/"
+                                                               class="ty-menu__submenu-link">BOBOIBOY</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/demam-hallyu-en-6/"
+                                                               class="ty-menu__submenu-link">Demam Hallyu!</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/didi-and-friends-en-5/"
+                                                               class="ty-menu__submenu-link">Didi &amp; Friends</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/disney-princess-fantasy-acitivities-books-series-en-4/"
+                                                               class="ty-menu__submenu-link">Disney Princess Fantasy
+                                                                Acitivities Books Series</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item ty-menu__submenu-alt-link">
+                                                            <a href="https://bookcafe.com.my/buku-kanak-kanak-remaja/"
+                                                               class="ty-menu__submenu-link"><font color="red">Click
+                                                                Here to View All <i class="text-arrow">&rarr;</i></font></a>
+                                                        </li>
+
+
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                           
+                                            <li class="ty-top-mine__submenu-col">
+                                                <div class="ty-menu__submenu-item-header">
+                                                    <a href="https://bookcafe.com.my/novel-and-fiksyen-en-5/"
+                                                       class="ty-menu__submenu-link">NOVEL &amp; FIKSYEN</a>
+                                                </div>
+                                                <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                                    <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                                    <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                                </a>
+                                                <div class="ty-menu__submenu">
+                                                    <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/fantasi-and-sai-fai-en-4/"
+                                                               class="ty-menu__submenu-link">Fantasi &amp; Sai-Fai</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/novel-and-sastera-en-5/"
+                                                               class="ty-menu__submenu-link">Novel &amp; Sastera</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/novel-adaptasi-drama-and-filem-en-7/"
+                                                               class="ty-menu__submenu-link">Novel Adaptasi Drama &amp;
+                                                                Filem</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/novel-cinta-bookcafe/"
+                                                               class="ty-menu__submenu-link">Novel Cinta</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/novel-sejarah-en-8/"
+                                                               class="ty-menu__submenu-link">Novel Sejarah</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item ty-menu__submenu-alt-link">
+                                                            <a href="https://bookcafe.com.my/novel-and-fiksyen-en-5/"
+                                                               class="ty-menu__submenu-link"><font color="red">Click
+                                                                Here to View All <i class="text-arrow">&rarr;</i></font></a>
+                                                        </li>
+
+
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            
+                                            
+
+                                            <li class="ty-top-mine__submenu-col">
+                                                <div class="ty-menu__submenu-item-header">
+                                                    <a href="https://bookcafe.com.my/rujukan-sekolah-and-ipt-en-3/"
+                                                       class="ty-menu__submenu-link">RUJUKAN SEKOLAH &amp; IPT</a>
+                                                </div>
+                                                <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                                    <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                                    <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                                </a>
+                                                <div class="ty-menu__submenu">
+                                                    <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/bestari-karangkraf-en-9/"
+                                                               class="ty-menu__submenu-link">Bestari Karangkraf</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/dewan-bahasa-and-pustaka-dbp-en-6/"
+                                                               class="ty-menu__submenu-link">Dewan Bahasa &amp; Pustaka
+                                                                (DBP)</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/kamus-en-8/"
+                                                               class="ty-menu__submenu-link">Kamus</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/orbit-buku-en-10/"
+                                                               class="ty-menu__submenu-link">Orbit Buku</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/oxford-fajar-oxford/"
+                                                               class="ty-menu__submenu-link">Oxford Fajar (OXFORD)</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item ty-menu__submenu-alt-link">
+                                                            <a href="https://bookcafe.com.my/rujukan-sekolah-and-ipt-en-3/"
+                                                               class="ty-menu__submenu-link"><font color="red">Click
+                                                                Here to View All <i class="text-arrow">&rarr;</i></font></a>
+                                                        </li>
+
+
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+                                            <li class="ty-top-mine__submenu-col">
+                                                <div class="ty-menu__submenu-item-header">
+                                                    <a href="https://bookcafe.com.my/umum-en-33/"
+                                                       class="ty-menu__submenu-link">UMUM</a>
+                                                </div>
+                                                <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                                    <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                                    <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                                </a>
+                                                <div class="ty-menu__submenu">
+                                                    <ul class="ty-menu__submenu-list cm-responsive-menu-submenu">
+
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/akta-and-undang-undang-en-3/"
+                                                               class="ty-menu__submenu-link">Akta &amp;
+                                                                Undang-Undang</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/buku-sejarah-en-4/"
+                                                               class="ty-menu__submenu-link">Buku Sejarah</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/buku-terjemahan-en-6/"
+                                                               class="ty-menu__submenu-link">Buku Terjemahan</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/cinta-and-perkahwinan-en-4/"
+                                                               class="ty-menu__submenu-link">Cinta &amp; Perkahwinan</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item">
+                                                            <a href="https://bookcafe.com.my/fotografi-and-komputer-en-5/"
+                                                               class="ty-menu__submenu-link">Fotografi &amp;
+                                                                Komputer</a>
+                                                        </li>
+                                                        <li class="ty-menu__submenu-item ty-menu__submenu-alt-link">
+                                                            <a href="https://bookcafe.com.my/umum-en-33/"
+                                                               class="ty-menu__submenu-link"><font color="red">Click
+                                                                Here to View All <i class="text-arrow">&rarr;</i></font></a>
+                                                        </li>
+
+
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                           
+                                            
+
+                                        </ul>
+
+
+                                    </div>
+
+                                </li>
+
+                                <li class="ty-menu__item ty-menu__item-nodrop">
+                                    <a href="https://bookcafe.com.my/komikm/" class="ty-menu__item-link">
+                                        NOVEL
+                                    </a>
+                                </li>
+
+                                <li class="ty-menu__item ty-menu__item-nodrop">
+                                    <a href="https://bookcafe.com.my/augmented-reality-ar/" class="ty-menu__item-link">
+                                        KOMIK
+                                    </a>
+                                </li>
+
+                                <li class="ty-menu__item cm-menu-item-responsive">
+                                    <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                        <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                        <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                    </a>
+                                    <a href="https://bookcafe.com.my/majalah-en-2/" class="ty-menu__item-link">
+                                        AKADEMIK
+                                    </a>
+
+
+                                    <div class="ty-menu__submenu">
+                                        <ul class="ty-menu__submenu-items ty-menu__submenu-items-simple cm-responsive-menu-submenu">
+
+
+                                            <li class="ty-menu__submenu-item">
+                                                <a class="ty-menu__submenu-link"
+                                                   href="https://bookcafe.com.my/informasi-tempur-en-2/">Universiti</a>
+                                            </li>
+                                            <li class="ty-menu__submenu-item">
+                                                <a class="ty-menu__submenu-link"
+                                                   href="https://bookcafe.com.my/ratu-sehari/">Sekolah</a>
+                                            </li>
+
+
+                                        </ul>
+                                    </div>
+
+                                </li>
+
+                                <li class="ty-menu__item cm-menu-item-responsive">
+                                    <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                        <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                        <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                    </a>
+                                    <a href="https://shopee.com.my/shop/161916187/search?shopCollection=106099260" target="_blank" class="ty-menu__item-link">
+                                        MERCHANDISE
+                                    </a>
+
+
+                                    <div class="ty-menu__submenu">
+                                        <ul class="ty-menu__submenu-items ty-menu__submenu-items-simple cm-responsive-menu-submenu">
+
+
+                                            <li class="ty-menu__submenu-item">
+                                                <a class="ty-menu__submenu-link"
+                                                   href="https://shopee.com.my/shop/161916187/search?shopCollection=106099260">T-Shirt</a>
+                                            </li>
+                                            <li class="ty-menu__submenu-item">
+                                                <a class="ty-menu__submenu-link"
+                                                   href="https://shopee.com.my/shop/161916187/search?shopCollection=106099260">Topi</a>
+                                            </li>
+                                            <li class="ty-menu__submenu-item">
+                                                <a class="ty-menu__submenu-link"
+                                                   href="https://shopee.com.my/shop/161916187/search?shopCollection=106099260">Mug Buku</a>
+                                            </li>
+                                            <li class="ty-menu__submenu-item">
+                                                <a class="ty-menu__submenu-link"
+                                                   href="https://shopee.com.my/shop/161916187/search?shopCollection=106099260">Tote Bag</a>
+                                            </li>
+                                            
+
+
+                                        </ul>
+                                    </div>
+
+                                </li>
+
+                                <li class="ty-menu__item ty-menu__item-nodrop">
+                                    <a href="https://bookcafe.com.my/program-wakaf/" class="ty-menu__item-link">
+                                        AGAMA
+                                    </a>
+                                </li>
+
+                                <li class="ty-menu__item ty-menu__item-nodrop">
+                                    <a href="https://bookcafe.com.my/kombo-buku/" class="ty-menu__item-link">
+                                        KOMBO
+                                    </a>
+                                </li>
+
+                                <li class="ty-menu__item ty-menu__item-nodrop">
+                                    <a href="https://bookcafe.com.my/bantal-hotel/" class="ty-menu__item-link">
+                                        BISNES
+                                    </a>
+                                </li>
+
+                                <li class="ty-menu__item cm-menu-item-responsive">
+                                    <a class="ty-menu__item-toggle visible-phone cm-responsive-menu-toggle">
+                                        <i class="ty-menu__icon-open ty-icon-down-open"></i>
+                                        <i class="ty-menu__icon-hide ty-icon-up-open"></i>
+                                    </a>
+                                    <a href="https://mukasurat.my/" target="_blank"
+                                       class="ty-menu__item-link">
+                                        LAIN-LAIN
+                                    </a>
+
+
+                                    <div class="ty-menu__submenu">
+                                        <ul class="ty-menu__submenu-items ty-menu__submenu-items-simple cm-responsive-menu-submenu">
+
+
+                                            <li class="ty-menu__submenu-item">
+                                                <a class="ty-menu__submenu-link"
+                                                   href="https://mukasurat.my/">Blog Buku</a>
+                                            </li>
+                                            <li class="ty-menu__submenu-item">
+                                                <a class="ty-menu__submenu-link"
+                                                   href="https://bookcapital.my/">eBook</a>
+                                            </li>
+                                            <li class="ty-menu__submenu-item">
+                                                <a class="ty-menu__submenu-link"
+                                                   href="https://textbook.moe.gov.my/">Buku Teks KPM</a>
+                                            </li>
+                                            <li class="ty-menu__submenu-item">
+                                                <a class="ty-menu__submenu-link"
+                                                   href="https://www.youtube.com/channel/UCLYBA35KX7ty44puj9v2cMg">Media PKB</a>
+                                            </li>
+
+
+                                        </ul>
+                                    </div>
+
+                                </li>
+
+
+                            </ul>
+
+
+                        </div>
+
+                        <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                             data-ca-live-editor-object-type=""><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tygh-content clearfix">
+            <div class="container-fluid  ">
+
+
+                <div class="row-fluid ">
+                    <div class="span16 ">
+                        <div class="row-fluid ">
+                            <div class="span16 ">
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type=""><p></p></div>
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type="">
+                                    <style type="text/css">
+                                        iframe {
+                                            width: 100%;
+                                            height: 50px;
+                                            border: none;
+                                            overflow: auto;
+                                        }
+
+                                        @media screen and (max-width: 1166px) {
+                                            iframe {
+                                                width: 100%;
+                                                height: 50px;
+                                            }
+
+                                        }
+
+                                        @media screen and (max-width: 1024px) {
+                                            iframe {
+                                                width: 100%;
+                                                height: 0px;
+                                            }
+                                        }
+
+                                        @media screen and (max-width: 980px) {
+                                            iframe {
+                                                width: 100%;
+                                                height: 0px;
+                                            }
+                                        }
+
+                                        @media screen and (max-width: 767px) {
+                                            iframe {
+                                                width: 100%;
+                                                height: 0px;
+                                            }
+                                        }
+
+                                        @media screen and (max-width: 599px) {
+                                            iframe {
+                                                width: 100%;
+                                                height: 0px;
+                                            }
+                                        }
+
+                                        @media screen and (max-width: 479px) {
+                                            iframe {
+                                                width: 100%;
+                                                height: 0px;
+                                            }
+                                        }
+
+                                        @media screen and (max-width: 374px) {
+                                            iframe {
+                                                width: 100%;
+                                                height: 0px;
+                                            }
+
+                                        }
+                                    </style>
+
+                                    <iframe name="BC Stats" src="{% url 'stats' %}" scrolling="no">
+                                    </iframe>
+
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p></p></div>
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type="">
+                                        <div style="border: 3px dotted red; padding: 0.5em;">
+                                            <p style="text-align: center;"><span
+                                                    style="font-size: 14pt; background-color: #ffff00;"><strong><span
+                                                    style="color: #ff0000;"><span style="color: #000000;">HARAP MAAF. LAMAN SESAWANG KAMI SEDANG DISELENGGARA</span></span></strong></span>
+                                            </p>
+                                            <p style="text-align: center;"><span style="font-size: 12pt;">Semua order anda <span
+                                                    style="color: #ff0000;"><strong>TIDAK AKAN</strong></span> diproses &amp; dihantar. </span>
+                                            </p>
+                                            <p style="text-align: center;"><span style="font-size: 12pt;"><span>Kami memohon</span> <span
+                                                    style="color: #000000;"><strong>MAAF</strong></span> atas kesulitan yang dihadapi. </span>
+                                            </p>
+                                            <p style="text-align: center;"><span style="font-size: 12pt;">Tarikh mula operasi akan dimaklumkan dalam masa yang terdekat.</span>
+                                            </p>
+                                        </div>
+                                        <p></p></div>
+                                </div>
+                            </div>
+
+
+                            <div class="row-fluid ">
+                                <div class="span4 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p><a
+                                            href="https://bukuuntuksemua.com/shop/" target="_blank"><img
+                                            style="display: block; margin-left: auto; margin-right: auto;"
+                                            src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_button_600x150_01.png"
+                                            alt="" width="600" height="150"/></a></p></div>
+                                </div>
+
+
+                                <div class="span4 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p><a
+                                            href="https://bukuuntuksemua.com/shop/" target="_blank"><img
+                                            style="display: block; margin-left: auto; margin-right: auto;"
+                                            src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_button_600x150_02.png"
+                                            alt="" width="600" height="150"/></a></p></div>
+                                </div>
+
+
+                                <div class="span4 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p><a href="https://wasap.my/60182036330"
+                                                                                  target="_blank"><img
+                                            style="display: block; margin-left: auto; margin-right: auto;"
+                                            src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_button_600x150_03.png"
+                                            alt="" width="600" height="150"/></a></p></div>
+                                </div>
+
+
+                                <div class="span4 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p><a href="mailto:order@boca.my"
+                                                                                  target="_blank"><img
+                                            style="display: block; margin-left: auto; margin-right: auto;"
+                                            src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_button_600x150_04.png"
+                                            alt="" width="600" height="150"/></a></p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row-fluid ">
+                        <div class="span16 ">
+                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                 data-ca-live-editor-object-type=""><p></p></div>
+                        </div>
+                    </div>
+
+
+                    <div class="row-fluid ">
+                        <div class="span16 ">
+                            <div class="row-fluid ">
+                                <div class="span16 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><a
+                                            href="https://kotabuku.my/"><img
+                                            src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x300_01.png"
+                                            alt="" width="1200" height="300"/></a></div>
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p><a
+                                            href="https://bookcafe.com.my/dudukrumahbacabuku/"><img
+                                            src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x600_01.png"
+                                            alt="" width="1200" height="600"/></a></p></div>
+                                </div>
+                            </div>
+
+
+                            <div class="row-fluid ">
+                                <div class="span8 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p><a
+                                            href="https://bookcafe.com.my/buku-lelong-diskaun-50" target="_blank"><img
+                                            src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x600_02.png"
+                                            alt="" width="1200" height="600"/></a></p></div>
+                                </div>
+
+
+                                <div class="span8 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p><a
+                                            href="https://bookcafe.com.my/diskaun-15-2021-en" target="_blank"><img
+                                            src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x600_03.png"
+                                            alt="" width="1200" height="600"/></a></p></div>
+                                </div>
+                            </div>
+
+
+                            <div class="row-fluid ">
+                                <div class="span8 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p><a
+                                            href="https://bookcafe.com.my/ketua-keluarga" target="_blank"><img
+                                            src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x600_04.png"
+                                            alt="" width="1200" height="600"/></a></p></div>
+                                </div>
+
+
+                                <div class="span8 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p><a
+                                            href="https://bookcafe.com.my/buatmu-muslimah" target="_blank"><img
+                                            src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x600_05.png"
+                                            alt="" width="1200" height="600"/></a></p></div>
+                                </div>
+                            </div>
+
+
+                            <div class="row-fluid ">
+                                <div class="span8 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p><a
+                                            href="https://bookcafe.com.my/buku-kanak-kanak-remaja/" target="_blank"><img
+                                            src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x600_06.png"
+                                            alt="" width="1200" height="600"/></a></p></div>
+                                </div>
+
+
+                                <div class="span8 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p><a
+                                            href="https://bookcafe.com.my/keluarga-membaca" target="_blank"><img
+                                            src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x600_12.png"
+                                            alt="" width="1200" height="600"/></a></p></div>
+                                </div>
+                            </div>
+
+
+                            <div class="row-fluid ">
+                                <div class="span16 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type="">
+                                        <div><a href="https://bookcafe.com.my/haji-and-umrah-en-2/" target="_blank"><img
+                                                src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x300_02.png"
+                                                alt="" width="1200" height="300"/></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row-fluid " style="display: none;">
+                        <div class="span16 ">
+                            <div class="row-fluid ">
+                                <div class="span4 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p><a
+                                            href="https://bookcafe.com.my/solat-and-doa" target="_blank"><img
+                                            src="http://bookcafe.com.my/images/companies/1/Duduk%20Rumah/Solat%26Doa%20(2).png?1623394675196"
+                                            alt="" width="1200" height="600"/></a></p></div>
+                                </div>
+
+
+                                <div class="span4 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p><a
+                                            href="https://bookcafe.com.my/set-100-muslimah/" target="_blank"><img
+                                            src="http://bookcafe.com.my/images/companies/1/Duduk%20Rumah/100%25%20Muslimah%20(2).png?1623394714538"
+                                            alt="" width="1200" height="600"/></a></p></div>
+                                </div>
+
+
+                                <div class="span4 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p><a
+                                            href="https://bookcafe.com.my/buku-tafsir"
+                                            target="_blank"><img
+                                            src="http://bookcafe.com.my/images/companies/1/Duduk%20Rumah/Al-Quran%20%26%20Tafsir.png?1623383414513"
+                                            alt="" width="1200" height="600"/></a></p></div>
+                                </div>
+
+
+                                <div class="span4 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p><a
+                                            href="https://bookcafe.com.my/set-tafsir-al-quran-tuan-guru-nik-abdul-aziz-7-buku/"
+                                            target="_blank"><img
+                                            src="http://bookcafe.com.my/images/companies/1/Duduk%20Rumah/TGNA%20(2).png?1623394751474"
+                                            alt="" width="1200" height="600"/></a></p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row-fluid ">
+                        <div class="span16 ">
+                            <div class="row-fluid ">
+                                <div class="span16 ">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type=""><p style="text-align: center;"><a
+                                            href="https://textbook.moe.gov.my/login" target="_blank"><img
+                                            src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x300_03.png"
+                                            alt="" width="1200" height="300"/></a></p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row-fluid ">
+                        <div class="span16 ">
+                            <div class="ty-mainbox-container clearfix homepage-hotdeals">
+
+                                <h1 class="ty-mainbox-title">
+                                    PRODUK TERBARU
+                                </h1>
+
+
+                                <div class="ty-mainbox-body">
+                                    <div id="scroll_list_191" class="owl-carousel ty-scroller-list">
+
+                                        {% for book in books %}
+                                            <div class="ty-scroller-list__item">
+                                                <div class="ty-scroller-list__img-block">
+                                                    <a href="{% url 'book-detail' pk=book.id %}">
+                                                        <img
+                                                                class="ty-pict   lazyOwl  cm-image"
+                                                                data-src="{% if book.image %}{{ book.image.url }}{% else %}#{% endif %}"
+                                                                alt="" title=""/>
+                                                    </a>
+                                                </div>
+                                                <div class="ty-scroller-list__description">
+                                                    <div class="ty-simple-list clearfix">
+                                                        <form action="" method="post"
+                                                              name="product_form_192000scr_19200018314"
+                                                              enctype="multipart/form-data"
+                                                              class="cm-disable-empty-files  cm-ajax cm-ajax-full-render cm-ajax-status-middle ">
+                                                            <input type="hidden" name="result_ids"
+                                                                   value="cart_status*,wish_list*,checkout*,account_info*"/>
+                                                            <input type="hidden" name="redirect_url" value="index.php"/>
+                                                            <input type="hidden"
+                                                                   name="product_data[scr_19200018314][product_id]"
+                                                                   value="18314"/>
+
+
+                                                            <a href="{% url 'book-detail' pk=book.id %}"
+                                                               class="product-title"
+                                                               title="{{ book.title }}">{{ book.title }}</a>
+
+
+                                                            <div class="ty-simple-list__price clearfix">
+                                                                                <span class="cm-reload-192000scr_19200018314"
+                                                                                      id="old_price_update_192000scr_19200018314">
+
+
+
+        <!--old_price_update_192000scr_19200018314--></span>
+                                                                &nbsp;
+                                                                <span class="cm-reload-192000scr_19200018314 ty-price-update"
+                                                                      id="price_update_192000scr_19200018314">
+        <input type="hidden" name="appearance[show_price_values]" value="1"/>
+        <input type="hidden" name="appearance[show_price]" value="1"/>
+
+                                    <span class="ty-price" id="line_discounted_price_192000scr_19200018314"><bdi><span
+                                            class="ty-price-num"></span><span
+                                            id="sec_discounted_price_192000scr_19200018314"
+                                            class="ty-price-num">{{ book.price }}
+                                    </span></bdi>
+                                    </span></span>
+                                                            </div>
+
+
+                                                            <div class="ty-simple-list__buttons">
+                                                                <div class="cm-reload-192000scr_19200018314 "
+                                                                     id="add_to_cart_update_192000scr_19200018314">
+                                                                    <input type="hidden"
+                                                                           name="appearance[show_add_to_cart]"
+                                                                           value="1"/>
+                                                                    <input type="hidden"
+                                                                           name="appearance[show_list_buttons]"
+                                                                           value=""/>
+                                                                    <input type="hidden" name="appearance[but_role]"
+                                                                           value="action"/>
+                                                                    <input type="hidden" name="appearance[quick_view]"
+                                                                           value=""/>
+
+                                                                    <button class="ty-btn__primary ty-btn__big ty-btn__add-to-cart cm-form-dialog-closer ty-btn"
+                                                                            type="submit"
+                                                                            onclick="location.href='{% url 'add-to-cart' book_id=book.id %}';">
+                                                                        ADD TO CART
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                 data-ca-live-editor-object-type="">
+                                <div style="text-align: right;"><span style="font-size: 12pt; color: #800080;"><strong>Lihat semua produk terbaru,</strong> <strong><a
+                                        style="color: #800080;" href="https://bookcafe.com.my/buku-terbaru"
+                                        target="_blank">KLIK DI SINI</a></strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row-fluid ">
+                        <div class="span16 ">
+                            <div class="ty-mainbox-container clearfix homepage-hotdeals">
+
+                                <h1 class="ty-mainbox-title">
+                                    BESTSELLER HARI INI
+                                </h1>
+
+                                <div class="ty-mainbox-body">
+                                    <div id="scroll_list_192" class="owl-carousel ty-scroller-list">
+                                        {% for book in books %}
+                                            <div class="ty-scroller-list__item">
+                                                <div class="ty-scroller-list__img-block">
+                                                    <a href="{% url 'book-detail' pk=book.id %}"><img
+                                                            class="ty-pict   lazyOwl  cm-image"
+                                                            data-src="{% if book.image %}{{ book.image.url }}{% else %}#{% endif %}"
+                                                            alt="" title=""/>
+                                                    </a>
+                                                </div>
+                                                <div class="ty-scroller-list__description">
+                                                    <div class="ty-simple-list clearfix">
+                                                        <form action="https://bookcafe.com.my/" method="post"
+                                                              name="product_form_192000scr_19200018314"
+                                                              enctype="multipart/form-data"
+                                                              class="cm-disable-empty-files  cm-ajax cm-ajax-full-render cm-ajax-status-middle ">
+                                                            <input type="hidden" name="result_ids"
+                                                                   value="cart_status*,wish_list*,checkout*,account_info*"/>
+                                                            <input type="hidden" name="redirect_url" value="index.php"/>
+                                                            <input type="hidden"
+                                                                   name="product_data[scr_19200018314][product_id]"
+                                                                   value="18314"/>
+
+
+                                                            <a href="{% url 'book-detail' pk=book.id %}"
+                                                               class="product-title"
+                                                               title="{{ book.title }}">{{ book.title }}</a>
+
+
+                                                            <div class="ty-simple-list__price clearfix">
+                                                                <span class="cm-reload-192000scr_19200018314"
+                                                                      id="old_price_update_192000scr_19200018314">
+                                                                </span>
+                                                                <span class="cm-reload-192000scr_19200018314 ty-price-update"
+                                                                      id="price_update_192000scr_19200018314">
+                                                                    <input type="hidden"
+                                                                           name="appearance[show_price_values]"
+                                                                           value="1"/>
+                                                                    <input type="hidden" name="appearance[show_price]"
+                                                                           value="1"/>
+
+
+                                                                    <span class="ty-price"
+                                                                          id="line_discounted_price_192000scr_19200018314">
+                                                                        <bdi>
+                                                                        <span class="ty-price-num">
+                                                                        </span>
+                                                                            <span
+                                                                                    id="sec_discounted_price_192000scr_19200018314"
+                                                                                    class="ty-price-num">{{ book.price }}
+                                                                            </span>
+                                                                        </bdi>
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="ty-simple-list__buttons">
+                                                                <div class="cm-reload-192000scr_19200018314 "
+                                                                     id="add_to_cart_update_192000scr_19200018314">
+                                                                    <input type="hidden"
+                                                                           name="appearance[show_add_to_cart]"
+                                                                           value="1"/>
+                                                                    <input type="hidden"
+                                                                           name="appearance[show_list_buttons]"
+                                                                           value=""/>
+                                                                    <input type="hidden" name="appearance[but_role]"
+                                                                           value="action"/>
+                                                                    <input type="hidden" name="appearance[quick_view]"
+                                                                           value=""/>
+
+                                                                    <button class="ty-btn__primary ty-btn__big ty-btn__add-to-cart cm-form-dialog-closer ty-btn"
+                                                                            onclick="location.href='{% url 'add-to-cart' book_id=book.id %}';">
+                                                                        ADD TO CART
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor book in books %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                 data-ca-live-editor-object-type="">
+                                <div style="text-align: right;"><span style="font-size: 12pt; color: #800080;"><strong>Lihat semua buku bestseller,</strong> <strong><a
+                                        style="color: #800080;" href="https://bookcafe.com.my/buku-bestseller/"
+                                        target="_blank">KLIK DI SINI</a></strong></span></div>
+                            </div>
+                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                 data-ca-live-editor-object-type=""><p></p></div>
+                        </div>
+                    </div>
+
+
+                    <div class="row-fluid ">
+                        <div class="span16 ">
+                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                 data-ca-live-editor-object-type=""><p></p></div>
+                        </div>
+                    </div>
+
+
+                    <div class="row-fluid ">
+                        <div class="span16 ">
+                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                 data-ca-live-editor-object-type=""><br></div>
+                        </div>
+                    </div>
+
+
+                    <div class="row-fluid ">
+                        <div class="span16 ">
+                            <div class="row-fluid ">
+                                <div class="span10 ">
+                                    <div class="ty-mainbox-container clearfix">
+
+                                        <h1 class="ty-mainbox-title">
+
+                                            KOMEN YANG KAMI TERIMA
+
+
+                                        </h1>
+
+
+                                        <div class="ty-mainbox-body">
+
+
+                                            <div class="ty-mb-l">
+                                                <div class="ty-scroller-discussion-list">
+                                                    <div id="scroll_list_719" class="owl-carousel ty-scroller-list">
+
+                                                        <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                            <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                                <div class="ty-discussion-post " id="post_1177">
+
+                                                                    <div class="ty-discussion-post__message">Barangan
+                                                                        telah selamat diterima dalam keadaan baik.
+                                                                        Ingatkan besar, rupanya comel je saiznya 😄.
+                                                                        Agak kecewa sikit sebab tak dapat free gift
+                                                                        macam yang lain 😂 tapi takpelah, takde rezeki
+                                                                        barang kali.
+                                                                    </div>
+
+                                                                    <span class="ty-caret-bottom"><span
+                                                                            class="ty-caret-outer"></span><span
+                                                                            class="ty-caret-inner"></span></span>
+
+                                                                </div>
+                                                            </a>
+
+                                                            <span class="ty-discussion-post__author">musicmind94</span>
+                                                            <span class="ty-discussion-post__date">14/06/2021</span>
+
+
+                                                        </div>
+                                                        <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                            <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                                <div class="ty-discussion-post  ty-discussion-post_even"
+                                                                     id="post_5198">
+
+                                                                    <div class="ty-discussion-post__message">
+                                                                        Terima kasih..buku yang dapat dalam keadaan baik
+                                                                        dan elok
+                                                                    </div>
+
+                                                                    <span class="ty-caret-bottom"><span
+                                                                            class="ty-caret-outer"></span><span
+                                                                            class="ty-caret-inner"></span></span>
+
+                                                                </div>
+                                                            </a>
+
+                                                            <span class="ty-discussion-post__author">roslizailias</span>
+                                                            <span class="ty-discussion-post__date">12/06/2021</span>
+                                                            <div class="clearfix ty-discussion-post__rating">
+                        <span class="ty-nowrap ty-stars">
+
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+
+
+
+    </span>
+
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                            <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                                <div class="ty-discussion-post " id="post_2518">
+
+                                                                    <div class="ty-discussion-post__message">
+                                                                        Utk peminat dan pengusaha,sgt dsarankan utk
+                                                                        memiliki buku ini.byk informasi yg berguna utk
+                                                                        drujuk
+                                                                    </div>
+
+                                                                    <span class="ty-caret-bottom"><span
+                                                                            class="ty-caret-outer"></span><span
+                                                                            class="ty-caret-inner"></span></span>
+
+                                                                </div>
+                                                            </a>
+
+                                                            <span class="ty-discussion-post__author">wanzakaria111</span>
+                                                            <span class="ty-discussion-post__date">20/05/2021</span>
+                                                            <div class="clearfix ty-discussion-post__rating">
+                        <span class="ty-nowrap ty-stars">
+
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+
+
+
+    </span>
+
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                            <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                                <div class="ty-discussion-post  ty-discussion-post_even"
+                                                                     id="post_1307">
+
+                                                                    <div class="ty-discussion-post__message">Selamat
+                                                                        sampai. Packaging extreamly nice.
+
+                                                                    </div>
+
+                                                                    <span class="ty-caret-bottom"><span
+                                                                            class="ty-caret-outer"></span><span
+                                                                            class="ty-caret-inner"></span></span>
+
+                                                                </div>
+                                                            </a>
+
+                                                            <span class="ty-discussion-post__author">jamalharraz</span>
+                                                            <span class="ty-discussion-post__date">26/04/2021</span>
+
+
+                                                        </div>
+                                                        <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                            <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                                <div class="ty-discussion-post " id="post_2241">
+
+                                                                    <div class="ty-discussion-post__message">
+                                                                        Dah dapat. Tq seller!
+
+                                                                    </div>
+
+                                                                    <span class="ty-caret-bottom"><span
+                                                                            class="ty-caret-outer"></span><span
+                                                                            class="ty-caret-inner"></span></span>
+
+                                                                </div>
+                                                            </a>
+
+                                                            <span class="ty-discussion-post__author">alooon</span>
+                                                            <span class="ty-discussion-post__date">21/04/2021</span>
+                                                            <div class="clearfix ty-discussion-post__rating">
+                        <span class="ty-nowrap ty-stars">
+
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+
+
+
+    </span>
+
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                            <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                                <div class="ty-discussion-post  ty-discussion-post_even"
+                                                                     id="post_1120">
+
+                                                                    <div class="ty-discussion-post__message">65 keping
+                                                                        Pelekat kereta BUKU (DIBACA) sudah sampai.
+                                                                        Terima kasih seller untuk free gift bag dan
+                                                                        penanda buku
+                                                                    </div>
+
+                                                                    <span class="ty-caret-bottom"><span
+                                                                            class="ty-caret-outer"></span><span
+                                                                            class="ty-caret-inner"></span></span>
+
+                                                                </div>
+                                                            </a>
+
+                                                            <span class="ty-discussion-post__author">n*****_</span>
+                                                            <span class="ty-discussion-post__date">21/04/2021</span>
+
+
+                                                        </div>
+                                                        <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                            <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                                <div class="ty-discussion-post " id="post_2146">
+
+                                                                    <div class="ty-discussion-post__message">Murah dan
+                                                                        canggih e-book. Nanti beli lagi. Buku-buku
+                                                                        semuanya menarik
+                                                                    </div>
+
+                                                                    <span class="ty-caret-bottom"><span
+                                                                            class="ty-caret-outer"></span><span
+                                                                            class="ty-caret-inner"></span></span>
+
+                                                                </div>
+                                                            </a>
+
+                                                            <span class="ty-discussion-post__author">p*****g </span>
+                                                            <span class="ty-discussion-post__date">17/04/2021</span>
+                                                            <div class="clearfix ty-discussion-post__rating">
+                        <span class="ty-nowrap ty-stars">
+
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+
+
+            <i class="ty-stars__icon ty-icon-star-empty"></i>
+
+    </span>
+
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                            <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                                <div class="ty-discussion-post  ty-discussion-post_even"
+                                                                     id="post_4770">
+
+                                                                    <div class="ty-discussion-post__message">
+                                                                        Puas hati⭐⭐⭐⭐⭐
+                                                                    </div>
+
+                                                                    <span class="ty-caret-bottom"><span
+                                                                            class="ty-caret-outer"></span><span
+                                                                            class="ty-caret-inner"></span></span>
+
+                                                                </div>
+                                                            </a>
+
+                                                            <span class="ty-discussion-post__author">j*****r</span>
+                                                            <span class="ty-discussion-post__date">17/04/2021</span>
+                                                            <div class="clearfix ty-discussion-post__rating">
+                        <span class="ty-nowrap ty-stars">
+
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+
+
+            <i class="ty-stars__icon ty-icon-star-empty"></i>
+
+    </span>
+
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                            <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                                <div class="ty-discussion-post " id="post_489">
+
+                                                                    <div class="ty-discussion-post__message">
+                                                                        Bungkusan bagus cuma lagi baik jika diletakkan
+                                                                        sticker seperti di dalam gmbr trsebut
+                                                                    </div>
+
+                                                                    <span class="ty-caret-bottom"><span
+                                                                            class="ty-caret-outer"></span><span
+                                                                            class="ty-caret-inner"></span></span>
+
+                                                                </div>
+                                                            </a>
+
+                                                            <span class="ty-discussion-post__author">afzal94</span>
+                                                            <span class="ty-discussion-post__date">15/04/2021</span>
+
+
+                                                        </div>
+                                                        <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                            <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                                <div class="ty-discussion-post  ty-discussion-post_even"
+                                                                     id="post_2957">
+
+                                                                    <div class="ty-discussion-post__message">
+                                                                        Buku diterima dalam keadaan baik, & cepat
+                                                                        penghantarannya. Sangat informatif.
+                                                                    </div>
+
+                                                                    <span class="ty-caret-bottom"><span
+                                                                            class="ty-caret-outer"></span><span
+                                                                            class="ty-caret-inner"></span></span>
+
+                                                                </div>
+                                                            </a>
+
+                                                            <span class="ty-discussion-post__author">sa2.gwa</span>
+                                                            <span class="ty-discussion-post__date">12/04/2021</span>
+                                                            <div class="clearfix ty-discussion-post__rating">
+                        <span class="ty-nowrap ty-stars">
+
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+
+
+
+    </span>
+
+                                                            </div>
+
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <!-- Inline script moved to the bottom of the page -->
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="span6 ">
+                                    <div class="ty-mainbox-container clearfix">
+
+                                        <h1 class="ty-mainbox-title">
+
+                                            MARKETPLACE UTAMA ANDA
+
+
+                                        </h1>
+
+
+                                        <div class="ty-mainbox-body">
+                                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                                 data-ca-live-editor-object-type="">
+                                                <div><a href="https://shopee.com.my/buyer/161918302/rating"
+                                                        target="_blank"><img
+                                                        src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/STAR+REVIEW-03.png"
+                                                        alt="" width="780" height="579"/></a></div>
+                                                <div></div>
+                                                <div style="text-align: center;"><span
+                                                        style="font-size: 12pt; color: #800080;"><strong>Lihat semua review, <a
+                                                        href="https://shopee.com.my/buyer/161918302/rating"
+                                                        target="_blank">KLIK DI SINI</a></strong></span></div>
+                                                <div style="text-align: center;"></div>
+                                                <div style="text-align: center;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="span12 ">
+                                <div class="ty-mainbox-container clearfix">
+
+                                    <h1 class="ty-mainbox-title">
+
+                                        COURIER PARTNER
+
+
+                                    </h1>
+
+
+                                    <div class="ty-mainbox-body">
+                                        <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                             data-ca-live-editor-object-type=""><p><img
+                                                src="https://bookcafe.com.my/images/companies/1/courier partner pts-01.png?1566373430303"
+                                                alt="" width="1200" height="200"/></p></div>
+                                    </div>
+                                </div>
+                                <div class="ty-mainbox-container clearfix" style="display: none;">
+
+                                    <h1 class="ty-mainbox-title">
+
+                                        PAYMENT METHODS
+
+
+                                    </h1>
+
+
+                                    <div class="ty-mainbox-body">
+                                        <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                             data-ca-live-editor-object-type=""><p><img
+                                                src="https://bookcafe.com.my/images/companies/1/payment method-01.png?1566379369865"
+                                                alt="" width="1200" height="500"/></p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="tygh-footer clearfix" id="tygh_footer">
+                    <div class="container-fluid  ty-footer-grid">
+
+
+                        <div class="row-fluid ">
+                            <div class="span16 ty-footer-grid__full-width ty-footer-menu">
+                                <div class="row-fluid ">
+                                    <div class="span5 ">
+                                        <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                             data-ca-live-editor-object-type=""><p></p></div>
+                                        <div class="ty-mainbox-container clearfix">
+
+                                            <h1 class="ty-mainbox-title">
+
+                                                TENTANG BOCA MARKETPLACE
+
+
+                                            </h1>
+
+
+                                            <div class="ty-mainbox-body">
+                                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                                     data-ca-live-editor-object-type=""><p><span
+                                                        style="font-size: 12pt;">BOCA Marketplace, D3-06-01, Center Court, Tamarind Square, Persiaran Multimedia, Cyber 10, 63000 Cyberjaya, Selangor, MALAYSIA.</span>
+                                                </p>
+                                                    <p><span
+                                                            style="font-size: 12pt;"><strong>Waktu Operasi:</strong></span>
+                                                    </p>
+                                                    <span style="font-size: 12pt;">Isnin - Jumaat, 10 AM - 5 PM</span>
+
+                                                    <p><span
+                                                            style="font-size: 12pt;"><strong>Waktu Rehat:</strong></span>
+                                                    </p>
+                                                    <span style="font-size: 12pt;"> Rehat Solat Jumaat, 12.30 PM - 2.30 PM</span>
+                                                    </p>
+                                                    <p></p>
+                                                    <p><span style="font-size: 12pt;">Hubungi Kami,</span></p>
+                                                    <p></p>
+                                                    <p><span
+                                                            style="font-size: 12pt;"><strong>Email:</strong><span> </span><a
+                                                            href="mailto:info@boca.my">info@boca.my</a></span>
+                                                    </p>
+                                                    <p><span style="font-size: 12pt;"><strong>Phone:</strong> <a
+                                                            href="tel:+60382308058"
+                                                            rel="nofollow">03-82308058</a></span>
+                                                    </p>
+                                                    <p><span style="font-size: 12pt;"><strong>Whatsapp:</strong> <a
+                                                            href="https://api.whatsapp.com/send?phone=60182036330"
+                                                            target="_blank">018-2036330</a></span></p>
+                                                    <p><span style="font-size: 16px;"><strong>Waze / Map:</strong> <a
+                                                            href="https://www.google.com/maps/place/Perbadanan+Kota+Buku/@2.9204786,101.6341423,17z/data=!3m1!4b1!4m5!3m4!1s0x31cc482a0a6589d9:0x5681bd5dee005714!8m2!3d2.920517!4d101.6363146"
+                                                            target="_blank">Lokasi BOCA Book Marketplace</a></span></p>
+                                                    <p></p></div>
+                                            </div>
+                                        </div>
+                                        <div class="ty-mainbox-container clearfix">
+
+                                            <h1 class="ty-mainbox-title">
+
+                                                BOCA eCOMMERCE STORE
+
+
+                                            </h1>
+
+
+                                            <div class="ty-mainbox-body">
+                                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                                     data-ca-live-editor-object-type=""><a
+                                                        href="https://www.lazada.com.my/baca-mall/?q=All-Products&langFlag=en&from=wangpu&lang=en&pageTypeId=2"
+                                                        target="_blank"><img
+                                                        src="https://bookcafe.com.my/images/companies/1/logo lazada.png?1521102023542"
+                                                        alt="" width="50" height="50"/></a> <a
+
+                                                        href="https://shopee.com.my/kotabukumall" target="_blank"><img
+                                                        src="https://bookcafe.com.my/images/companies/1/shopee-my.png?1521102101552"
+                                                        alt="" width="50" height="50"/></a>
+                                                    <p></p></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="span6 ">
+                                        <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                             data-ca-live-editor-object-type=""><p></p></div>
+                                        <div class="ty-mainbox-container clearfix">
+
+                                            <h1 class="ty-mainbox-title">
+
+                                                DAH JOIN GROUP TELEGRAM BOCA?
+
+
+                                            </h1>
+
+
+                                            <div class="ty-mainbox-body">
+                                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                                     data-ca-live-editor-object-type="">
+                                                    <div style="text-align: center;"><span style="font-size: 12pt;"> Berminat untuk mengetahui perkembangan semasa BOCA?  </span>
+                                                    </div>
+                                                    <div style="text-align: center;"><span style="font-size: 12pt;">Atau anda ada soalan berkenaan BOCA? </span>
+                                                    </div>
+                                                    <div style="text-align: center;"><span style="font-size: 12pt;">Jom sertai group telegram BOCA sekarang juga. Makluman promosi terkini akan dihantar dari masa ke masa.</span>
+                                                    </div>
+                                                    <div style="text-align: center;"></div>
+                                                    <br>
+                                                    <br>
+                                                    <div style="text-align: center;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                             data-ca-live-editor-object-type="">
+                                            <div style="text-align: center;"><a href="https://t.me/tanyaceopkb"
+                                                                                target="_blank"><img
+                                                    src="https://bookcafe.com.my/images/companies/1/logo telegram.png?1552263596868"
+                                                    alt="" width="80" height="80"/></a></div>
+                                            <div style="text-align: center;"></div>
+                                        </div>
+                                        <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                             data-ca-live-editor-object-type="">
+                                            <style>
+                                                .email-octopus-form-row-hp {
+                                                    position: absolute;
+                                                    left: -5000px;
+                                                }
+
+                                                .email-octopus-form-row {
+                                                    padding-right: 18px;
+                                                }
+
+                                                .email-octopus-form-row input {
+                                                    width: 100%;
+                                                    padding: 8px;
+                                                    height: 12px;
+                                                    border: 1px solid #ccc;
+                                                }
+
+                                                .btn {
+                                                    background-color: #622d99;
+                                                }
+
+                                                .btn:hover,
+                                                .btn:focus {
+                                                    background-color: #622d99;
+                                                    opacity: 0.7;
+                                                }
+
+                                                .button1 {
+                                                    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                                                    font-size: 16px;
+                                                }
+
+                                                .email-octopus-error-message {
+                                                    color: #e74c3c;
+                                                    text-align: center;
+                                                }
+
+                                                .email-octopus-success-message {
+                                                    color: green;
+                                                    text-align: center;
+                                                }
+
+                                                div.g-recaptcha > div.grecaptcha-badge {
+                                                    width: 0 !important;
+                                                }
+                                            </style>
+                                            <div style="border: 4px solid #622d99; padding: 0.5em; background-color:white; display: none;">
+                                                <h1
+                                                        style="text-align:center;"></h1>
+                                                <p class="email-octopus-success-message"></p>
+                                                <p class="email-octopus-error-message"></p>
+                                                <form method="post"
+                                                      action="https://emailoctopus.com/lists/5aa4f24a-e278-11e8-a3c9-06b79b628af2/members/embedded/1.3s/add"
+                                                      class="email-octopus-form"
+                                                      data-sitekey="6LdYsmsUAAAAAPXVTt-ovRsPIJ_IVhvYBBhGvRV6"
+                                                >
+
+                                                    <div class="ty-control-group">
+                                                        <label for="field_1"><strong>Name</strong></label>
+                                                        <input id="field_1" name="field_1" type="text" placeholder=""
+                                                               class="ty-login__input">
+                                                    </div>
+
+                                                    <div class="ty-control-group email-octopus-form-row">
+                                                        <label for="field_0"><strong>Email address</strong></label>
+                                                        <input id="field_0" name="field_0" type="email" placeholder=""
+                                                               class="ty-login__input">
+                                                    </div>
+
+
+                                                    <div class="email-octopus-form-row-hp" aria-hidden="true">
+                                                        <!-- Do not remove this field, otherwise you risk bot sign-ups -->
+                                                        <input type="text" name="hp5aa4f24a-e278-11e8-a3c9-06b79b628af2"
+                                                               tabindex="-1"
+                                                               autocomplete="nope">
+                                                    </div>
+                                                    <div class="email-octopus-form-row-subscribe"
+                                                         style="text-align:center;padding-top:15px;margin-bottom:15px;">
+                                                        <input type="hidden"
+                                                               name="successRedirectUrl"
+                                                               value="">
+                                                        <button class="btn ty-btn button1" type="submit"
+                                                                id="subscribeButton">
+                                                            SUBSCRIBE NOW
+                                                        </button>
+                                                    </div>
+                                                    <input type="hidden" name="security_hash" class="cm-no-hide-input"
+                                                           value="c0f33b111e980816e68b52e63ec193d2"/></form>
+                                            </div>
+                                            <!-- Inline script moved to the bottom of the page -->
+                                            <!-- Inline script moved to the bottom of the page -->
+                                            <!-- Inline script moved to the bottom of the page -->
+                                            <p></p></div>
+                                    </div>
+
+
+                                    <div class="span5 ">
+                                        <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                             data-ca-live-editor-object-type=""><p></p></div>
+                                        <div class="ty-mainbox-container clearfix">
+
+                                            <h1 class="ty-mainbox-title">
+
+                                                MAKLUMAT LANJUT
+
+
+                                            </h1>
+
+
+                                            <div class="ty-mainbox-body">
+
+
+                                                <ul id="text_links_6267" class="ty-text-links">
+                                                    <li class="ty-text-links__item ty-level-0">
+                                                        <a class="ty-text-links__a">Klik Menu di Bawah:</a>
+
+
+                                                        <ul class="ty-text-links">
+                                                            <li class="ty-text-links__item ty-level-1">
+                                                                <a class="ty-text-links__a"
+                                                                   href="https://bookcafe.com.my/dudukrumahbacabuku/">Kempen
+                                                                    #DUDUKRUMAHBACABUKU</a>
+                                                            </li>
+                                                            <li class="ty-text-links__item ty-level-1">
+                                                                <a class="ty-text-links__a"
+                                                                   href="https://kotabuku.onpay.my/affiliate/register">Nak
+                                                                    Jadi Ejen Affiliate?
+                                                                </a>
+                                                            </li>
+                                                            <li class="ty-text-links__item ty-level-1">
+                                                                <a class="ty-text-links__a"
+                                                                   href="https://bookcapital.my/">BOCA eBook Store</a>
+                                                            </li>
+                                                            <li class="ty-text-links__item ty-level-1">
+                                                                <a class="ty-text-links__a"
+                                                                   href="https://bookcafe.com.my/soalan-soalan-lazim/">FAQ</a>
+                                                            </li>
+
+                                                            <li class="ty-text-links__item ty-level-1">
+                                                                <a class="ty-text-links__a"
+                                                                   href="https://wasap.my/60182036330">Masalah
+                                                                    Order?</a>
+                                                            </li>
+                                                            <li class="ty-text-links__item ty-level-1">
+                                                                <a class="ty-text-links__a"
+                                                                   href="https://bookcafe.com.my/privacy-policy/">Privacy
+                                                                    Policy</a>
+                                                            </li>
+
+
+                                                            <li class="ty-text-links__item ty-level-1">
+                                                                <a class="ty-text-links__a"
+                                                                   href="https://bookcafe.com.my/terms-and-amp-condition/">Terma
+                                                                    &amp; Syarat</a>
+                                                            </li>
+
+                                                        </ul>
+
+
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row-fluid ">
+                            <div class="span16 ty-footer-grid__full-width footer-stay-connected">
+                                <div class="row-fluid ">
+                                    <div class="span16 ">
+                                        <div class=" ty-float-right">
+                                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                                 data-ca-live-editor-object-type="">
+                                                <div class="ty-social-link-block"><h3 class="ty-social-link__title">Get
+                                                    social</h3>
+
+                                                    <div class="ty-social-link facebook">
+                                                        <a href="https://www.facebook.com/KotaBukuKL"><i
+                                                                class="ty-icon-facebook"></i> Facebook</a>
+                                                    </div>
+
+
+                                                    <div class="ty-social-link twitter">
+                                                        <a href="https://twitter.com/kotabukukl?lang=en"><i
+                                                                class="ty-icon-twitter"></i> Twitter</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Inline script moved to the bottom of the page -->
+
+                <!--tygh_main_container--></div>
+
+
+            <a href="#"
+               class="scrollToTop bottom-right round   cp-icon-up-big  "
+               style="
+	background-color: ;	background-image: url();
+	margin: 3% 3% 3% 3%;
+	width: 50px;
+	height: 50px;
+	background-size: 100%;
+	opacity: 0.85;
+	font-size: 20px;
+	line-height: 50px;
+	color: #FFFFFF;
+">
+            </a>
+
+
+            <style>
+                @media (max-width: px) {
+                    .scrollToTop {
+                        display: none !important;
+                    }
+                }
+            </style>
+</div>
+</body>
+
+</html>

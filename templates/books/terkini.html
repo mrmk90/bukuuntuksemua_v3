@@ -1,0 +1,1706 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    BOCA: Terkini
+{% endblock title %}
+
+{% block main_content %}
+    <div class="tygh-content clearfix">
+        <div class="container-fluid  content-grid">
+            <div class="row-fluid ">
+                <div class="span16 breadcrumbs-grid">
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                         data-ca-live-editor-object-type=""><p></p></div>
+                </div>
+            </div>
+            <div class="row-fluid ">
+                <div class="span16 main-content-grid">
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                         data-ca-live-editor-object-type=""><p></p></div>
+                    <div class="ty-mainbox-container clearfix">
+                        <h1 class="ty-mainbox-title">
+                            <span>TERBARU &amp; HANGAT DI PASARAN</span>
+                        </h1>
+                        <div class="ty-mainbox-body">
+                            <div class="ty-wysiwyg-content">
+                                <div></div>
+                            </div>
+                            <div class="grid-list">
+
+                                {% for book in object_list %}
+                                    <div class="ty-column5">
+                                        <div class="ty-grid-list__item ty-quick-view-button__wrapper">
+                                            <form enctype="multipart/form-data"
+                                                  class="cm-disable-empty-files  cm-ajax cm-ajax-full-render cm-ajax-status-middle ">
+                                                <div class="ty-grid-list__image">
+                                                    <!-- untuk book images -->
+                                                    <div class="ty-center-block">
+                                                        <div class="ty-thumbs-wrapper owl-carousel cm-image-gallery"
+                                                             data-ca-items-count="1"
+                                                             data-ca-items-responsive="true" id="icons_26500019799">
+
+                                                            {% if book.image_set.all %}
+                                                                <div class="cm-gallery-item cm-item-gallery">
+                                                                    <a href="{% url 'book-detail' pk=book.id %}">
+                                                                        <img class="ty-pict     cm-image"
+                                                                             src="{{ book.image_set.all.0.images.url }}"
+                                                                             alt="" title=""/>
+                                                                    </a>
+                                                                </div>
+                                                            {% endif %}
+
+                                                            {% for img in book.image_set.all %}
+                                                                <div class="cm-gallery-item cm-item-gallery">
+                                                                    <a href="{% url 'book-detail' pk=book.id %}">
+                                                                        <img class="ty-pict   lazyOwl  cm-image"
+                                                                             data-src="{{ img.url }}"
+                                                                             alt="" title=""/>
+                                                                    </a>
+                                                                </div>
+                                                            {% endfor img in book.image_set.all %}
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- end untuk book images -->
+
+                                                    <!-- contoh tag diskaun jika perlu >
+                                                    <span class="ty-discount-label cm-reload-26500019799" id="discount_label_update_26500019799">
+                                                        <span class="ty-discount-label__item" id="line_prc_discount_value_26500019799">
+                                                            <span class="ty-discount-label__value" id="prc_discount_value_label_26500019799">
+                                                                Save 10%
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                    < -->
+
+                                                </div>
+                                                <div class="ty-grid-list__item-name">
+                                                    <a href="{% url 'book-detail' pk=book.id %}"
+                                                       class="product-title"
+                                                       title="{{ book.title }}">{{ book.title }}</a>
+                                                </div>
+                                                <div class="grid-list__rating">
+                                                </div>
+                                                <div class="ty-grid-list__price ">
+                                                    {% comment %}<span class="cm-reload-26500019799" id="old_price_update_26500019799">
+                                                        <span class="ty-list-price ty-nowrap" id="line_old_price_26500019799">
+                                                            <span class="ty-strike"><bdi>
+                                                                <span class="ty-list-price ty-nowrap">RM</span>
+                                                                <span id="sec_old_price_26500019799" class="ty-list-price ty-nowrap">35.00</span></bdi>
+                                                            </span>
+                                                        </span>
+                                                    </span>{% endcomment %}
+                                                    <span class="cm-reload-26500019799 ty-price-update"
+                                                          id="price_update_26500019799">
+                                                        <span class="ty-price" id="line_discounted_price_26500019799"><bdi>
+                                                            <span class="ty-price-num">RM</span>
+                                                            <span id="sec_discounted_price_26500019799"
+                                                                  class="ty-price-num">
+                                                                {{ book.price.amount }}
+                                                            </span></bdi>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="ty-grid-list__control">
+                                                    <div class="button-container">
+                                                        <div class="cm-reload-26500019799"
+                                                             id="add_to_cart_update_26500019799">
+                                                            {% if book.in_stock %}
+                                                                <button class="ty-btn__primary ty-btn__big ty-btn__add-to-cart cm-form-dialog-closer ty-btn"
+                                                                        onclick="location.href='{% url 'add-to-cart' book_id=book.id %}?next={{ request.path|urlencode }}';">
+                                                                    ADD TO CART
+                                                                </button>
+                                                            {% else %}
+                                                                <button class="ty-btn__secondary ty-btn__big ty-btn__add-to-cart cm-form-dialog-closer ty-btn"
+                                                                        disabled>
+                                                                    SOLD OUT
+                                                                </button>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                {% endfor book in object_list %}
+
+                            </div><!-- class="grid-list" -->
+
+                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                 data-ca-live-editor-object-type=""><p></p>
+                                <div style="text-align: center;"><a href="#tygh_main_container"><img
+                                        src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/KembaliKeAtas_Button.png"
+                                        alt="" width="100"
+                                        height="50"/></a></div>
+                                <p></p></div>
+                        </div>
+                    </div>
+
+
+                    <div class="row-fluid ">
+                        <div class="span16 ">
+                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                 data-ca-live-editor-object-type="">
+                                <style>
+                                    .email-octopus-form-row-hp {
+                                        position: absolute;
+                                        left: -5000px;
+                                    }
+
+                                    .email-octopus-form-row {
+                                        padding-right: 18px;
+                                    }
+
+                                    .email-octopus-form-row input {
+                                        width: 100%;
+                                        padding: 8px;
+                                        height: 12px;
+                                        border: 1px solid #ccc;
+                                    }
+
+                                    .btn {
+                                        background-color: #622d99;
+                                    }
+
+                                    .btn:hover,
+                                    .btn:focus {
+                                        background-color: #622d99;
+                                        opacity: 0.7;
+                                    }
+
+                                    .button1 {
+                                        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                                        font-size: 16px;
+                                    }
+
+                                    .email-octopus-error-message {
+                                        color: #e74c3c;
+                                        text-align: center;
+                                    }
+
+                                    .email-octopus-success-message {
+                                        color: green;
+                                        text-align: center;
+                                    }
+
+                                    div.g-recaptcha > div.grecaptcha-badge {
+                                        width: 0 !important;
+                                    }
+                                </style>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Inline script moved to the bottom of the page -->
+
+            <!--tygh_main_container--></div>
+
+
+        <!-- Inline script moved to the bottom of the page -->
+
+
+        <a href="#"
+           class="scrollToTop bottom-right round   cp-icon-up-big  "
+           style="
+	background-color: ;	background-image: url();
+	margin: 3% 3% 3% 3%;
+	width: 50px;
+	height: 50px;
+	background-size: 100%;
+	opacity: 0.85;
+	font-size: 20px;
+	line-height: 50px;
+	color: #FFFFFF;
+">
+        </a>
+
+
+        <style>
+            @media (max-width: px) {
+                .scrollToTop {
+                    display: none !important;
+                }
+            }
+        </style>
+    </div>
+{% endblock main_content %}
+
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUcEQvrAHuajJAkO4wVfDar0-s5eqHNoU&libraries=places" async
+        defer></script>
+<script src="https://dgp5m9lr1iox6.cloudfront.net/location-search-widget/js/collectco_widget.min.js"></script>
+
+<script type="text/javascript" src="https://bookcafe.com.my/js/lib/jquery/jquery.min.js?ver=4.6.2"></script>
+
+<script type="text/javascript" src="https://bookcafe.com.my/js/lib/jqueryui/jquery-ui.custom.min.js?ver=4.6.2"></script>
+
+<script type="text/javascript" src="https://bookcafe.com.my/js/lib/modernizr/modernizr.custom.js?ver=4.6.2"></script>
+<script type="text/javascript" src="https://bookcafe.com.my/js/tygh/core.js?ver=4.6.2"></script>
+<script type="text/javascript" src="https://bookcafe.com.my/js/tygh/ajax.js?ver=4.6.2"></script>
+<script type="text/javascript" src="https://bookcafe.com.my/js/tygh/history.js?ver=4.6.2"></script>
+<script type="text/javascript" src="https://bookcafe.com.my/js/lib/autonumeric/autoNumeric.js?ver=4.6.2"></script>
+<script type="text/javascript" src="https://bookcafe.com.my/js/lib/appear/jquery.appear-1.1.1.js?ver=4.6.2"></script>
+
+<script type="text/javascript" src="https://bookcafe.com.my/js/lib/tools/tooltip.min.js?ver=4.6.2"></script>
+
+<script type="text/javascript" src="https://bookcafe.com.my/js/tygh/editors/tinymce.editor.js?ver=4.6.2"></script>
+
+<script type="text/javascript" src="https://bookcafe.com.my/js/tygh/responsive.js?ver=4.6.2"></script>
+
+
+<script type="text/javascript">
+    (function (_, $) {
+
+        _.tr({
+            cannot_buy: 'You cannot buy the product with these option variants ',
+            no_products_selected: 'No products selected',
+            error_no_items_selected: 'No items selected! At least one check box must be selected to perform this action.',
+            delete_confirmation: 'Are you sure you want to delete the selected items?',
+            text_out_of_stock: 'Out-of-stock',
+            items: 'pieces',
+            text_required_group_product: 'Please select a product for the required group [group_name]',
+            save: 'Save',
+            close: 'Close',
+            notice: 'Notice',
+            warning: 'Warning',
+            error: 'Error',
+            empty: 'Empty',
+            text_are_you_sure_to_proceed: 'Are you sure you want to proceed?',
+            text_invalid_url: 'You have entered an invalid URL',
+            error_validator_email: 'The email address in the <b>[field]<\/b> field is invalid.',
+            error_validator_phone: 'The phone number in the <b>[field]<\/b> field is invalid. The correct format is (555) 555-55-55 or 55 55 555 5555.',
+            error_validator_integer: 'The value of the <b>[field]<\/b> field is invalid. It should be integer.',
+            error_validator_multiple: 'The <b>[field]<\/b> field does not contain the selected options.',
+            error_validator_password: 'The passwords in the <b>[field2]<\/b> and <b>[field1]<\/b> fields do not match.',
+            error_validator_required: 'The <b>[field]<\/b> field is mandatory.',
+            error_validator_zipcode: 'The ZIP / Postal code in the <b>[field]<\/b> field is incorrect. The correct format is [extra].',
+            error_validator_message: 'The value of the <b>[field]<\/b> field is invalid.',
+            text_page_loading: 'Loading... Your request is being processed, please wait.',
+            error_ajax: 'Oops, something went wrong ([error]). Please try again.',
+            text_changes_not_saved: 'Your changes have not been saved.',
+            text_data_changed: 'Your changes have not been saved.\n\nPress OK to continue, or Cancel to stay on the current page.',
+            placing_order: 'Placing the order',
+            file_browser: 'File browser',
+            browse: 'Browse...',
+            more: 'More',
+            text_no_products_found: 'No products found',
+            cookie_is_disabled: 'For a complete shopping experience, please <a href=\"http://www.wikihow.com/Enable-Cookies-in-Your-Internet-Web-Browser\" target=\"_blank\">set your browser to accept cookies<\/a>'
+        });
+
+        $.extend(_, {
+            index_script: 'index.php',
+            changes_warning: /*'Y'*/'N',
+            currencies: {
+                'primary': {
+                    'decimals_separator': '.',
+                    'thousands_separator': ',',
+                    'decimals': '2'
+                },
+                'secondary': {
+                    'decimals_separator': '.',
+                    'thousands_separator': ',',
+                    'decimals': '2',
+                    'coefficient': '1.00000'
+                }
+            },
+            default_editor: 'tinymce',
+            default_previewer: 'fancybox',
+            current_path: '',
+            current_location: 'https://bookcafe.com.my',
+            images_dir: 'https://bookcafe.com.my/design/themes/responsive/media/images',
+            notice_displaying_time: 10,
+            cart_language: 'en',
+            language_direction: 'ltr',
+            default_language: 'en',
+            cart_prices_w_taxes: true,
+            theme_name: 'responsive',
+            regexp: [],
+            current_url: 'https://bookcafe.com.my/buku-terbaru/',
+            current_host: 'bookcafe.com.my',
+            init_context: ''
+        });
+
+
+        $(document).ready(function () {
+            $.runCart('C');
+        });
+
+
+        // CSRF form protection key
+        _.security_hash = 'f71a0614d96e14963f5b22e9bbe1dddf';
+    }(Tygh, Tygh.$));
+</script>
+
+<script type="text/javascript">
+    (function (_, $) {
+
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window,
+            document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '749539828428529');
+        fbq('track', 'PageView');
+    }(Tygh, Tygh.$));
+</script>
+<noscript><img height="1" width="1" style="display:none"
+               src="https://www.facebook.com/tr?id=749539828428529&ev=PageView&noscript=1"
+/></noscript>
+
+<script type="text/javascript" src="https://bookcafe.com.my/js/addons/buy_together/func.js?ver=4.6.2"></script>
+
+<script type="text/javascript">
+    Tygh.tr('buy_together_fill_the_mandatory_fields', 'Please specify product options before adding this product combination to the cart.');
+</script>
+<script type="text/javascript" src="https://bookcafe.com.my/js/addons/product_packages/front.js?ver=4.6.2"></script>
+<script type="text/javascript"
+        src="https://bookcafe.com.my/js/addons/google_analytics/google_analytics.js?ver=4.6.2"></script>
+<script type="text/javascript" src="https://bookcafe.com.my/js/lib/owlcarousel/owl.carousel.min.js?ver=4.6.2"></script>
+<script type="text/javascript">
+    //<![CDATA[
+    (function (_, $) {
+        $.ceEvent('on', 'ce.formpre_search_form', function (frm, elm) {
+
+            var q = $('input.ty-search-block__input', frm).focus();
+
+            if (q.val().length < 3) {
+                var old_bk = q.css('border-left-color');
+                q.css('border-color', 'red');
+                setTimeout(function () {
+                    q.animate({
+                        borderColor: old_bk,
+                    }, 600);
+                }, 300);
+                return false;
+            }
+        });
+    }(Tygh, Tygh.$));
+    //]]>
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        _.tr({
+            error_validator_recaptcha: 'Please confirm you are not a robot.'
+        });
+
+        $.extend(_, {
+            recaptcha_settings: {
+                site_key: '6Le_4iwUAAAAABA6ELM7upEzJm6-VokZXtLZ6mSE',
+                theme: 'light',
+                type: 'image',
+                size: 'normal'
+            }
+        });
+    }(Tygh, Tygh.$));
+
+    // Proxies event handler to class method
+    window.onRecaptchaLoaded = function () {
+        Tygh.onRecaptchaLoaded();
+    };
+</script>
+<script type="text/javascript" src="https://bookcafe.com.my/js/addons/recaptcha/recaptcha.js?ver=4.6.2"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit"></script>
+<script type="text/javascript"
+        src="https://bookcafe.com.my/js/addons/my_changes/social-likes.min.js?ver=4.6.2"></script>
+
+
+<!-- Inline scripts -->
+<script type="text/javascript">
+    (function (_, $) {
+
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window,
+            document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '749539828428529');
+        fbq('track', 'PageView');
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript" src="https://bookcafe.com.my/js/tygh/exceptions.js?ver=4.6.2"></script>
+<script type="text/javascript" src="https://bookcafe.com.my/js/tygh/product_image_gallery.js?ver=4.6.2"></script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19799, #button_cart_19799').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19799'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript"
+        src="https://bookcafe.com.my/js/tygh/previewers/fancybox.previewer.js?ver=4.6.2"></script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19798, #button_cart_19798').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19798'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19797, #button_cart_19797').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19797'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19796, #button_cart_19796').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19796'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19795, #button_cart_19795').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19795'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19794, #button_cart_19794').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19794'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19793, #button_cart_19793').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19793'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19792, #button_cart_19792').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19792'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19791, #button_cart_19791').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19791'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19790, #button_cart_19790').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19790'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19789, #button_cart_19789').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19789'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19785, #button_cart_19785').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19785'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19784, #button_cart_19784').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19784'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19783, #button_cart_19783').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19783'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19782, #button_cart_19782').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19782'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19781, #button_cart_19781').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19781'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19770, #button_cart_19770').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19770'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19769, #button_cart_19769').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19769'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19768, #button_cart_19768').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19768'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19767, #button_cart_19767').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19767'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19766, #button_cart_19766').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19766'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19765, #button_cart_19765').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19765'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19764, #button_cart_19764').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19764'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19763, #button_cart_19763').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19763'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19762, #button_cart_19762').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19762'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19761, #button_cart_19761').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19761'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19760, #button_cart_19760').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19760'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19759, #button_cart_19759').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19759'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19758, #button_cart_19758').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19758'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19757, #button_cart_19757').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19757'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19755, #button_cart_19755').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19755'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19754, #button_cart_19754').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19754'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19753, #button_cart_19753').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19753'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19752, #button_cart_19752').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19752'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19751, #button_cart_19751').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19751'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19750, #button_cart_19750').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19750'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19749, #button_cart_19749').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19749'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19748, #button_cart_19748').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19748'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19747, #button_cart_19747').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19747'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19746, #button_cart_19746').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19746'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19745, #button_cart_19745').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19745'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19744, #button_cart_19744').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19744'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19743, #button_cart_19743').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19743'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19741, #button_cart_19741').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19741'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19740, #button_cart_19740').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19740'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19739, #button_cart_19739').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19739'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax16738, #button_cart_16738').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['16738'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax18902, #button_cart_18902').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['18902'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19738, #button_cart_19738').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19738'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19737, #button_cart_19737').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19737'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19736, #button_cart_19736').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19736'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19735, #button_cart_19735').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19735'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19734, #button_cart_19734').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19734'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19733, #button_cart_19733').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19733'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19732, #button_cart_19732').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19732'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19731, #button_cart_19731').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19731'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19730, #button_cart_19730').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19730'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19725, #button_cart_19725').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19725'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19724, #button_cart_19724').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19724'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19723, #button_cart_19723').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19723'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19722, #button_cart_19722').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19722'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19721, #button_cart_19721').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19721'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19720, #button_cart_19720').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19720'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19719, #button_cart_19719').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19719'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19716, #button_cart_19716').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19716'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19715, #button_cart_19715').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19715'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19714, #button_cart_19714').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19714'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19712, #button_cart_19712').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19712'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19711, #button_cart_19711').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19711'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19710, #button_cart_19710').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19710'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19709, #button_cart_19709').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19709'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19708, #button_cart_19708').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19708'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax1982, #button_cart_1982').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['1982'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax12480, #button_cart_12480').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['12480'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax17690, #button_cart_17690').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['17690'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax18317, #button_cart_18317').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['18317'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19058, #button_cart_19058').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19058'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19178, #button_cart_19178').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19178'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19706, #button_cart_19706').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19706'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19705, #button_cart_19705').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19705'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19704, #button_cart_19704').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19704'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19703, #button_cart_19703').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19703'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19702, #button_cart_19702').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19702'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19701, #button_cart_19701').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19701'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax18993, #button_cart_18993').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['18993'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19175, #button_cart_19175').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19175'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19185, #button_cart_19185').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19185'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19190, #button_cart_19190').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19190'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19191, #button_cart_19191').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19191'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19283, #button_cart_19283').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19283'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19707, #button_cart_19707').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19707'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19700, #button_cart_19700').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19700'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax16916, #button_cart_16916').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['16916'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19699, #button_cart_19699').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19699'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19698, #button_cart_19698').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19698'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19697, #button_cart_19697').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19697'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19696, #button_cart_19696').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19696'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19695, #button_cart_19695').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19695'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19694, #button_cart_19694').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19694'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script type="text/javascript">
+    (function (_, $) {
+        $('#button_cart_ajax19693, #button_cart_19693').click(function () {
+            var milliseconds = new Date().getTime();
+            window._fbq.push(['track', 'AddToCart', {
+                content_type: 'product',
+                content_ids: ['19693'],
+                timestamp: milliseconds
+            }]);
+        });
+    }(Tygh, Tygh.$));
+</script>
+<script>
+    $('#$subscribeButton').click(function () {
+        fbq('track', 'Subscribe');
+    )
+    }
+
+</script>
+<script src="https://emailoctopus.com/bundles/emailoctopuslist/js/1.3/recaptcha.js?1541414065"></script>
+<script src="https://emailoctopus.com/bundles/emailoctopuslist/js/1.3/formEmbed.js?1541414065"></script>
+<script type="text/javascript" src="https://bookcafe.com.my/js/addons/sd_facebook_pixel/func.js?ver=4.6.2"></script>
+<script type="text/javascript">
+    $(window).unbind('beforeunload.abandoned_cart');
+</script>
+<script type="text/javascript">
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+    $('.scrollToTop').click(function () {
+        $('html, body').animate({scrollTop: 0}, 800);
+        return false;
+    });
+</script>
+<script type="text/javascript">if (typeof wabtn4fg === "undefined") {
+    wabtn4fg = 1;
+    h = document.head || document.getElementsByTagName("head")[0], s = document.createElement("script");
+    s.type = "text/javascript";
+    s.src = "/js/addons/my_changes/whatsapp-button.js";
+    h.appendChild(s);
+}</script>
+<script type="text/javascript">/*
+var $_Tawk_API={},$_Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/559b373c4f6025b32b85ab0f/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();*/
+</script>
+
+
+</body>
+
+</html>

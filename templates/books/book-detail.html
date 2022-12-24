@@ -1,0 +1,687 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    BOCA - {{ object.title }}
+{% endblock title %}
+
+{% block main_content %}
+    <div class="tygh-content clearfix">
+        <div class="container-fluid  content-grid">
+            <div class="row-fluid ">
+                <div class="span12 main-content-grid">
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                         data-ca-live-editor-object-type="" style="display: none;"><p id="wasap1"><a
+                            href="https://api.whatsapp.com/send?text=" title="Share On Whatsapp"
+                            onclick="window.open('https://api.whatsapp.com/send?phone=60182036330&text=Saya%20nak%20beli%20buku%20ini%20di%20BOCAMART: ' + encodeURIComponent(document.title)); return false;"><img
+                            style="display: block; margin-left: auto; margin-right: auto;"
+                            src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_button_600x150_03.png"
+                            alt="" width="250" height="100"/></a></p>
+                        <p id="wasap2" style="display:none;"><a href="#" title="Cannot Buy. Out Of Stock"
+                                                                onclick="window.alert('This Product Is Out Of Stock.')"><img
+                                style="display: block; margin-left: auto; margin-right: auto;"
+                                src="https://bookcafe.com.my/images/companies/1/WhatsappOrder-1964.png?1515732823458"
+                                alt="" width="250" height="100"/></a></p>
+                        <!-- Inline script moved to the bottom of the page --></div>
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                         data-ca-live-editor-object-type=""><p></p></div>
+                    <!-- Inline script moved to the bottom of the page -->
+
+
+                    <!-- Inline script moved to the bottom of the page -->
+                    <div class="ty-product-block ty-product-detail">
+                        <div class="ty-product-block__wrapper clearfix">
+                            <div itemscope itemtype="http://schema.org/Product">
+                                <meta itemprop="sku" content="978-967-481-380-2"/>
+                                <meta itemprop="name"
+                                      content="{{ object.title }}"/>
+                                <meta itemprop="description"
+                                      content="Tajuk:  {{ object.title }}ISBN: {{ object.isbn }}Penulis: {{ object.author }}Muka Surat: {{ object.pages }}Sinopsis: {{ object.synopsis }}
+"/>
+
+                                <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                    <link itemprop="availability" href="http://schema.org/InStock"/>
+                                    <meta itemprop="priceCurrency" content="MYR"/>
+                                    <meta itemprop="price" content="27"/>
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="ty-product-block__img-wrapper">
+                                <div class="ty-product-block__img cm-reload-18314">
+                                    <div class="ty-product-thumbnails ty-center cm-image-gallery" style="width: 280px;">
+                                        <a class="cm-thumbnails-mini active ty-product-thumbnails__item">
+                                                <img class="ty-pict cm-image"
+                                                     src="{{ object.image_set.all.0.images.url }}"
+                                                     alt="" title=""
+                                                />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ty-product-block__left">
+                                <form action="https://bookcafe.com.my/" method="post" name="product_form_18314"
+                                      enctype="multipart/form-data"
+                                      class="cm-disable-empty-files  cm-ajax cm-ajax-full-render cm-ajax-status-middle ">
+                                    <input type="hidden" name="result_ids"
+                                           value="cart_status*,wish_list*,checkout*,account_info*"/>
+                                    <input type="hidden" name="redirect_url"
+                                           value="index.php?sl=en&amp;dispatch=products.view&amp;product_id=18314"/>
+                                    <input type="hidden" name="product_data[18314][product_id]" value="18314"/>
+
+
+                                    <h1 class="ty-product-block-title">{{ object.title }}</h1>
+
+
+                                    <div class="brand">
+
+
+                                    </div>
+
+
+                                    <div class="ty-product-block__note">
+                                        <div style="border: 3px dotted red; padding: 0.5em;">
+                                            <p style="text-align: center;"><span
+                                                    style="font-size: 14pt; background-color: #ffff00;"><strong><span
+                                                    style="color: #ff0000;"><span
+                                                    style="color: #000000;"> READY STOCK</span></span></strong></span>
+                                            </p>
+                                            <p style="text-align: center;"><span style="font-size: 12pt;"><strong>Stok lengkap &amp; semua tajuk sudah sedia dengan kami.</strong></span>
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="prices-container price-wrap">
+                                        <div class="ty-product-prices">
+                                        <span class="cm-reload-18314" id="old_price_update_18314">
+                                        </span>
+
+                                            <div class="ty-product-block__price-actual">
+							                                <span class="cm-reload-18314 ty-price-update"
+                                                                  id="price_update_18314">
+        <input type="hidden" name="appearance[show_price_values]" value="1"/>
+        <input type="hidden" name="appearance[show_price]" value="1"/>
+
+                                    <span class="ty-price" id="line_discounted_price_18314"><bdi><span
+                                            class="ty-price-num"></span><span id="sec_discounted_price_18314"
+                                                                              class="ty-price-num">{{ object.price }}</span></bdi></span>
+                                                            </span>
+                                            </div>
+
+
+                                            <span class="cm-reload-18314" id="line_discount_update_18314">
+            <input type="hidden" name="appearance[show_price_values]" value="1"/>
+            <input type="hidden" name="appearance[show_list_discount]" value="1"/>
+                                                <!--line_discount_update_18314--></span>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="ty-product-block__option">
+                                        <div class="cm-reload-18314" id="product_options_update_18314">
+                                            <input type="hidden" name="appearance[show_product_options]" value="1"/>
+
+
+                                            <input type="hidden" name="appearance[details_page]" value="1"/>
+                                            <input type="hidden" name="additional_info[info_type]" value="D"/>
+                                            <input type="hidden" name="additional_info[get_icon]" value="1"/>
+                                            <input type="hidden" name="additional_info[get_detailed]" value="1"/>
+                                            <input type="hidden" name="additional_info[get_additional]" value=""/>
+                                            <input type="hidden" name="additional_info[get_options]" value="1"/>
+                                            <input type="hidden" name="additional_info[get_discounts]" value="1"/>
+                                            <input type="hidden" name="additional_info[get_features]" value=""/>
+                                            <input type="hidden" name="additional_info[get_extra]" value=""/>
+                                            <input type="hidden" name="additional_info[get_taxed_prices]"
+                                                   value="1"/>
+                                            <input type="hidden" name="additional_info[get_for_one_product]"
+                                                   value="1"/>
+                                            <input type="hidden" name="additional_info[detailed_params]" value="1"/>
+                                            <input type="hidden" name="additional_info[features_display_on]"
+                                                   value="C"/>
+
+
+                                            <!-- Inline script moved to the bottom of the page -->
+
+
+                                            <!--product_options_update_18314--></div>
+
+                                    </div>
+
+                                    <div class="ty-product-block__advanced-option clearfix">
+                                        <div class="cm-reload-18314" id="advanced_options_update_18314">
+                                            <input type="hidden" name="appearance[dont_show_points]" value=""/>
+                                            <!--div class="ty-reward-group">
+                                                <span class="ty-control-group__label product-list-field">Price in points:</span>
+                                                <span class="ty-control-group__item" id="price_in_points_18314"><b>27 points</b></span>
+                                            </div-->
+                                            <!--div class="ty-reward-group product-list-field hidden">
+                                                <span class="ty-control-group__label">Reward points:</span>
+                                                <span class="ty-control-group__item" id="reward_points_18314"><b> points</b></span>
+                                            </div-->
+                                            <!--div class="ty-weight-group cm-reload-18314" id="weight_update_18314">
+                                                <span class="ty-control-group__label product-list-field">Weight:</span>
+                                                <span class="ty-control-group__item"
+                                                      id="weight_18314">0.21 kg</span>
+                                            </div-->
+                                        </div>
+                                    </div>
+
+                                    <div class="ty-product-block__sku">
+                                        <div class="ty-control-group ty-sku-item cm-hidden-wrapper"
+                                             id="sku_update_18314">
+                                            <input type="hidden" name="appearance[show_sku]" value="1"/>
+                                            <label class="ty-control-group__label" id="sku_18314">Code/ISBN:</label>
+                                            <span class="ty-control-group__item cm-reload-18314"
+                                                  id="product_code_18314">{{ object.isbn }}
+                                                </span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="ty-product-block__field-group">
+                                        {% comment %}
+                                        <div class="cm-reload-18314 stock-wrap" id="product_amount_update_18314">
+                                            <input type="hidden" name="appearance[show_product_amount]" value="1"/>
+                                            <div class="ty-control-group product-list-field">
+                                                <label class="ty-control-group__label"><b>STOCK</b>:</label>
+                                                <span id="qty_in_stock_18314"
+                                                      class="ty-qty-in-stock ty-control-group__item">3771&nbsp;pieces
+                                                </span>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="hidden">
+                                            <input type="hidden" name="selected_section" value="product_packages"/>
+                                            <table class="cp-product-package">
+                                            </table>
+                                        </div>
+
+                                        <div class="cm-reload-18314" id="qty_update_18314">
+                                            <input type="hidden" name="appearance[show_qty]" value="1"/>
+                                            <input type="hidden" name="appearance[capture_options_vs_qty]"
+                                                   value=""/>
+                                            <div class="ty-qty clearfix changer" id="qty_18314">
+                                                <label class="ty-control-group__label"
+                                                       for="qty_count_18314">Quantity:</label>
+                                                <div class="ty-center ty-value-changer cm-value-changer">
+                                                    <a class="cm-increase ty-value-changer__increase">&#43;</a>
+                                                    <input type="text" size="5"
+                                                           class="ty-value-changer__input cm-amount"
+                                                           id="qty_count_18314" name="product_data[18314][amount]"
+                                                           value="1" data-ca-min-qty="1"/>
+                                                    <a class="cm-decrease ty-value-changer__decrease">&minus;</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="ty-product-notification__item clearfix">
+                                            <div class="ty-product-notification__content clearfix"
+                                                 style="color: #f90;">
+                                            </div>
+                                        </div>
+                                        {% endcomment %}
+                                    </div>
+
+
+                                    <div class="ty-product-block__button">
+
+                                        <div class="cm-reload-18314 " id="add_to_cart_update_18314">
+                                            <input type="hidden" name="appearance[show_add_to_cart]" value="1"/>
+                                            <input type="hidden" name="appearance[show_list_buttons]" value="1"/>
+                                            <input type="hidden" name="appearance[but_role]" value="big"/>
+                                            <input type="hidden" name="appearance[quick_view]" value=""/>
+
+                                            {% if book.in_stock %}
+                                                <button class="ty-btn__primary ty-btn__big ty-btn__add-to-cart cm-form-dialog-closer ty-btn"
+                                                        onclick="location.href='{% url 'add-to-cart' book_id=book.id %}?next={{ request.path|urlencode }}';">
+                                                    ADD TO CART
+                                                </button>
+                                            {% else %}
+                                                <button class="ty-btn__secondary ty-btn__big ty-btn__add-to-cart cm-form-dialog-closer ty-btn"
+                                                        disabled>
+                                                    SOLD OUT
+                                                </button>
+                                            {% endif %}
+                                            <!--a class="ty-btn ty-btn__text ty-add-to-wish cm-submit text-button "
+                                               id="button_wishlist_18314"
+                                               data-ca-dispatch="dispatch[wishlist.add..18314]">Add to wish list
+                                            </a-->
+                                        </div>
+
+
+                                    </div>
+
+                                    <input type="hidden" name="security_hash" class="cm-no-hide-input"
+                                           value="f71a0614d96e14963f5b22e9bbe1dddf"/></form>
+
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="ty-tabs cm-j-tabs clearfix">
+                            <ul class="ty-tabs__list">
+                                <li id="description" class="ty-tabs__item cm-js active"><a class="ty-tabs__a">
+                                    SINOPSIS &amp; REVIEW</a></li>
+                                <li id="features" class="ty-tabs__item cm-js"><a class="ty-tabs__a">INFO BUKU</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="cm-tabs-content ty-tabs__content clearfix" id="tabs_content">
+
+
+                            <div id="content_description" class="ty-wysiwyg-content content-description">
+
+                                <div>
+
+                                    <p></p>
+                                    <p>
+                                            <span style="font-size: 12pt;">{{ object.synopsis }}
+                                            </span>
+                                    </p>
+
+                                </div>
+
+
+                            </div>
+
+
+                            <div id="content_features" class="ty-wysiwyg-content content-features">
+
+                                <div class="ty-product-feature">
+                                    <span class="ty-product-feature__label">Tajuk:</span>
+
+
+                                    <div class="ty-product-feature__value">{{ object.title }}</div>
+                                </div>
+                                <div class="ty-product-feature">
+                                    <span class="ty-product-feature__label">Penerbit:</span>
+
+
+                                    <div class="ty-product-feature__value">{{ object.publisher }}</div>
+                                </div>
+                                <div class="ty-product-feature">
+                                    <span class="ty-product-feature__label">Penulis:</span>
+
+
+                                    <div class="ty-product-feature__value">{{ object.author }}</div>
+                                </div>
+                                <div class="ty-product-feature">
+                                    <span class="ty-product-feature__label">ISBN:</span>
+
+
+                                    <div class="ty-product-feature__value">{{ object.isbn }}</div>
+                                </div>
+                                <div class="ty-product-feature">
+                                    <span class="ty-product-feature__label">Tahun Terbit:</span>
+
+
+                                    <div class="ty-product-feature__value">{{ object.year }}<span
+                                            class="ty-product-feature__suffix"></span>
+                                    </div>
+                                </div>
+                                <div class="ty-product-feature">
+                                    <span class="ty-product-feature__label">Muka Surat:</span>
+
+
+                                    <div class="ty-product-feature__value">{{ object.pages }}<span
+                                            class="ty-product-feature__suffix"> Muka Surat</span></div>
+                                </div>
+
+
+                            </div>
+
+
+                            <div id="content_discussion" class="ty-wysiwyg-content content-discussion">
+
+
+                            </div>
+
+
+                            <div id="content_buy_together" class="ty-wysiwyg-content content-buy_together">
+
+
+                            </div>
+
+
+                            <div id="content_attachments" class="ty-wysiwyg-content content-attachments">
+
+
+                            </div>
+
+
+                            <div id="content_required_products"
+                                 class="ty-wysiwyg-content content-required_products">
+
+
+                            </div>
+
+
+                            <div id="content_product_tab_36" class="ty-wysiwyg-content content-product_tab_36">
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="product-details">
+                    </div>
+                    <div class="ty-mainbox-container clearfix">
+                        <h1 class="ty-mainbox-title">
+                            Anda Juga Mungkin Meminati Produk Ini:
+                        </h1>
+
+                        <!-- start scrolller berkaitan-->
+                        <div class="ty-mainbox-body">
+                            <div id="scroll_list_berkaitan" class="owl-carousel ty-scroller-list">
+                                {% comment %}
+                                                                <div-- class="ty-scroller-list__item">
+                                    <div class="ty-scroller-list__img-block">
+                                        <a href="https://bookcafe.com.my/sejarah-umat-islam/"><img
+                                                class="ty-pict   lazyOwl  cm-image"
+                                                data-src="https://bookcafe.com.my/images/thumbnails/200/200/detailed/61/Sejarah-Umat-Islamz-800x1201.jpg"
+                                                alt="" title=""/>
+                                        </a>
+                                    </div>
+                                    <div class="ty-scroller-list__description">
+                                        <div class="ty-simple-list clearfix">
+                                            <form action="https://bookcafe.com.my/" method="post"
+                                                  name="product_form_2107000scr_210700012480"
+                                                  enctype="multipart/form-data"
+                                                  class="cm-disable-empty-files  cm-ajax cm-ajax-full-render cm-ajax-status-middle ">
+                                                <input type="hidden" name="result_ids"
+                                                       value="cart_status*,wish_list*,checkout*,account_info*"/>
+                                                <input type="hidden" name="redirect_url"
+                                                       value="index.php?sl=en&amp;amp;dispatch=products.view&amp;product_id=18314"/>
+                                                <input type="hidden"
+                                                       name="product_data[scr_210700012480][product_id]"
+                                                       value="12480"/>
+
+
+                                                <a href="https://bookcafe.com.my/sejarah-umat-islam/"
+                                                   class="product-title"
+                                                   title="Sejarah Umat Islam (HARDCOVER) (L181,Z38,S62,P3,G57)">Sejarah
+                                                    Umat Islam (HARDCOVER) (L181,Z38,S62,P3,G57)</a>
+
+
+                                                <div class="ty-simple-list__price clearfix">
+                                                                                <span class="cm-reload-2107000scr_210700012480"
+                                                                                      id="old_price_update_2107000scr_210700012480">
+
+
+
+        <!--old_price_update_2107000scr_210700012480--></span>
+                                                    &nbsp;
+                                                    <span class="cm-reload-2107000scr_210700012480 ty-price-update"
+                                                          id="price_update_2107000scr_210700012480">
+        <input type="hidden" name="appearance[show_price_values]" value="1"/>
+        <input type="hidden" name="appearance[show_price]" value="1"/>
+
+                                    <span class="ty-price" id="line_discounted_price_2107000scr_210700012480"><bdi><span
+                                            class="ty-price-num">RM</span><span
+                                            id="sec_discounted_price_2107000scr_210700012480"
+                                            class="ty-price-num">59.00</span></bdi></span>
+
+
+                                                        <!--price_update_2107000scr_210700012480--></span>
+
+
+                                                </div>
+
+
+                                                <div class="ty-simple-list__buttons">
+                                                    <div class="cm-reload-2107000scr_210700012480 "
+                                                         id="add_to_cart_update_2107000scr_210700012480">
+                                                        <input type="hidden" name="appearance[show_add_to_cart]"
+                                                               value="1"/>
+                                                        <input type="hidden" name="appearance[show_list_buttons]"
+                                                               value=""/>
+                                                        <input type="hidden" name="appearance[but_role]"
+                                                               value="action"/>
+                                                        <input type="hidden" name="appearance[quick_view]"
+                                                               value=""/>
+
+
+                                                        <button id="button_cart_2107000scr_210700012480"
+                                                                class="ty-btn__primary ty-btn__big ty-btn__add-to-cart cm-form-dialog-closer ty-btn"
+                                                                type="submit"
+                                                                name="dispatch[checkout.add..scr_210700012480]">ADD
+                                                            TO CART
+                                                        </button>
+
+
+                                                        <!-- Inline script moved to the bottom of the page -->
+
+
+                                                        <!--add_to_cart_update_2107000scr_210700012480--></div>
+
+
+                                                </div>
+                                                <input type="hidden" name="security_hash" class="cm-no-hide-input"
+                                                       value="f71a0614d96e14963f5b22e9bbe1dddf"/></form>
+
+                                        </div>
+                                    </div>
+                                </div-->
+
+                                {% endcomment %}
+
+                                {% for book in books %}
+                                    <div class="ty-scroller-list__item">
+                                        <div class="ty-scroller-list__img-block">
+                                            <a href="{% url 'book-detail' pk=book.id %}"><img
+                                                    class="ty-pict   lazyOwl  cm-image"
+                                                    data-src="{{ book.image_set.all.0.images.url }}" alt="" title=""/>
+                                            </a>
+                                        </div>
+                                        <div class="ty-scroller-list__description">
+
+
+                                            <div class="ty-simple-list clearfix">
+                                                <form action="https://bookcafe.com.my/" method="post"
+                                                      name="product_form_2107000scr_210700018993"
+                                                      enctype="multipart/form-data"
+                                                      class="cm-disable-empty-files  cm-ajax cm-ajax-full-render cm-ajax-status-middle ">
+                                                    <input type="hidden" name="result_ids"
+                                                           value="cart_status*,wish_list*,checkout*,account_info*"/>
+                                                    <input type="hidden" name="redirect_url"
+                                                           value="index.php?sl=en&amp;dispatch=products.view&amp;product_id=18314"/>
+                                                    <input type="hidden"
+                                                           name="product_data[scr_210700018993][product_id]"
+                                                           value="18993"/>
+
+                                                    {% comment %}
+                                                <span class="ty-discount-label cm-reload-2107000scr_210700018993"
+                                                      id="discount_label_update_2107000scr_210700018993">
+                                                    <span class="ty-discount-label__item" id="line_prc_discount_value_2107000scr_210700018993">
+                                                        <span class="ty-discount-label__value" id="prc_discount_value_label_2107000scr_210700018993">Save 15%</span>
+                                                    </span>
+                                                </span>
+                                                {% endcomment %}
+
+                                                    <a href="{% url 'book-detail' pk=book.id %}"
+                                                       class="product-title"
+                                                       title="{{ book.title }}">
+                                                        {{ book.title }}
+                                                    </a>
+
+                                                    <div class="ty-simple-list__price clearfix">
+                                                    <span class="cm-reload-2107000scr_210700018993"
+                                                          id="old_price_update_2107000scr_210700018993">
+                                                        <!--span class="ty-list-price ty-nowrap"
+                                                              id="line_old_price_2107000scr_210700018993">
+                                                            <span class="ty-strike"><bdi>
+                                                                <span class="ty-list-price ty-nowrap">&nbsp;</span>
+                                                                <span id="sec_old_price_2107000scr_210700018993"
+                                                                      class="ty-list-price ty-nowrap">{{ book.price }}</span></bdi>
+                                                            </span>
+                                                        </span-->
+                                                    </span>&nbsp;
+                                                        <span class="cm-reload-2107000scr_210700018993 ty-price-update"
+                                                              id="price_update_2107000scr_210700018993">
+                                                        <input type="hidden" name="appearance[show_price_values]"
+                                                               value="1"/>
+                                                        <input type="hidden" name="appearance[show_price]" value="1"/>
+                                                        <span class="ty-price"
+                                                              id="line_discounted_price_2107000scr_210700018993"><bdi>
+                                                            <span class="ty-price-num">&nbsp;</span>
+                                                            <span id="sec_discounted_price_2107000scr_210700018993"
+                                                                  class="ty-price-num">{{ book.price }}</span></bdi>
+                                                        </span>
+                                                    </span>
+                                                    </div>
+                                                    <div class="ty-simple-list__buttons">
+                                                        <div class="cm-reload-2107000scr_210700018993 "
+                                                             id="add_to_cart_update_2107000scr_210700018993">
+                                                            {% if book.in_stock %}
+                                                                <button class="ty-btn__primary ty-btn__big ty-btn__add-to-cart cm-form-dialog-closer ty-btn"
+                                                                        onclick="location.href='{% url 'add-to-cart' book_id=book.id %}?next={{ request.path|urlencode }}';">
+                                                                    ADD TO CART
+                                                                </button>
+                                                            {% else %}
+                                                                <button class="ty-btn__secondary ty-btn__big ty-btn__add-to-cart cm-form-dialog-closer ty-btn"
+                                                                        disabled>
+                                                                    SOLD OUT
+                                                                </button>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor book in books %}
+
+                            </div>
+                        </div>
+                        <!-- end scroller berkaitan -->
+
+                    </div>
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                         data-ca-live-editor-object-type=""><br></div>
+                    <div class="ty-mainbox-container clearfix" style="display: none;">
+
+                        <h1 class="ty-mainbox-title">
+                            MARKETPLACE UTAMA ANDA
+
+                        </h1>
+
+
+                        <div class="ty-mainbox-body">
+                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                 data-ca-live-editor-object-type="">
+                                <div><a href="https://shopee.com.my/buyer/161918302/rating" target="_blank"><img
+                                        src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/STAR+REVIEW-03.png"
+                                        alt="" width="780" height="579"/></a></div>
+                                <div></div>
+                                <div style="text-align: center;"><span
+                                        style="font-size: 12pt; color: #800080;"><strong>Lihat semua review, <a
+                                        href="https://shopee.com.my/buyer/161918302/rating"
+                                        target="_blank">KLIK DI SINI</a></strong></span>
+                                </div>
+                                <div style="text-align: center;"></div>
+                                <div style="text-align: center;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                         data-ca-live-editor-object-type="" style="display: none;"><p></p>
+                        <div style="text-align: center;"><a href="#tygh_main_container"><img
+                                src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/STAR+REVIEW-03.png"
+                                alt="" width="100" height="50"/></a></div>
+                        <p></p></div>
+                </div>
+
+
+                <div class="span4 ">
+                    <div class="ty-mainbox-container clearfix">
+
+                        <h1 class="ty-mainbox-title">
+
+                            MARKETPLACE UTAMA ANDA
+
+
+                        </h1>
+
+
+                        <div class="ty-mainbox-body">
+                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                 data-ca-live-editor-object-type="">
+                                <div><a href="https://shopee.com.my/buyer/161918302/rating" target="_blank"><img
+                                        src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/STAR+REVIEW-03.png"
+                                        alt="" width="780" height="579"/></a></div>
+                                <div></div>
+                                <div style="text-align: center;"><span
+                                        style="font-size: 12pt; color: #800080;"><strong>Lihat semua review, <a
+                                        href="https://shopee.com.my/buyer/161918302/rating"
+                                        target="_blank">KLIK DI SINI</a></strong></span>
+                                </div>
+                                <div style="text-align: center;"></div>
+                                <div style="text-align: center;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ty-mainbox-container clearfix">
+
+                        <h1 class="ty-mainbox-title">
+
+                            TERMA JUALAN DAN PENGHANTARAN
+
+
+                        </h1>
+
+
+                        <div class="ty-mainbox-body">
+                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                 data-ca-live-editor-object-type="">
+                                <div style="text-align: center;"></div>
+                                <div style="text-align: center;">
+                                    <div style="border: 3px dotted purple; padding: 0.5em;">
+                                        <div><a href="https://bookcafe.com.my/en/refund-and-return-policy-en/"
+                                                target="_blank"><img
+                                                style="display: none;"
+                                                src="https://bookcafe.com.my/images/companies/1/jaminan-bookcafe-compressor.png?1503885865704"
+                                                alt="" width="250" height="100"/></a></div>
+                                        <p style="text-align: left;"><span style="font-size: 12pt;">1. Order diproses &amp; dihantar setiap hari Isnin - Jumaat.</span>
+                                        </p>
+                                        <p style="text-align: left;"><span style="font-size: 12pt;">2. Penghantaran terus ke alamat yang didaftarkan.</span>
+                                        </p>
+                                        <p style="text-align: left;"><span style="font-size: 12pt;">3. Buku atau produk yang rosak diganti baru.</span>
+                                        </p>
+                                        <p style="text-align: left;"><span style="font-size: 12pt;">4. Tiada caj penghantaran dikenakan untuk buku atau produk gantian.</span>
+                                        </p>
+                                        <p style="text-align: left;"><span style="font-size: 12pt;">5. Jaminan Data peribadi pelanggan terpelihara.</span>
+                                        </p>
+                                        <p style="text-align: left;"><span style="font-size: 12pt;">6. Jaminan wang dikembalikan (refund).</span>
+                                        </p>
+                                        <p style="text-align: left;"><span style="font-size: 12pt;">7. Servis yang teratur &amp; memuaskan.</span>
+                                        </p>
+                                        <p style="text-align: left;"><span style="font-size: 12pt;">8. Resit untuk pelepasan cukai disediakan.</span>
+                                        </p>
+                                        <p style="text-align: left;"><span style="font-size: 10pt;">Jaminan ini tertakluk kepada terma &amp; syarat. Maklumat lanjut untuk terma &amp; syarat: <a
+                                                href="{% url 'terma' %}"
+                                                target="_blank">KLIK DI SINI</a> </span></p>
+                                    </div>
+                                </div>
+                                <p></p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main_content %}
+
+{% block scripts %}
+    {{ block.super }}
+{% endblock scripts %}

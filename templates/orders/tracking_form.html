@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    BOCA - Create Tracking Number
+{% endblock title %}
+
+{% block main_content %}
+    <div class="tygh-content clearfix">
+        <div class="container-fluid  ">
+            <header class="entry-header">
+                <h1 class="entry-title">Add Tracking Number</h1></header>
+            <div class="entry-content">
+                <form method="post">{% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Save">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock main_content %}

@@ -1,0 +1,88 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <title>
+        {% block title %}PENDAFTARAN PENERBIT
+        {% endblock title %}
+    </title>
+
+
+    <base href="{% url 'index' %}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" data-ca-mode="ultimate"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width"/>
+
+    <meta name="description"
+          content="Jimat &amp; berkualiti. Buku-buku hebat dari penerbit terkenal. Servis teratur, ada promosi diskaun istimewa dan tawaran pos percuma. Pelbagai kategori buku dalam bahasa Melayu &amp; Inggeris. "/>
+
+
+    <meta name="keywords"
+          content="kedai buku, buku online, kedai buku online, beli buku, buku terlaris, book marketplace, buku dubook, buku indie, buku novel, buku agama, buku kanak-kanak, buku bisnes, buku motivasi, buku pak latip, buku dr asri, buku uai, buku drama tv3, buku resipi, buku masakan, buku chef hanieliza, buku budak-budak, buku cerita, kitab agama, buku ustaz, buku tarbiah sentap, buku matluthfi, buku kuih kukus, buku hadis palsu, buku amalan 24 jam, buku hamka, buku jawi, tulisan jawi, buku yusuf al-qaradhawi, buku amran fans, komik-m, pesta buku, jualan buku, buku peperiksaan, buku upsr, buku pt3, buku spm, "/>
+
+    <link href="https://boca-assets.s3-ap-southeast-1.amazonaws.com/BOCA_header.png" rel="shortcut icon"
+          type="image/png"/>
+
+    <meta name="cmsmagazine" content="b55b3ce6a6b9c4d16194dc6efd5e2613"/>
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+
+    <meta property="og:image" content=""/>
+    <link href="https://boca-assets.s3-ap-southeast-1.amazonaws.com/BOCA_header.png" rel="shortcut icon"
+          type="image/png"/>
+    <link type="text/css" rel="stylesheet"
+          href="{% static 'css/standalone.2988f35d667321e77baf0addd79dca961624608279.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/collectco_widget.min.css' %}"/>
+</head>
+
+<body>
+
+<style>
+    .bc-header > ul {
+        background-color: #e51824 !important;
+    }
+
+    .footer-stay-connected {
+        background-color: #e51824 !important;
+    }
+
+    .btn {
+        background-color: #e51824 !important;
+    }
+
+
+    element.style {
+        border: 4px solid #e51824 !important;
+        padding: 0.5em;
+        background-color: white;
+    }
+</style>
+
+<div class="ty-tygh" id="tygh_container">
+    <div id="ajax_overlay" class="ty-ajax-overlay"></div>
+    <div id="ajax_loading_box" class="ty-ajax-loading-box"></div>
+    <div class="cm-notification-container notification-container"></div>
+    <div class="ty-helper-container" id="tygh_main_container">
+
+        {% block header %}
+            {% include 'base/header.html' %}
+        {% endblock header %}
+
+        {% block main_content %}
+        <div class="tygh-content clearfix">
+            <div class="container-fluid  ">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeROo3SMD0C8lI6Jq7iLQko45O2a-7OHZOLa6gNW7JIU08yBw/viewform?embedded=true" 
+                width="100%" height="1000px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>        
+            </div>
+        </div>
+        {% endblock main_content %}
+
+        {% block footer %}
+            {% include 'base/footer.html' %}
+        {% endblock footer %}
+
+   
+
+</body>
+
+</html>

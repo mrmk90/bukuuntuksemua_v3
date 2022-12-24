@@ -1,0 +1,970 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    BOCA: Book Marketplace
+{% endblock title %}
+
+{% block main_content %}
+    <div class="tygh-content clearfix">
+        <div class="container-fluid">
+
+            <div class="row-fluid">
+                <div class="span16">
+                    <div class="row-fluid">
+                        <div class="span16">
+                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                 data-ca-live-editor-object-type=""><p></p></div>
+                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                 data-ca-live-editor-object-type="">
+                                <style type="text/css">
+                                    iframe {
+                                        width: 100%;
+                                        height: 50px;
+                                        border: none;
+                                        overflow: auto;
+                                    }
+
+                                    @media screen and (max-width: 1166px) {
+                                        iframe {
+                                            width: 100%;
+                                            height: 50px;
+                                        }
+
+                                    }
+
+                                    @media screen and (max-width: 1024px) {
+                                        iframe {
+                                            width: 100%;
+                                            height: 0px;
+                                        }
+                                    }
+
+                                    @media screen and (max-width: 980px) {
+                                        iframe {
+                                            width: 100%;
+                                            height: 0px;
+                                        }
+                                    }
+
+                                    @media screen and (max-width: 767px) {
+                                        iframe {
+                                            width: 100%;
+                                            height: 0px;
+                                        }
+                                    }
+
+                                    @media screen and (max-width: 599px) {
+                                        iframe {
+                                            width: 100%;
+                                            height: 0px;
+                                        }
+                                    }
+
+                                    @media screen and (max-width: 479px) {
+                                        iframe {
+                                            width: 100%;
+                                            height: 0px;
+                                        }
+                                    }
+
+                                    @media screen and (max-width: 374px) {
+                                        iframe {
+                                            width: 100%;
+                                            height: 0px;
+                                        }
+
+                                    }
+                                </style>
+
+                                <iframe name="BC Stats" src="{% url 'stats' %}" scrolling="no">
+                                </iframe>
+
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type=""><p></p></div>
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type="">
+                                    <div style="border: 3px dotted red; padding: 0.5em;">
+                                        <p style="text-align: center;"><span
+                                                style="font-size: 14pt; background-color: #ffff00;"><strong><span
+                                                style="color: #ff0000;"><span style="color: #000000;">MAKLUMAN PRA-PELANCARAN BOCA</span></span></strong></span>
+                                        </p>
+                                        <p style="text-align: center;"><span
+                                                style="font-size: 12pt;">Selamat datang ke laman <span
+                                                style="color: #ff0000;"><strong>BOCA Marketplace</strong></span>, (bakal) portal buku terbesar di Malaysia</span>
+                                        </p>
+                                        
+                                        <p style="text-align: center;"><span
+                                                style="font-size: 12pt;"><span>Buat pelanggan baru, sila tuntut kod</span> <span
+                                                style="color: #000000;"><strong>baucarBOCA</strong></span> di "view cart" untuk dapatkan baucar <span
+                                                style="color: #000000;"><strong>RM 10.00</strong></span> anda. *</span>
+                                        </p>
+                                        
+                                        <p style="text-align: center;"><span style="font-size: 12pt;">Hubungi kami di info@boca.my atau 018-203 6330 untuk maklumat lanjut </span>
+                                        </p>
+                                        <p style="text-align: center;"><span style="font-size: 12pt;">* Terma dan syarat - Minimum pembelian adalah RM 30.00</span>
+                                        </p>
+                                    </div>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-fluid ">
+                            <div class="span4 ">
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type=""><p><a
+                                        href="{% url 'terkini' %}" target="_blank"><img
+                                        style="display: block; margin-left: auto; margin-right: auto;"
+                                        src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_button_600x150_01.png"
+                                        alt="" width="600" height="150"/></a></p></div>
+                            </div>
+
+
+                            <div class="span4 ">
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type=""><p><a
+                                        href="{% url 'bestseller' %}" target="_blank"><img
+                                        style="display: block; margin-left: auto; margin-right: auto;"
+                                        src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_button_600x150_02.png"
+                                        alt="" width="600" height="150"/></a></p></div>
+                            </div>
+
+
+                            <div class="span4 ">
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type=""><p><a href="https://wasap.my/60182036330"
+                                                                              target="_blank"><img
+                                        style="display: block; margin-left: auto; margin-right: auto;"
+                                        src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_button_600x150_03.png"
+                                        alt="" width="600" height="150"/></a></p></div>
+                            </div>
+
+
+                            <div class="span4 ">
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type=""><p><a href="mailto:order@boca.my"
+                                                                              target="_blank"><img
+                                        style="display: block; margin-left: auto; margin-right: auto;"
+                                        src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_button_600x150_04.png"
+                                        alt="" width="600" height="150"/></a></p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--div class="row-fluid">
+                    <div class="span16">
+                        <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0" data-ca-live-editor-object-type="">
+                            <p></p>
+                        </div>
+                    </div>
+                </div-->
+
+
+                <div class="row-fluid ">
+                    <div class="span16 ">
+
+                        <div class="row-fluid ">
+                            <div class="span16 ">
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type="" style="display: none;">
+                                    <a href="https://kotabuku.my/" target="_blank">
+                                        <img src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x300_01.png"
+                                             alt="" width="1200" height="300"/>
+                                    </a>
+                                </div>
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type="">
+                                    <p>
+                                        <a href="{% url 'terkini' %}" target="_blank">
+                                            <img src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/main.png"
+                                                 alt="" width="1200" height="600"/>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row-fluid ">
+                            <div class="span8 ">
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type=""><p><a
+                                        href="{% url 'book-by-category' category='akademik' %}" target="_blank"><img
+                                        src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/akademik.png"
+                                        alt="" width="1200" height="600"/></a></p></div>
+                            </div>
+
+
+                            <div class="span8 ">
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type=""><p><a
+                                        href="{% url 'book-by-publisher' publisher='swaterbit-mandiri' %}" target="_blank"><img
+                                        src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/mandiri.png"
+                                        alt="" width="1200" height="600"/></a></p></div>
+                            </div>
+                        </div>
+
+
+                        <div class="row-fluid">
+                            <div class="span8">
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type="">
+                                    <p>
+                                        <a href="{% url 'book-by-category' category='agama' %}" target="_blank">
+                                            <img src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/agama.png"
+                                                 alt="" width="1200" height="600"/>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="span8">
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type="">
+                                    <p>
+                                        <a href="{% url 'book-by-category' category='english' %}" target="_blank">
+                                            <img src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/english.png"
+                                                 alt="" width="1200" height="600"/>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row-fluid ">
+                            <div class="span8 ">
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type="">
+                                    <p>
+                                        <a href="{% url 'book-by-category' category='kanak-kanak' %}"
+                                           target="_blank">
+                                            <img src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/kanak-kanak.png"
+                                                 alt="" width="1200" height="600"/>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="span8 ">
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type="">
+                                    <p>
+                                        <a href="{% url 'book-by-category' category='rm10' %}"
+                                           target="_blank">
+                                            <img src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x600_rm10.jpg"
+                                                 alt="" width="1200" height="600"/>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% comment %}<div class="row-fluid " style="display: none;">
+        <div class="span16 ">
+            <div class="row-fluid">
+                <div class="span4">
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0" data-ca-live-editor-object-type="">
+                        <p>
+                            <a href="{% url 'terkini' %}" target="_blank">
+                                <img src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x300_02.png" alt="" width="1200" height="600"/>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0" data-ca-live-editor-object-type="">
+                        <p>
+                            <a href="{% url 'terkini' %}" target="_blank">
+                                <img src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x300_02.png" alt="" width="1200" height="600"/>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0" data-ca-live-editor-object-type="">
+                        <p>
+                            <a href="{% url 'terkini' %}" target="_blank">
+                                <img src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x300_02.png" alt="" width="1200" height="600"/>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0" data-ca-live-editor-object-type="">
+                        <p>
+                            <a href="{% url 'terkini' %}" target="_blank">
+                                <img src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x300_02.png" alt="" width="1200" height="600"/>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>{% endcomment %}
+
+            
+            <div class="row-fluid">
+                <div class="span16 ">
+                    <div class="row-fluid ">
+                        <div class="span16 ">
+                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                 data-ca-live-editor-object-type=""><p style="text-align: center;"><a
+                                    href="https://mart.boca.my/cart" target="_blank"><img
+                                    src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/tuntut+baucar.png"
+                                    alt="" width="1200" height="300"/></a></p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span16 ">
+                    <div class="row-fluid ">
+                        <div class="span16 ">
+                            <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                 data-ca-live-editor-object-type=""><p style="text-align: center;"><a
+                                    href="https://textbook.moe.gov.my/login" target="_blank"><img
+                                    src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/ndtp.png"
+                                    alt="" width="1200" height="300"/></a></p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row-fluid ">
+                <div class="span16 ">
+                    <div class="ty-mainbox-container clearfix homepage-hotdeals">
+                        <h1 class="ty-mainbox-title">
+                            PRODUK TERBARU
+                        </h1>
+
+                        <div class="ty-mainbox-body">
+                            <div id="scroll_list_produk_terbaru" class="owl-carousel ty-scroller-list">
+                                {% for book in latest_books %}
+                                    <div class="ty-scroller-list__item">
+                                        <div class="ty-scroller-list__img-block">
+                                            <a href="{% url 'book-detail' pk=book.id %}">
+                                                <img class="ty-pict lazyOwl cm-image"
+                                                     data-src="{{ book.image_set.all.0.images.url }}" alt="" title="">
+                                            </a>
+                                        </div>
+                                        <div class="ty-scroller-list__description">
+                                            <div class="ty-simple-list clearfix">
+                                                <form action="" method="post"
+                                                      name="product_form_192000scr_19200018314"
+                                                      enctype="multipart/form-data"
+                                                      class="cm-disable-empty-files  cm-ajax cm-ajax-full-render cm-ajax-status-middle ">
+                                                    <input type="hidden" name="result_ids"
+                                                           value="cart_status*,wish_list*,checkout*,account_info*"/>
+                                                    <input type="hidden" name="redirect_url" value="index.php"/>
+                                                    <input type="hidden"
+                                                           name="product_data[scr_19200018314][product_id]"
+                                                           value="18314"/>
+
+
+                                                    <a href="{% url 'book-detail' pk=book.id %}"
+                                                       class="product-title"
+                                                       title="{{ book.title }}">{{ book.title }}</a>
+
+
+                                                    <div class="ty-simple-list__price clearfix">
+                                                            <span class="cm-reload-192000scr_19200018314"
+                                                                  id="old_price_update_192000scr_19200018314">
+                                                            </span>
+                                                        <span class="cm-reload-192000scr_19200018314 ty-price-update"
+                                                              id="price_update_192000scr_19200018314">
+                                                                <input type="hidden"
+                                                                       name="appearance[show_price_values]" value="1"/>
+                                                                <input type="hidden" name="appearance[show_price]"
+                                                                       value="1"/>
+                                                                <span class="ty-price"
+                                                                      id="line_discounted_price_192000scr_19200018314"><bdi><span
+                                                                        class="ty-price-num"></span>
+                                                                    <span id="sec_discounted_price_192000scr_19200018314"
+                                                                          class="ty-price-num">{{ book.price }}</span></bdi>
+                                                                </span>
+                                                            </span>
+                                                    </div>
+
+                                                    <div class="ty-simple-list__buttons">
+                                                        <div>
+                                                            {% if book.in_stock %}
+                                                                <button class="ty-btn__primary ty-btn__big ty-btn__add-to-cart cm-form-dialog-closer ty-btn"
+                                                                        onclick="location.href='{% url 'add-to-cart' book_id=book.id %}?next={{ request.path|urlencode }}';">
+                                                                    ADD TO CART
+                                                                </button>
+                                                            {% else %}
+                                                                <button class="ty-btn__secondary ty-btn__big ty-btn__add-to-cart cm-form-dialog-closer ty-btn"
+                                                                        disabled>
+                                                                    SOLD OUT
+                                                                </button>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor book in latest_books %}
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                         data-ca-live-editor-object-type="">
+                        <div style="text-align: right;">
+                                <span style="font-size: 12pt; color: #800080;">
+                                    <strong>Lihat semua produk terbaru,</strong>
+                                    <strong><a
+                                            style="color: #800080;" href="{% url 'terkini' %}"
+                                            target=" _blank">KLIK DI SINI</a>
+                                    </strong>
+                                </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row-fluid ">
+                <div class="span16 ">
+                    <div class="ty-mainbox-container clearfix homepage-hotdeals">
+                        <h1 class="ty-mainbox-title">
+                            BESTSELLERS
+                        </h1>
+                        <div class="ty-mainbox-body">
+                            <div id="scroll_list_bestseller" class="owl-carousel ty-scroller-list">
+                                {% for book in bestsellers %}
+                                    <div class="ty-scroller-list__item">
+                                        <div class="ty-scroller-list__img-block">
+                                            <a href="{% url 'book-detail' pk=book.id %}">
+                                                <img class="ty-pict   lazyOwl  cm-image"
+                                                     data-src="{{ book.image_set.all.0.images.url }}" alt="" title=""/>
+                                            </a>
+                                        </div>
+                                        <div class="ty-scroller-list__description">
+                                            <div class="ty-simple-list clearfix">
+                                                <form action="{% url 'index' %}" method="post"
+                                                      name="product_form_192000scr_19200018314"
+                                                      enctype="multipart/form-data"
+                                                      class="cm-disable-empty-files  cm-ajax cm-ajax-full-render cm-ajax-status-middle ">
+                                                    <input type="hidden" name="result_ids"
+                                                           value="cart_status*,wish_list*,checkout*,account_info*"/>
+                                                    <input type="hidden" name="redirect_url" value="index.php"/>
+                                                    <input type="hidden"
+                                                           name="product_data[scr_19200018314][product_id]"
+                                                           value="18314"/>
+
+
+                                                    <a href="{% url 'book-detail' pk=book.id %}"
+                                                       class="product-title"
+                                                       title="{{ book.title }}">{{ book.title }}</a>
+
+
+                                                    <div class="ty-simple-list__price clearfix">
+                                                                <span class="cm-reload-192000scr_19200018314"
+                                                                      id="old_price_update_192000scr_19200018314">
+                                                                </span>
+                                                        <span class="cm-reload-192000scr_19200018314 ty-price-update"
+                                                              id="price_update_192000scr_19200018314">
+                                                                    <input type="hidden"
+                                                                           name="appearance[show_price_values]"
+                                                                           value="1"/>
+                                                                    <input type="hidden" name="appearance[show_price]"
+                                                                           value="1"/>
+
+
+                                                                    <span class="ty-price"
+                                                                          id="line_discounted_price_192000scr_19200018314">
+                                                                        <bdi>
+                                                                        <span class="ty-price-num">
+                                                                        </span>
+                                                                            <span
+                                                                                    id="sec_discounted_price_192000scr_19200018314"
+                                                                                    class="ty-price-num">{{ book.price }}
+                                                                            </span>
+                                                                        </bdi>
+                                                                    </span>
+                                                                </span>
+                                                    </div>
+                                                    <div class="ty-simple-list__buttons">
+                                                        <div>
+                                                            {% if book.in_stock %}
+                                                                <button class="ty-btn__primary ty-btn__big ty-btn__add-to-cart cm-form-dialog-closer ty-btn"
+                                                                        onclick="location.href='{% url 'add-to-cart' book_id=book.id %}?next={{ request.path|urlencode }}';">
+                                                                    ADD TO CART
+                                                                </button>
+                                                            {% else %}
+                                                                <button class="ty-btn__secondary ty-btn__big ty-btn__add-to-cart cm-form-dialog-closer ty-btn"
+                                                                        disabled>
+                                                                    SOLD OUT
+                                                                </button>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor book in bestsellers %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                         data-ca-live-editor-object-type="">
+                        <div style="text-align: right;">
+                                <span style="font-size: 12pt; color: #800080;">
+                                    <strong>Lihat semua buku bestseller,</strong>
+                                    <strong>
+                                        <a style="color: #800080;" href="{% url 'bestseller' %}" target=" _blank">KLIK DI SINI</a>
+                                    </strong>
+                                </span>
+                        </div>
+                    </div>
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                         data-ca-live-editor-object-type=""><p></p></div>
+                </div>
+            </div>
+
+
+            <div class="row-fluid ">
+                <div class="span16 ">
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                         data-ca-live-editor-object-type=""><p></p></div>
+                </div>
+            </div>
+
+
+            <div class="row-fluid ">
+                <div class="span16 ">
+                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                         data-ca-live-editor-object-type=""><br></div>
+                </div>
+            </div>
+
+
+            <div class="row-fluid ">
+                <div class="span16 ">
+                    <div class="row-fluid ">
+                        <div class="span10 ">
+                            <div class="ty-mainbox-container clearfix">
+
+                                <h1 class="ty-mainbox-title">
+
+                                    APA KATA PEMBELI
+
+
+                                </h1>
+
+
+                                <div class="ty-mainbox-body">
+
+
+                                    <div class="ty-mb-l">
+                                        <div class="ty-scroller-discussion-list">
+                                            <div id="scroll_list_komen" class="owl-carousel ty-scroller-list">
+
+                                                <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                    <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                        <div class="ty-discussion-post " id="post_1177">
+
+                                                            <div class="ty-discussion-post__message">Barangan
+                                                                telah selamat diterima dalam keadaan baik.
+                                                                Ingatkan besar, rupanya comel je saiznya 😄.
+                                                                Agak kecewa sikit sebab tak dapat free gift
+                                                                macam yang lain 😂 tapi takpelah, takde rezeki
+                                                                barang kali.
+                                                            </div>
+
+                                                            <span class="ty-caret-bottom"><span
+                                                                    class="ty-caret-outer"></span><span
+                                                                    class="ty-caret-inner"></span></span>
+
+                                                        </div>
+                                                    </a>
+
+                                                    <span class="ty-discussion-post__author">musicmind94</span>
+                                                    <span class="ty-discussion-post__date">14/06/2021</span>
+
+
+                                                </div>
+                                                <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                    <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                        <div class="ty-discussion-post  ty-discussion-post_even"
+                                                             id="post_5198">
+
+                                                            <div class="ty-discussion-post__message">
+                                                                Terima kasih..buku yang dapat dalam keadaan baik
+                                                                dan elok
+                                                            </div>
+
+                                                            <span class="ty-caret-bottom"><span
+                                                                    class="ty-caret-outer"></span><span
+                                                                    class="ty-caret-inner"></span></span>
+
+                                                        </div>
+                                                    </a>
+
+                                                    <span class="ty-discussion-post__author">roslizailias</span>
+                                                    <span class="ty-discussion-post__date">12/06/2021</span>
+                                                    <div class="clearfix ty-discussion-post__rating">
+                        <span class="ty-nowrap ty-stars">
+
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+
+
+
+    </span>
+
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                    <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                        <div class="ty-discussion-post " id="post_2518">
+
+                                                            <div class="ty-discussion-post__message">
+                                                                Utk peminat dan pengusaha,sgt dsarankan utk
+                                                                memiliki buku ini.byk informasi yg berguna utk
+                                                                drujuk
+                                                            </div>
+
+                                                            <span class="ty-caret-bottom"><span
+                                                                    class="ty-caret-outer"></span><span
+                                                                    class="ty-caret-inner"></span></span>
+
+                                                        </div>
+                                                    </a>
+
+                                                    <span class="ty-discussion-post__author">wanzakaria111</span>
+                                                    <span class="ty-discussion-post__date">20/05/2021</span>
+                                                    <div class="clearfix ty-discussion-post__rating">
+                        <span class="ty-nowrap ty-stars">
+
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+
+
+
+    </span>
+
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                    <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                        <div class="ty-discussion-post  ty-discussion-post_even"
+                                                             id="post_1307">
+
+                                                            <div class="ty-discussion-post__message">Selamat
+                                                                sampai. Packaging extreamly nice.
+
+                                                            </div>
+
+                                                            <span class="ty-caret-bottom"><span
+                                                                    class="ty-caret-outer"></span><span
+                                                                    class="ty-caret-inner"></span></span>
+
+                                                        </div>
+                                                    </a>
+
+                                                    <span class="ty-discussion-post__author">jamalharraz</span>
+                                                    <span class="ty-discussion-post__date">26/04/2021</span>
+
+
+                                                </div>
+                                                <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                    <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                        <div class="ty-discussion-post " id="post_2241">
+
+                                                            <div class="ty-discussion-post__message">
+                                                                Dah dapat. Tq seller!
+
+                                                            </div>
+
+                                                            <span class="ty-caret-bottom"><span
+                                                                    class="ty-caret-outer"></span><span
+                                                                    class="ty-caret-inner"></span></span>
+
+                                                        </div>
+                                                    </a>
+
+                                                    <span class="ty-discussion-post__author">alooon</span>
+                                                    <span class="ty-discussion-post__date">21/04/2021</span>
+                                                    <div class="clearfix ty-discussion-post__rating">
+                        <span class="ty-nowrap ty-stars">
+
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+
+
+
+    </span>
+
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                    <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                        <div class="ty-discussion-post  ty-discussion-post_even"
+                                                             id="post_1120">
+
+                                                            <div class="ty-discussion-post__message">65 keping
+                                                                Pelekat kereta BUKU (DIBACA) sudah sampai.
+                                                                Terima kasih seller untuk free gift bag dan
+                                                                penanda buku
+                                                            </div>
+
+                                                            <span class="ty-caret-bottom"><span
+                                                                    class="ty-caret-outer"></span><span
+                                                                    class="ty-caret-inner"></span></span>
+
+                                                        </div>
+                                                    </a>
+
+                                                    <span class="ty-discussion-post__author">n*****_</span>
+                                                    <span class="ty-discussion-post__date">21/04/2021</span>
+
+
+                                                </div>
+                                                <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                    <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                        <div class="ty-discussion-post " id="post_2146">
+
+                                                            <div class="ty-discussion-post__message">Murah dan
+                                                                canggih e-book. Nanti beli lagi. Buku-buku
+                                                                semuanya menarik
+                                                            </div>
+
+                                                            <span class="ty-caret-bottom"><span
+                                                                    class="ty-caret-outer"></span><span
+                                                                    class="ty-caret-inner"></span></span>
+
+                                                        </div>
+                                                    </a>
+
+                                                    <span class="ty-discussion-post__author">p*****g </span>
+                                                    <span class="ty-discussion-post__date">17/04/2021</span>
+                                                    <div class="clearfix ty-discussion-post__rating">
+                        <span class="ty-nowrap ty-stars">
+
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+
+
+            <i class="ty-stars__icon ty-icon-star-empty"></i>
+
+    </span>
+
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                    <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                        <div class="ty-discussion-post  ty-discussion-post_even"
+                                                             id="post_4770">
+
+                                                            <div class="ty-discussion-post__message">
+                                                                Puas hati⭐⭐⭐⭐⭐
+                                                            </div>
+
+                                                            <span class="ty-caret-bottom"><span
+                                                                    class="ty-caret-outer"></span><span
+                                                                    class="ty-caret-inner"></span></span>
+
+                                                        </div>
+                                                    </a>
+
+                                                    <span class="ty-discussion-post__author">j*****r</span>
+                                                    <span class="ty-discussion-post__date">17/04/2021</span>
+                                                    <div class="clearfix ty-discussion-post__rating">
+                        <span class="ty-nowrap ty-stars">
+
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+
+
+            <i class="ty-stars__icon ty-icon-star-empty"></i>
+
+    </span>
+
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                    <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                        <div class="ty-discussion-post " id="post_489">
+
+                                                            <div class="ty-discussion-post__message">
+                                                                Bungkusan bagus cuma lagi baik jika diletakkan
+                                                                sticker seperti di dalam gmbr trsebut
+                                                            </div>
+
+                                                            <span class="ty-caret-bottom"><span
+                                                                    class="ty-caret-outer"></span><span
+                                                                    class="ty-caret-inner"></span></span>
+
+                                                        </div>
+                                                    </a>
+
+                                                    <span class="ty-discussion-post__author">afzal94</span>
+                                                    <span class="ty-discussion-post__date">15/04/2021</span>
+
+
+                                                </div>
+                                                <div class="ty-discussion-post__content ty-scroller-discussion-list__item">
+
+                                                    <a href="https://shopee.com.my/buyer/161918302/rating">
+                                                        <div class="ty-discussion-post  ty-discussion-post_even"
+                                                             id="post_2957">
+
+                                                            <div class="ty-discussion-post__message">
+                                                                Buku diterima dalam keadaan baik, & cepat
+                                                                penghantarannya. Sangat informatif.
+                                                            </div>
+
+                                                            <span class="ty-caret-bottom"><span
+                                                                    class="ty-caret-outer"></span><span
+                                                                    class="ty-caret-inner"></span></span>
+
+                                                        </div>
+                                                    </a>
+
+                                                    <span class="ty-discussion-post__author">sa2.gwa</span>
+                                                    <span class="ty-discussion-post__date">12/04/2021</span>
+                                                    <div class="clearfix ty-discussion-post__rating">
+                        <span class="ty-nowrap ty-stars">
+
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+            <i class="ty-stars__icon ty-icon-star"></i>
+
+
+
+    </span>
+
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Inline script moved to the bottom of the page -->
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="span6 ">
+                            <div class="ty-mainbox-container clearfix">
+
+                                <h1 class="ty-mainbox-title">
+
+                                    MARKETPLACE UTAMA ANDA
+
+
+                                </h1>
+
+
+                                <div class="ty-mainbox-body">
+                                    <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                         data-ca-live-editor-object-type="">
+                                        <div><a href="https://shopee.com.my/buyer/161918302/rating"
+                                                target="_blank"><img
+                                                src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/STAR+REVIEW-03.png"
+                                                alt="" width="780" height="579"/></a></div>
+                                        <div></div>
+                                        <div style="text-align: center;"><span
+                                                style="font-size: 12pt; color: #800080;"><strong>Lihat semua review, <a
+                                                href="https://shopee.com.my/buyer/161918302/rating"
+                                                target="_blank">KLIK DI SINI</a></strong></span></div>
+                                        <div style="text-align: center;"></div>
+                                        <div style="text-align: center;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="span12 ">
+                        <div class="ty-mainbox-container clearfix" style="display: none;">
+
+                            <h1 class="ty-mainbox-title">
+
+                                COURIER PARTNER
+
+
+                            </h1>
+
+
+                            <div class="ty-mainbox-body">
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type=""><p><img
+                                        src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x300_02.png"
+                                        alt="" width="1200" height="200"/></p></div>
+                            </div>
+                        </div>
+                        <div class="ty-mainbox-container clearfix" style="display: none;">
+
+                            <h1 class="ty-mainbox-title">
+
+                                PAYMENT METHODS
+
+
+                            </h1>
+
+
+                            <div class="ty-mainbox-body">
+                                <div class="ty-wysiwyg-content" data-ca-live-editor-object-id="0"
+                                     data-ca-live-editor-object-type=""><p><img
+                                        src="https://mart-assets.s3.ap-southeast-1.amazonaws.com/BOCA_web_banner_1200x300_02.png"
+                                        alt="" width="1200" height="500"/></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock main_content %}

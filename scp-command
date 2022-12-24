@@ -1,0 +1,13 @@
+scp ubuntu@13.229.106.232:/home/ubuntu/bukuuntuksemua/bus.bak /Users/juwaini/Desktop/ <-- copy db
+
+scp ubuntu@13.229.106.232:/home/ubuntu/bukuuntuksemua/media.zip /Users/juwaini/Desktop/ <-- copy images
+
+zip -r media.zip media <-- to zip media folder
+
+# backup postgresql
+su - postgres
+pg_dump bus > bus.bak
+
+# in local
+dropdb dbname
+createdb dbname

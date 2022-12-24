@@ -1,0 +1,193 @@
+{% extends 'base/base.html' %}
+{% load admin_urls %}
+
+{% block title %}
+    BOCA - REPORT
+{% endblock title %}
+
+{% block main_content %}
+    <script>
+        function build_url(root_url, datefrom, dateto, filter) {
+            let url = root_url + '?from=' + datefrom + '&to=' + dateto;
+            if (filter) {
+                url += '&filter=' + filter;
+            }
+            //console.log('url: ' + url);
+            return url;
+        }
+
+        function on_filter_click() {
+            let datefrom = $('#datefrom').val();
+            let dateto = $('#dateto').val();
+            let filter = $('#filter').val();
+
+            if (!datefrom) {
+                alert("Please select 'From'.");
+                return;
+            }
+            if (!dateto) {
+                alert("Please select 'To'.");
+                return;
+            }
+            if (!filter) {
+                console.log('No filter...')
+            }
+            let url = build_url('/report', datefrom, dateto, filter);
+            window.location.replace(url);
+        }
+
+        function generate_csv() {
+            let datefrom = $('#datefrom').val();
+            let dateto = $('#dateto').val();
+            let filter = $('#filter').val();
+
+            if (!datefrom) {
+                alert("Please select 'From'.");
+                return;
+            }
+            if (!dateto) {
+                alert("Please select 'To'.");
+                return;
+            }
+            if (!filter) {
+                console.log('No filter...')
+            }
+            let url = build_url('/generate-csv-report', datefrom, dateto, filter);
+            window.location.replace(url);
+        }
+    </script>
+    <div class="tygh-content clearfix">
+        <div class="container-fluid  content-grid">
+            <div class="row-fluid ">
+                <div class="span16 main-content-grid">
+                    <div class="ty-mainbox-container clearfix">
+                        <h1 class="ty-mainbox-title">
+                            {% if 'from' in request.GET and 'to' in request.GET %}
+                                Report From {{ request.GET.from }} To {{ request.GET.to }}
+                            {% else %}
+                                Full Report
+                            {% endif %}
+                        </h1>
+
+                        <label for="datefrom">From:</label>
+                        <input type="date" id="datefrom" name="datefrom" {% if request.GET.from %}value="{{ request.GET.from }}"{% endif %}>
+                        <label for="dateto">To:</label>
+                        <input type="date" id="dateto" name="dateto" {% if request.GET.to %}value="{{ request.GET.to }}"{% endif %}>
+                        <select name="filter" id="filter">
+                            <option value="" {% if not request.GET.filter %}selected{% endif %}>Semua</option>
+                            <option value="1" {% if request.GET.filter == '1' %}selected{% endif %}>Berjaya</option>
+                            <option value="2" {% if request.GET.filter == '2' %}selected{% endif %}>Dalam Proses</option>
+                            <option value="3" {% if request.GET.filter == '3' %}selected{% endif %}>Gagal</option>
+                            <option value="4" {% if request.GET.filter == '4' %}selected{% endif %}>Sudah Dipos</option>
+                        </select>
+                        <button type="button" onclick="on_filter_click()">FILTER</button>
+                        <br><br>
+                        <button type="button" onclick="generate_csv()">Generate CSV</button>
+
+                        <div class="ty-mainbox-body">
+                            <div class="ty-pagination-container cm-pagination-container" id="pagination_contents">
+                                <table class="ty-table ty-orders-search">
+                                    <thead>
+                                    <tr>
+                                        <th><a class="cm-ajax" data-ca-target-id="pagination_contents">ID</a>
+                                        </th>
+                                        <th><a class="cm-ajax" data-ca-target-id="pagination_contents">Username & Name</a>
+                                        </th>
+                                        <th><a class="cm-ajax" data-ca-target-id="pagination_contents">Tajuk &
+                                            Kuantiti</a>
+                                        </th>
+                                        <th><a class="cm-ajax" data-ca-target-id="pagination_contents">Rujukan</a>
+                                        </th>
+                                        <th><a class="cm-ajax" data-ca-target-id="pagination_contents">Tarikh</a>
+                                        </th>
+                                        <th><a class="cm-ajax"
+                                               data-ca-target-id="pagination_contents"><b>Kod Diskaun</b></a>
+                                        </th>
+                                        <th><a class="cm-ajax"
+                                               data-ca-target-id="pagination_contents"><b>Jumlah Asal</b></a>
+                                        </th>
+                                        <th><a class="cm-ajax"
+                                               data-ca-target-id="pagination_contents"><b>Jumlah Diskaun</b></a>
+                                        </th>
+                                        <th><a class="cm-ajax"
+                                               data-ca-target-id="pagination_contents"><b>Postage</b></a>
+                                        </th>
+                                        <th><a class="cm-ajax"
+                                               data-ca-target-id="pagination_contents"><b>Total Payment</b></a>
+                                        </th>
+                                        <th><a class="cm-ajax"
+                                               data-ca-target-id="pagination_contents"><b>Status</b></a>
+                                        </th>
+                                    </tr>
+                                    </thead>
+
+                                    {% for order in orders %}
+                                        <tr>
+                                            <td>
+                                                <a href="{% url 'admin:orders_order_change' order.id %}">{{ order.id }}</a>
+                                            </td>
+                                            <td>{{ order.user.username }}<br>{{ order.cart.delivery.name }}
+                                            </td>
+                                            <td>{% for item in order.cart.cartitem_set.all %}
+                                                {{ item.quantity }} x {{ item.item }}<br>
+                                            {% endfor %}
+                                            </td>
+                                            <td><a href="{{ order.get_billcode_url }}">{{ order.get_billcode_url }}</a>
+                                            </td>
+                                            <td>
+                                                {{ order.transaction_time }}
+                                            </td>
+                                            <td>{{ order.cart.discount.code }}</td>
+                                            <td>{{ order.cart.get_total_book_price }}</td>
+                                            <td>{{ order.cart.get_discount_amount }}</td>
+                                            <td>
+                                                {{ order.cart.get_delivery_cost }}
+                                            </td>
+                                            <td>{{ order.cart.get_total_price_for_checkout }}</td>
+                                            <td>
+                                                {{ order.get_status_display }}
+                                            </td>
+                                        </tr>
+                                    {% empty %}
+                                        <tr class="ty-table__no-items">
+                                            <td colspan="8">
+                                                <p class="ty-no-items">No orders found</p>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+
+                                {% comment %}<div class="pagination">
+                                    <span class="step-links">
+                                        {% if page_obj.has_previous %}
+                                            <a href="
+
+                                                    {{ request.get_full_path }}{% if '?' in request.get_full_path %}&{% else %}?{% endif %}page=1">&laquo; first</a>
+                                            <a href="
+
+                                                    {{ request.get_full_path }}{% if '?' in request.get_full_path %}&{% else %}?{% endif %}page={{ page_obj.previous_page_number }}">previous</a>
+                                        {% endif %}
+                                        <span class="current">
+                                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                                        </span>
+                                        {% if page_obj.has_next %}
+                                            <a href="
+
+                                                    {{ request.get_full_path }}{% if '?' in request.get_full_path %}&{% else %}?{% endif %}page={{ page_obj.next_page_number }}">next</a>
+                                            <a href="
+
+                                                    {{ request.get_full_path }}{% if '?' in request.get_full_path %}&{% else %}?{% endif %}page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                                        {% endif %}
+                                    </span>
+                                </div>{% endcomment %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock main_content %}

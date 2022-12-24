@@ -1,0 +1,207 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    BOCA - {{ request.user.username }}'s Orders
+{% endblock title %}
+
+{% block main_content %}
+    <div class="tygh-content clearfix">
+        <div class="container-fluid  content-grid">
+
+
+            <div class="row-fluid ">
+                <div class="span16 main-content-grid">
+                    <div class="ty-mainbox-container clearfix">
+
+                        <h1 class="ty-mainbox-title">
+                            Orders
+                        </h1>
+
+
+                        <div class="ty-mainbox-body">
+                            {% comment %}
+                            <div class="ty-section ty-search-form" id="ds_1667555941">
+                                <div class="ty-section__title open cm-combination cm-save-state cm-ss-reverse"
+                                     id="sw_s_2b533e52542f65091a6ba0882c89f3f1">
+                                    <span><font size="3" color="red"><b>KLIK DI SINI UNTUK HASIL CARIAN YANG LEBIH MENDALAM (Search Option)</b></font></span>
+                                    <span class="ty-section__switch ty-section_switch_on">Open<i
+                                            class="ty-section__arrow ty-icon-down-open"></i></span>
+                                    <span class="ty-section__switch ty-section_switch_off">Hide<i
+                                            class="ty-section__arrow ty-icon-up-open"></i></span>
+                                </div>
+                                <div id="s_2b533e52542f65091a6ba0882c89f3f1" class="ty-section__body ">
+                                    <form action="https://bookcafe.com.my/" name="orders_search_form" method="get">
+
+                                        <div class="ty-control-group">
+                                            <label class="ty-control-group__title"><b>TOTAL</b>&nbsp;(RM)</label>
+                                            <input type="text" name="total_sec_from" value="" size="3"
+                                                   class="ty-input-text-short"/>&nbsp;&#8211;&nbsp;<input type="text"
+                                                                                                          name="total_sec_to"
+                                                                                                          value=""
+                                                                                                          size="3"
+                                                                                                          class="ty-input-text-short"/>
+                                        </div>
+
+                                        <div class="ty-control-group">
+                                            <label class="ty-control-group__title">Order status</label>
+
+                                            <div class="ty-status-info"><label><input type="checkbox" name="status[]"
+                                                                                      value="B" columns="4"/>BACKORDERED</label>
+                                                <label><input type="checkbox" name="status[]" value="C" columns="4"/>SHIPPED</label>
+                                                <label><input type="checkbox" name="status[]" value="D" columns="4"/>DECLINED</label>
+                                                <label><input type="checkbox" name="status[]" value="I" columns="4"/>CANCELLED</label>
+                                                <label><input type="checkbox" name="status[]" value="O" columns="4"/>UNPAID</label>
+                                                <label><input type="checkbox" name="status[]" value="P" columns="4"/>PAYMENT
+                                                    VERIFIED</label>
+                                                <label><input type="checkbox" name="status[]" value="W" columns="4"/>PROCESSED</label>
+                                                <label><input type="checkbox" name="status[]" value="A" columns="4"/>REFUND</label>
+                                                <label><input type="checkbox" name="status[]" value="E" columns="4"/>HOLD</label>
+                                                <label><input type="checkbox" name="status[]" value="F" columns="4"/>ERROR</label>
+                                                <label><input type="checkbox" name="status[]" value="G" columns="4"/>PRE-ORDER</label>
+                                                <label><input type="checkbox" name="status[]" value="H" columns="4"/>PENDING</label>
+                                                <label><input type="checkbox" name="status[]" value="J" columns="4"/>PROBLEM
+                                                    SOLVED</label>
+                                                <label><input type="checkbox" name="status[]" value="K" columns="4"/>TIADA
+                                                    AWB</label>
+                                                <label><input type="checkbox" name="status[]" value="L" columns="4"/>ALAMAT
+                                                    1</label>
+                                                <label><input type="checkbox" name="status[]" value="M" columns="4"/>ALAMAT
+                                                    2</label>
+                                                <label><input type="checkbox" name="status[]" value="Q" columns="4"/>PRE-ORDER
+                                                    2</label></div>
+                                        </div>
+
+                                        <div class="ty-period">
+                                            <div class="ty-control-group ty-period__wrapper">
+                                                <label class="ty-control-group__title">Period</label>
+                                                <select class="ty-period__select" name="period" id="period_selects">
+                                                    <option value="A" selected="selected">All</option>
+                                                    <optgroup label="=============">
+                                                        <option value="D">This day</option>
+                                                        <option value="W">This week</option>
+                                                        <option value="M">This month</option>
+                                                        <option value="Y">This year</option>
+                                                    </optgroup>
+                                                    <optgroup label="=============">
+                                                        <option value="LD">Yesterday</option>
+                                                        <option value="LW">Previous week</option>
+                                                        <option value="LM">Previous month</option>
+                                                        <option value="LY">Previous year</option>
+                                                    </optgroup>
+                                                    <optgroup label="=============">
+                                                        <option value="HH">Last 24 hours</option>
+                                                        <option value="HW">Last 7 days</option>
+                                                        <option value="HM">Last 30 days</option>
+                                                    </optgroup>
+                                                    <optgroup label="=============">
+                                                        <option value="C">Custom</option>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+
+                                            <div class="ty-control-group ty-period__select-date calendar">
+                                                <label class="ty-control-group__title">Select dates</label>
+
+                                                <div class="ty-calendar__block">
+                                                    <input type="text" id="f_date" name="time_from"
+                                                           class="ty-calendar__input cm-calendar" value=""
+                                                           onchange=&quot;Tygh.$(&#039;#period_selects&#039;).val(&#039;C&#039;);&quot;
+                                                           size="10"/>
+                                                    <a class="cm-external-focus ty-calendar__link"
+                                                       data-ca-external-focus-id="f_date">
+                                                        <i class="ty-icon-calendar ty-calendar__button"
+                                                           title="Calendar"></i>
+                                                    </a>
+                                                </div>
+
+                                                <!-- Inline script moved to the bottom of the page -->
+                                                <span class="ty-period__dash">&#8211;</span>
+
+                                                <div class="ty-calendar__block">
+                                                    <input type="text" id="t_date" name="time_to"
+                                                           class="ty-calendar__input cm-calendar" value=""
+                                                           onchange=&quot;Tygh.$(&#039;#period_selects&#039;).val(&#039;C&#039;);&quot;
+                                                           size="10"/>
+                                                    <a class="cm-external-focus ty-calendar__link"
+                                                       data-ca-external-focus-id="t_date">
+                                                        <i class="ty-icon-calendar ty-calendar__button"
+                                                           title="Calendar"></i>
+                                                    </a>
+                                                </div>
+
+                                                <!-- Inline script moved to the bottom of the page -->
+                                            </div>
+
+                                            <!-- Inline script moved to the bottom of the page -->
+                                            <!-- Inline script moved to the bottom of the page -->
+                                        </div>
+
+                                        <div class="ty-control-group">
+                                            <label class="ty-control-group__title">Order ID</label>
+                                            <input type="text" name="order_id" value="" size="10"
+                                                   class="ty-search-form__input"/>
+                                        </div>
+
+                                        <div class="buttons-container ty-search-form__buttons-container">
+
+
+                                            <button class="ty-btn__secondary ty-btn" type="submit"
+                                                    name="dispatch[orders.search]">Search
+                                            </button>
+
+
+                                        </div>
+                                        <input type="hidden" name="security_hash" class="cm-no-hide-input"
+                                               value="f71a0614d96e14963f5b22e9bbe1dddf"/></form>
+                                </div>
+                            </div>
+                            {% endcomment %}
+
+                            <div class="ty-pagination-container cm-pagination-container" id="pagination_contents">
+                                <table class="ty-table ty-orders-search">
+                                    <thead>
+                                    <tr>
+                                        <th><a class="cm-ajax" data-ca-target-id="pagination_contents">Reference
+                                            Number</a></th>
+                                        <th><a class="cm-ajax" data-ca-target-id="pagination_contents">Status</a></th>
+                                        <th><a class="cm-ajax" data-ca-target-id="pagination_contents">Pembelian</a>
+                                        </th>
+                                        <th><a class="cm-ajax" data-ca-target-id="pagination_contents">Date</a></th>
+                                        <th><a class="cm-ajax" data-ca-target-id="pagination_contents"><b>TOTAL</b></a>
+                                        </th>
+                                    </tr>
+                                    </thead>
+
+                                    {% for order in object_list %}
+                                        <tr>
+                                            <td><a href="{{ order.get_billcode_url }}"
+                                                   target="_blank">{{ order.reference_number }}</a></td>
+                                            <td>{{ order.get_status_display }}
+                                                {% if order.status == 4 %}
+                                                    <br>
+                                                    Tracking No: {{ order.tracking.number }}
+                                                {% endif %}</td>
+                                            <td>
+                                                {% for item in order.cart.cartitem_set.all %}
+                                                    <a href="{% url 'book-detail' pk=item.id %}">{{ item.quantity }}
+                                                        x {{ item.item.title }}</a><br>
+                                                {% endfor %}
+                                            </td>
+                                            <td>{{ order.transaction_time }}</td>
+                                            <td>RM{{ order.display_amount | floatformat:2 }}</td>
+                                        </tr>
+                                    {% empty %}
+                                        <tr class="ty-table__no-items">
+                                            <td colspan="7"><p class="ty-no-items">No orders found</p></td>
+                                        </tr>
+                                    {% endfor %}
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main_content %}
